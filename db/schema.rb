@@ -11,21 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131115145725) do
+ActiveRecord::Schema.define(:version => 20131116234752) do
 
-  create_table "artists", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+  create_table "users", :force => true do |t|
+    t.string   "name"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
-    t.integer  "phone_number"
-    t.string   "street_address"
-    t.string   "city"
-    t.string   "state"
-    t.integer  "zip"
-    t.string   "website_url"
-    t.string   "type_of_artist"
-    t.text     "artist_statement"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -38,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20131115145725) do
     t.datetime "updated_at",                             :null => false
   end
 
-  add_index "artists", ["email"], :name => "index_artists_on_email", :unique => true
-  add_index "artists", ["reset_password_token"], :name => "index_artists_on_reset_password_token", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
