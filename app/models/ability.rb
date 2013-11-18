@@ -6,9 +6,9 @@ class Ability
     #
     user ||= User.new # guest user (not logged in)
     
-    if user.role? :member
-        can :read, :all
-    end
+    # if user.role? :member
+    #     can :read, :all
+    # end
 
     #Future User role, for patients hoping to team up with artist 
     # if user.role? :patient
@@ -16,14 +16,14 @@ class Ability
     #     can :manage, Patient_Application :user_id => user.id
     # end
 
-    if user.role? :artist #currently, Artist model manages patient aspect of ArtCares
-        can :read, :all
-        can :manage, Artist :user_id => user.id
-    end
+    # if user.role? :artist #currently, Artist model manages patient aspect of ArtCares
+    #     can :read, :all
+    #     can :manage, Artist :user_id => user.id
+    # end
 
-    if user.role? :admin
-        can :manage, :all
-    end
+    # if user.role? :admin
+    #     can :manage, :all
+    # end
     #
 
     #   if user.admin?

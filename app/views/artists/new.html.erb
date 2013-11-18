@@ -1,0 +1,19 @@
+<h1>Create your artist account here</h1>
+
+<p>yada yada yada</p>
+
+<%= form_for @artist do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.submit "Save" %>
+  <% end %>
+
+
+
