@@ -6,6 +6,8 @@ class Ability
     #
     user ||= User.new # guest user (not logged in)
     
+
+    can :manage, :all
     # if user.role? :member
     #     can :read, :all
     # end
