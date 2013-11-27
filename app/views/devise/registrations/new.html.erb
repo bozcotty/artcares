@@ -16,10 +16,10 @@
   <br />
   <div>Are you an artist wanting to list your art on ArtCares?</div>
 
-  <div><%= radio_button_tag(:artist_yn, "Yes") %>
-<%= label_tag(:artist_yn, "Yes") %>
-<%= radio_button_tag(:artist_yn, "No") %>
-<%= label_tag(:artist_yn, "No") %>
+  <div><%= f.radio_button(:artist_yn, true) %>
+<%= f.label(:artist_yn, "Yes") %>
+<%= f.radio_button(:artist_yn, false) %>
+<%= f.label(:artist_yn, "No") %>
 <!-- If yes selected, show rest of form fields w/jquery -->
   <p>Fill out the rest of the form below.</p>
   <br />
