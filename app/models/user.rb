@@ -9,13 +9,19 @@ class User < ActiveRecord::Base
                   :type_of_artist, :artist_statement, :email, :password, :password_confirmation, :remember_me,
                   :provider, :uid, :artist_yn
 
-# if an artist (radio button- yes), then:
-  validates :first_name, presence: true, if artist_yn = true
-  validates :last_name, presence: true
-  validates :art_website,'url is valid', presence: true
-  validates :type_of_artist, presence: true, length: {maximum: 40} 
-  # validates :artist_statement, length: { maximum: 500 }, presence: true
-  ## validates :artist_yn, ---- one or other button has been selected
+  validates :artist_yn, inclusion: [true, false]
+  # if an artist:
+  validates :first_name, presence: true, if: :is_an_artist?
+  validates :last_name, presence: true, if: :is_an_artist?
+
+  # validates :art_website,'url is valid', presence: true, if: :is_an_artist
+
+  validates :type_of_artist, presence: true, length: {maximum: 40}, if: :is_an_artist? 
+  validates :artist_statement, length: { maximum: 500 }, presence: true, if: :is_an_artist?
+  
+  def is_an_artist?
+    :artist_yn == true
+  end
   
 
 end
