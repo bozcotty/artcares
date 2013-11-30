@@ -12,6 +12,9 @@ class Ability
     #     can :read, :all
     # end
 
+    if user.artist_yn
+        can :manage, Artwork, :user_id => user.id
+    end
     #Future User role, for patients hoping to team up with artist 
     # if user.role? :patient
     #     can :read, :all

@@ -18,9 +18,12 @@ class User < ActiveRecord::Base
 
   validates :type_of_artist, presence: true, length: {maximum: 40}, if: :is_an_artist? 
   validates :artist_statement, length: { maximum: 500 }, presence: true, if: :is_an_artist?
+
+  has_many :artworks
+  
   
   def is_an_artist?
-    :artist_yn == true
+    self.artist_yn == true
   end
   
 
