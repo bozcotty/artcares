@@ -7,12 +7,12 @@ class Ability
     user ||= User.new # guest user (not logged in)
     
 
-    can :manage, :all
+    # can :manage, :all
     # if user.role? :member
     #     can :read, :all
     # end
 
-    if user.artist_yn
+    if user.is_an_artist
         can :manage, Artwork, :user_id => user.id
     end
     #Future User role, for patients hoping to team up with artist 

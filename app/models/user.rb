@@ -11,18 +11,19 @@ class User < ActiveRecord::Base
 
   validates :artist_yn, inclusion: [true, false]
   # if an artist:
-  validates :first_name, presence: true, if: :is_an_artist?
-  validates :last_name, presence: true, if: :is_an_artist?
+  validates :first_name, presence: true, if: :is_an_artist
+  validates :last_name, presence: true, if: :is_an_artist
 
   # validates :art_website,'url is valid', presence: true, if: :is_an_artist
 
-  validates :type_of_artist, presence: true, length: {maximum: 40}, if: :is_an_artist? 
-  validates :artist_statement, length: { maximum: 500 }, presence: true, if: :is_an_artist?
+  validates :type_of_artist, presence: true, length: {maximum: 40}, if: :is_an_artist 
+  validates :artist_statement, length: { maximum: 500 }, presence: true, if: :is_an_artist
 
-  has_many :artworks
+  has_many :patient_campaigns
+  has_many :artworks, :through => :patient_campaigns
   
   
-  def is_an_artist?
+  def is_an_artist
     self.artist_yn == true
   end
   

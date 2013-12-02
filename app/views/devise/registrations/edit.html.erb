@@ -16,6 +16,38 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+  <div>Do you want to be, or are you an artist wanting to list your art on ArtCares?</div>
+
+  <div><%= f.radio_button(:artist_yn, true) %>
+<%= f.label(:artist_yn, "Yes") %>
+<%= f.radio_button(:artist_yn, false) %>
+<%= f.label(:artist_yn, "No") %>
+<!-- If yes selected, show rest of form fields w/jquery -->
+  <p>Please fill out the rest of the form below.</p>
+  <br />
+
+  <div><%= f.label :first_name, "First Name *" %>
+  <%= f.text_field :first_name %></div>
+
+  <div><%= f.label :last_name, "Last Name *" %>
+  <%= f.text_field :last_name %></div>
+
+  <div><%= f.label :city, "City *" %>
+  <%= f.text_field :city %></div>
+
+  <div><%= f.label :state, "State *" %>
+  <%= f.text_field :state %></div>
+
+  <div><%= f.label :art_website, "Art Website URL *" %>
+  <%= f.text_field :art_website %></div>
+
+  <div><%= f.label :type_of_artist, "Type of Artist (i.e. painter, sculptor, jeweler) *" %>
+  <%= f.text_field :type_of_artist %></div>
+
+  <div><%= f.label :artist_statement, "Brief Artist Statement (500 characters or less) *" %>
+  <%= f.text_area :artist_statement %></div>
+
+
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 

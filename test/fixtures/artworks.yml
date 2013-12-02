@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: 
+  size: 
+  medium: 
+  price: 
+  ships_from_zip: 
+  shipping_price: 
+  summary: 
+
+two:
+  title: 
+  size: 
+  medium: 
+  price: 
+  ships_from_zip: 
+  shipping_price: 
+  summary: 

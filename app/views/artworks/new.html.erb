@@ -1,0 +1,24 @@
+<p>List a new artwork for sale</p>
+
+
+<!-- rem - attach it to a patient_campaign -->
+
+<%= form_for @artwork do |f| %>
+  <div><%= f.label :title, "Title of Artwork" %>
+  <%= f.text_field :title %></div>
+
+  <div><%= f.label :size, "Dimensions/Size" %>
+  <%= f.text_field :size %></div>
+
+  <div><%= f.label :medium, "Medium" %>
+  <%= f.text_field :medium %></div>
+
+  <div><%= f.label :price, "Price" %>
+  <%= f.text_field :price %></div>
+
+  <div><%= f.label :shipping_price, "Shipping Cost" %>
+  <%= f.text_field :shipping_price %></div>
+<% end %>
+
+<p>Upload up to 3 images (.jpg format)</p>
+    
