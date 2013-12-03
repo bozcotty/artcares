@@ -47,5 +47,6 @@ class ArtImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  include Sprockets::Helpers::RailsHelper
 
 end
