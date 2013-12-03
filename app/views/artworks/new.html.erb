@@ -19,7 +19,7 @@
   <div><%= f.label :shipping_price, "Shipping Cost" %>
   <%= f.text_field :shipping_price %></div>
 
-  <div><% image_tag(art_image_1.url) if art_image_1? %>
+  <div><% image_tag(art_image_1.url)  %>
     <% f.label :art_image_1, "Image 1" %> 
       <% f.file_field :art_image_1 %></div>
 <% end %>

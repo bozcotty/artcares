@@ -1,0 +1,8 @@
+AWS_ACCESS_KEY_ID: "put it here"
+AWS_SECRET_ACCESS_KEY: "put it here"
+development:
+  SENDGRID_USERNAME: "put it here"
+  SENDGRID_PASSWORD: "put it here"
+  AWS_BUCKET: artcaring-dev
+production:
+  AWS_BUCKET: 
