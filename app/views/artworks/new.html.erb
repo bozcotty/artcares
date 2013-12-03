@@ -18,13 +18,13 @@
 
   <div><%= f.label :shipping_price, "Shipping Cost" %>
   <%= f.text_field :shipping_price %></div>
-<!-- 
-  image_tag(current_artwork.art_image_1.url) if current_artwork.art_image_1? 
-    f.label :ArtImage 
-      f.file_field :ArtImage -->
+
+  <div><% image_tag(art_image_1.url) if art_image_1? %>
+    <% f.label :art_image_1, "Image 1" %> 
+      <% f.file_field :art_image_1 %></div>
 <% end %>
 
 
 
-<p>Upload up to 3 images (.jpg format)</p>
+<p>Upload up to 3 images (.jpg/.jpeg format)</p>
     

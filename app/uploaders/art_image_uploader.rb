@@ -8,6 +8,8 @@ class ArtImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
+
+
   storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -25,16 +27,16 @@ class ArtImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  # process :scale => [200, 300]
+  process :resize_to_fill => [500, 500]
   #
   # def scale(width, height)
   #   # do something
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :scale => [50, 50]
-  # end
+  version :thumb do
+    process :resize_to_fill => [90, 90]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
