@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131202235542) do
+ActiveRecord::Schema.define(:version => 20131204222647) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(:version => 20131202235542) do
     t.string   "art_image_1"
     t.string   "art_image_2"
     t.string   "art_image_3"
+    t.integer  "user_id"
+  end
+
+  create_table "patient_campaigns", :force => true do |t|
+    t.string   "patient_name"
+    t.string   "patient_city"
+    t.string   "patient_state"
+    t.string   "artist_relationship_to_patient"
+    t.string   "patient_diagnosis"
+    t.text     "patient_story"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -52,6 +64,8 @@ ActiveRecord::Schema.define(:version => 20131202235542) do
     t.boolean  "artist_yn"
     t.string   "city"
     t.string   "state"
+    t.string   "role"
+    t.string   "headshot"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
