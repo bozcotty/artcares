@@ -3,4 +3,6 @@ class PatientCampaign < ActiveRecord::Base
 
   belongs_to :artist
   has_many :artworks
+
+  mount_uploader :patient_image_1, PatientImageUploader
 end

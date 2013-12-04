@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   validates :type_of_artist, presence: true, length: {maximum: 40}, if: :is_an_artist 
   validates :artist_statement, length: { maximum: 500 }, presence: true, if: :is_an_artist
 
-
+  mount_uploader :headshot, HeadshotUploader
 
   has_many :patient_campaigns
   has_many :artworks

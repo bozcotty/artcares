@@ -30,6 +30,12 @@
   <div><%= f.label :last_name, "Last Name *" %>
   <%= f.text_field :last_name %></div>
 
+  <p>Upload an image of yourself (jpg or jpeg file):</p>
+
+  <div><%= image_tag(@user.headshot.url) if @user.headshot?  %>
+    <%= f.label :headshot, "Artist Image" %> 
+      <%= f.file_field :headshot %></div>
+
   <div><%= f.label :city, "City *" %>
   <%= f.text_field :city %></div>
 

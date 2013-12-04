@@ -1,7 +1,7 @@
 class ArtworksController < ApplicationController
 
   def index 
-    @artworks = Artwork.visible_to(current_user)
+    @artworks = Artwork.all
   end
 
   def new
