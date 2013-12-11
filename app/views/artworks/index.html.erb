@@ -2,7 +2,7 @@ This is the artworks index...a list of all artworks in db, to be linkable to eac
 <div class="artwork-index-view">
 <% @artworks.each do |artwork| %>
   <div>
-    <%= image_tag(artwork.art_image_1.thumb.url) if artwork.art_image_1? %>
+    <%= image_tag(artwork.art_image_1.small.url) if artwork.art_image_1? %>
   </div>
   </br>
   <%end %>

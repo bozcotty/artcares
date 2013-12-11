@@ -1,10 +1,11 @@
-You made it to the artwork show template view. Congrats!
-
+Artwork show template.
+sjlkdsjs
 <% if can? :update, @artwork %>
-  <% link_to: "Edit Artwork", edit_artwork_path %>
+  <%= link_to "Edit Artwork", edit_artwork_path %>
 <% end %>
 
-<% @artwork.title %>
-<% @artwork.art_image_1 %>
-<p>Size: <% @artwork.size %>   Price:<% @artwork.price_to_currency %></p>
+<h3><%= @artwork.title %></h3>
+<%= image_tag @artwork.art_image_1 %>
+<p>Size: <%= @artwork.size %></p>   
+<p>Price:<%= number_to_currency(@artwork.price) %></p>
 

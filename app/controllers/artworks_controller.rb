@@ -10,6 +10,7 @@ class ArtworksController < ApplicationController
 
   def create
     @artwork = Artwork.new(params[:artwork])
+    @artwork.user = current_user
       authorize! :create, Artwork, message: "You need to be signed up as an artist to list artworks."
     # or you could do it this way...(but this way makes more sense with the edit action)
     # @artwork.user = current_user.....
@@ -25,6 +26,11 @@ class ArtworksController < ApplicationController
 
   def show
     @artwork = Artwork.find(params[:id])
+  end
+
+  def edit
+    @artwork = Artwork.find(params[:id])
+    authorize! :update, @artwork, message: "You need to be an admin to do that."
   end
 
 end
