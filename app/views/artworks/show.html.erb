@@ -1,2 +1,10 @@
-You made it to the show template view. Congrats!
+You made it to the artwork show template view. Congrats!
+
+<% if can? :update, @artwork %>
+  <% link_to: "Edit Artwork", edit_artwork_path %>
+<% end %>
+
+<% @artwork.title %>
+<% @artwork.art_image_1 %>
+<p>Size: <% @artwork.size %>   Price:<% @artwork.price_to_currency %></p>
 
