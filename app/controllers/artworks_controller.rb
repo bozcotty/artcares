@@ -33,4 +33,14 @@ class ArtworksController < ApplicationController
     authorize! :update, @artwork, message: "You need to be an admin to do that."
   end
 
+  def update
+    @artwork = Artwork.find(params[:id])
+    if @artwork.update_attributes(params[:artwork])
+      redirect_to @artwork, notice: "Artwork was updated successfully."
+    else
+      flash[:error] = "Error saving Artwork. Please try again."
+      render :edit
+    end
+  end
+
 end

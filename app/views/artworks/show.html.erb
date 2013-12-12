@@ -1,11 +1,34 @@
-Artwork show template.
-sjlkdsjs
-<% if can? :update, @artwork %>
-  <%= link_to "Edit Artwork", edit_artwork_path %>
-<% end %>
 
-<h3><%= @artwork.title %></h3>
-<%= image_tag @artwork.art_image_1 %>
-<p>Size: <%= @artwork.size %></p>   
-<p>Price:<%= number_to_currency(@artwork.price) %></p>
 
+
+
+<div class="row">
+  <div class="span6 offset1">
+    <%= image_tag @artwork.art_image_1 %>
+
+    <% if can? :update, @artwork %>
+    <%= link_to "Edit This Listing", edit_artwork_path %>
+    <% end %>
+
+  </div>
+
+  <div class="span5">
+    
+    
+
+    <div class="page-header">
+      <h3>"<%= @artwork.title %>"<small> by <%= @artwork.user.first_name %> <%= @artwork.user.last_name %></small></h3>
+
+      <p><%= image_tag(@artwork.user.headshot.thumb.url) if @artwork.user.headshot? %></p>
+      <p>Size: <%= @artwork.size %></p>
+      <p>Medium: <%= @artwork.medium %>   
+      <p>Price:<%= number_to_currency(@artwork.price) %></p>
+
+
+  </div>
+
+
+
+
+
+</div>

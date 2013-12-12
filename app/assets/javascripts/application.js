@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require_tree .
 
+// for cancelling art uploads in artworks>new 
 $(function(){
   $('.cancel').click(function(){
     $(this).siblings('input[type=file]').val('')
