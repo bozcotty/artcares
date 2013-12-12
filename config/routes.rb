@@ -7,7 +7,7 @@ Artcares::Application.routes.draw do
   # artists index would show a list of artists, show would show detail page of artists info for public view
   resources :artworks
   
-  resources :users, only: [:index, :show] # create a route for users to see their index of artworks
+  resources :users, only: [:index, :show] # for public view
   
 
  
