@@ -8,6 +8,8 @@ Artcares::Application.routes.draw do
   resources :artworks
   
   resources :users, only: [:index, :show] # for public view
+
+  resources :charges
   
 
  
