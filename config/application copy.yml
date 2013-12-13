@@ -1,0 +1,8 @@
+AWS_ACCESS_KEY_ID: "AKIAIC7ELUY4BQSK2W2Q"
+AWS_SECRET_ACCESS_KEY: "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"
+development:
+  SENDGRID_USERNAME: "app19597909@heroku.com"
+  SENDGRID_PASSWORD: "sirf7pna"
+  AWS_BUCKET: artcaring-dev
+production:
+  AWS_BUCKET: artcaring-prod
