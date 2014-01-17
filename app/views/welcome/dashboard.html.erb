@@ -1,14 +1,29 @@
-plan on deleting this view as of 1/5...tbd
+ 
+<div class= "row">
+  <div class="span4 offset1">
+<h4><%= current_user.first_name %> <%= current_user.last_name %> Artist's Dashboard</h4>
+  </div>
+</div>
+<div class= "row">
+  <div class ="span3 offset1">
+    <h5>Your Current Artworks</h5>
+  </div>
+</div>
 
-<%= current_user.first_name %>
 
 <% current_user.artworks.each do |artwork| %>
   <div class= "row">
-    <div class ="span4">
+    <div class ="span2 offset1">
       <%= image_tag(artwork.art_image_1.thumb.url) %>
     </div>
     <div class = "span2">
-      <%= artwork.price %>
+      "<%= artwork.title %>"
+    </div>
+    <div class = "span2">
+      $<%= artwork.price %>
+    </div>
+    <div class = "span2">
+      <%= artwork.patient_campaign %>
     </div>
   </div>
 <% end %>

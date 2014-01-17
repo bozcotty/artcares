@@ -4,7 +4,7 @@ class Artwork < ActiveRecord::Base
                   :art_image_1, :art_image_2, :art_image_3
 
   belongs_to :user
-  # belongs_to :patient_campaign
+  belongs_to :patient_campaign
   # validates user.id == patient_campaign.user.id
 
   validates :title, :size, :medium, presence: true
