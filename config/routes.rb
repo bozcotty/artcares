@@ -10,6 +10,8 @@ Artcares::Application.routes.draw do
   resources :users, only: [:index, :show] # for public view
 
   resources :charges
+
+  get 'dashboard', to: 'welcome#dashboard', as: 'dashboard'
   
 
  

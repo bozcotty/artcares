@@ -26,7 +26,7 @@ class Ability
     #     can :manage, Patient_Application :user_id => user.id
     # end
 
-    # if user.role? :artist #currently, Artist model manages patient aspect of ArtCares
+    # if user.role? :artist #currently, Artist model manages patient aspect of ArtCaring.com
     #     can :read, :all
     #     can :manage, Artist :user_id => user.id
     # end

@@ -1,1 +1,17 @@
-This is the artist's dashboard for managing artworks/patient campaigns.
+plan on deleting this view as of 1/5...tbd
+
+<%= current_user.first_name %>
+
+<% current_user.artworks.each do |artwork| %>
+  <div class= "row">
+    <div class ="span4">
+      <%= image_tag(artwork.art_image_1.thumb.url) %>
+    </div>
+    <div class = "span2">
+      <%= artwork.price %>
+    </div>
+  </div>
+<% end %>
+
+
+
