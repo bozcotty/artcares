@@ -35,6 +35,8 @@ class ArtworksController < ApplicationController
 
   def update
     @artwork = Artwork.find(params[:id])
+    @artwork.user = current_user
+    authorize! :update, Artwork, message: "You need to own the artwork to update it."
     if @artwork.update_attributes(params[:artwork])
       redirect_to @artwork, notice: "Artwork was updated successfully."
     else
