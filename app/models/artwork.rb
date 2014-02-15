@@ -12,7 +12,7 @@ class Artwork < ActiveRecord::Base
   # medium - require choice from a list in future - use the inclusion validator
 
   validates :price, numericality: { greater_than: 99.99, less_than_or_equal_to: 25000.00 }
-  validates :shipping_price, presence: true, numericality: { only_integer: true }
+  validates :shipping_price, presence: true
 
   validates :summary, length: { maximum: 200, too_long: "%{count} characters is the maximum allowed."}
 

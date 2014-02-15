@@ -10,7 +10,9 @@ class ArtworksController < ApplicationController
 
   def create
     @artwork = Artwork.new(params[:artwork])
+    # @campaign = Campaign.find(params[:campaign_id])
     @artwork.user = current_user
+    # @artwork.campaign = @campaign
       authorize! :create, Artwork, message: "You need to be signed up as an artist to list artworks."
     # or you could do it this way...(but this way makes more sense with the edit action)
     # @artwork.user = current_user.....
@@ -40,7 +42,7 @@ class ArtworksController < ApplicationController
     if @artwork.update_attributes(params[:artwork])
       redirect_to @artwork, notice: "Artwork was updated successfully."
     else
-      flash[:error] = "Error saving Artwork. Please try again."
+      flash[:error] = @artwork.errors.full_messages
       render :edit
     end
   end

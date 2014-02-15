@@ -18,12 +18,8 @@
   <div align=right>Hello <%= current_user.first_name %></div>
 <% end %>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <% if flash[:error] %>
-    <% flash[:error].each do |error| %>
-      <p class="error"><%= error %></p>
-    <% end %>
+  <% flash.each do |key, value| %>
+    <p class<%= key %>><%= value %></p>
   <% end %>
 
 
