@@ -12,7 +12,7 @@ class Ability
     #     can :read, :all
     # end
 
-    if user.is_an_artist
+    if user.role? :member
         can :manage, Artwork, :user_id => user.id
     end
 
@@ -40,6 +40,7 @@ class Ability
     #     can :manage, :all
     #   else
     #     can :read, :all
+    
     #   end
     #
     # The first argument to `can` is the action you are giving the user 

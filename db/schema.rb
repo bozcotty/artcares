@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131204232345) do
+ActiveRecord::Schema.define(:version => 20140218035405) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -20,12 +20,13 @@ ActiveRecord::Schema.define(:version => 20131204232345) do
     t.float    "price"
     t.float    "shipping_price"
     t.text     "summary"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "art_image_1"
     t.string   "art_image_2"
     t.string   "art_image_3"
     t.integer  "user_id"
+    t.integer  "patient_campaign_id"
   end
 
   create_table "patient_campaigns", :force => true do |t|
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20131204232345) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.string   "patient_image_1"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -62,7 +64,6 @@ ActiveRecord::Schema.define(:version => 20131204232345) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.boolean  "artist_yn"
     t.string   "city"
     t.string   "state"
     t.string   "role"

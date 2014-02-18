@@ -1,6 +1,14 @@
 Artcares::Application.routes.draw do
   
   
+  get "patient_campaigns/index"
+
+  get "patient_campaigns/show"
+
+  get "patient_campaigns/new"
+
+  get "patient_campaigns/edit"
+
   devise_for :users
 
   resources :artists, only: [:index, :show]
