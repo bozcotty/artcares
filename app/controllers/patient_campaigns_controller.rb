@@ -9,7 +9,7 @@ class PatientCampaignsController < ApplicationController
 
   def new
     @patient_campaign = Patient_Campaign.new
-    authorize! :create, Patient_Campaign, message: "You need to sign up to create a Patient Campaign."
+    authorize! :create, @patient_campaign, message: "You need to sign up to create a Patient Campaign."
   end
 
   def create 
@@ -22,6 +22,7 @@ class PatientCampaignsController < ApplicationController
       flash[:error] = "Error saving Patient Campaign, please try again."
       render :new
     end
+  end
 
 
   def edit

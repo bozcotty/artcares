@@ -13,6 +13,7 @@ class Ability
     # end
 
     if user.role? :member
+        can :manage, PatientCampaign, :user_id => user.id
         can :manage, Artwork, :user_id => user.id
     end
 
