@@ -1,18 +1,14 @@
 Artcares::Application.routes.draw do
   
   
-  get "patient_campaigns/index"
-
-  get "patient_campaigns/show"
-
-  get "patient_campaigns/new"
-
-  get "patient_campaigns/edit"
-
+  
   devise_for :users
 
   resources :artists, only: [:index, :show]
   # artists index would show a list of artists, show would show detail page of artists info for public view
+  
+  resources :patient_campaigns
+
   resources :patient_campaigns do
     resources :artworks
   end

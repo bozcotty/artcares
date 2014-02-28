@@ -11,7 +11,7 @@ class PatientCampaign < ActiveRecord::Base
   validates :patient_city, presence: true
   validates :patient_state, presence: true
   validates :patient_story, presence: true
-  validates :patient_image_, presence: true
+  validates :patient_image_1, presence: true
   validates :patient_diagnosis, presence: true
   
 end

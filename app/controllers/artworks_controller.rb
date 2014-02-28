@@ -5,13 +5,13 @@ class ArtworksController < ApplicationController
   end
 
   def new
-    @patient_campaign = Patient_Campaign.find(params[:patient_campaign_id])
+    @patient_campaign = PatientCampaign.find(params[:patient_campaign_id])
     @artwork = Artwork.new
     authorize! :create, @artwork, message: "You need to own the Patient Campaign to add an artwork to it." 
   end
 
   def create
-    @patient_campaign = Patient_Campaign.find(params[:patient_campaign_id])
+    @patient_campaign = PatientCampaign.find(params[:patient_campaign_id])
     # @artwork = Artwork.new(params[:artwork])
     # @artwork.user = current_user
     @artwork = current_user.artworks.build(params[:artwork])
@@ -28,18 +28,18 @@ class ArtworksController < ApplicationController
   end
 
   def show
-    @patient_campaign = Patient_Campaign.find(params[:patient_campaign_id])
+    @patient_campaign = PatientCampaign.find(params[:patient_campaign_id])
     @artwork = Artwork.find(params[:id])
   end
 
   def edit
-    @patient_campaign = Patient_Campaign.find(params[:patient_campaign_id])
+    @patient_campaign = PatientCampaign.find(params[:patient_campaign_id])
     @artwork = Artwork.find(params[:id])
     authorize! :edit, @artwork, message: "You need own the artwork to do that."
   end
 
   def update
-    @patient_campaign = Patient_Campaign.find(params[:patient_campaign_id])
+    @patient_campaign = PatientCampaign.find(params[:patient_campaign_id])
     @artwork = Artwork.find(params[:id])
     @artwork.user = current_user
     authorize! :update, @artwork, message: "You need to own the artwork to update it."
@@ -52,7 +52,7 @@ class ArtworksController < ApplicationController
   end
 
   def destroy
-    @patient_campaign = Patient_Campaign.find(params[:patient_campaign_id])
+    @patient_campaign = PatientCampaign.find(params[:patient_campaign_id])
     @artwork = Artwork.find(params[:id])
     title = @artwork.title
     authorize! :destroy, @artwork, message: "You need to own the artwork to delete it."

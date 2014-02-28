@@ -20,5 +20,15 @@ class User < ActiveRecord::Base
   has_many :patient_campaigns
   has_many :artworks
   
+  ROLES = %w[member moderator admin]
+
+  def role?(base_role)
+    self.role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(self.role)
+  end 
+
+  before_create :set_member
+  def set_member
+    self.role ||= 'member'
+  end
 
 end

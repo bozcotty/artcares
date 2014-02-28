@@ -1,2 +1,35 @@
-<h1>PatientCampaigns#new</h1>
-<p>Find me in app/views/patient_campaigns/new.html.erb</p>
+<h1>Start a Patient Campaign!</h1>
+
+<h3>Your Patient Campaign is where everything begins at artcaring.</h3>
+
+<p>Before you start listing your artworks, you'll set up a Patient Campaign here. Visitors to artcaring.com will be able to read about the person you're helping, and what they learn will be based on the information you provide here.</p>
+<p>Any of your artworks that sell on artcaring will always be associated with Please fill out the form below, telling us about the person you want to help through your artwork sales on the site.</p>
+
+<%= form_for @patient_campaign do |f| %>
+  <div><%= f.label :patient_name, "Patient name, first and last" %>
+    <%= f.text_field :patient_name %></div>
+
+  <div><%= f.label :patient_city, "Patient's city of residence" %>
+    <%= f.text_field :patient_city %></div>
+
+  <div><%= f.label :patient_state, "Patient's state of residence" %>
+    <%= f.text_field :patient_state %></div>
+
+  <div><%= f.label :artist_relationship_to_patient, "Briefly - your relationship to the Patient (friend, relative, neighbor, etc.) "%>
+    <%= f.text_area :artist_relationship_to_patient, rows: 2 %></div>
+
+  <div><%= f.label :patient_diagnosis, "Tell us about the Patient's condition, diagnosis, illness or injury." %>
+    <%= f.text_area :patient_diagnosis, rows: 4 %>
+
+  <div><%= f.label :patient_story, "Tell visitors your Patient's story. (Click here for ideas on how to tell a meaningful story.)" %>
+    <%= f.text_area :patient_story, rows: 20%>
+
+  <div><%= image_tag(@patient_campaign.patient_image_1.url) if @patient_campaign.patient_image_1? %>
+    <%= f.label :patient_image_1, "Upload a photo of your Patient that will be shown with their story, along with your associated artworks. (For photo help, click here)" %>
+      <%= f.file_field :patient_image_1 %>
+    <span class="cancel">cancel</span></div>
+
+  <p><%= f.submit "Publish your Patient Campaign" %></p>
+
+<%end%>
+
