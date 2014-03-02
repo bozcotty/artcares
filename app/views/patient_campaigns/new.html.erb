@@ -6,8 +6,11 @@
 <p>Any of your artworks that sell on artcaring will always be associated with Please fill out the form below, telling us about the person you want to help through your artwork sales on the site.</p>
 
 <%= form_for @patient_campaign do |f| %>
-  <div><%= f.label :patient_name, "Patient name, first and last" %>
-    <%= f.text_field :patient_name %></div>
+  <div><%= f.label :patient_first_name, "Patient first name" %>
+    <%= f.text_field :patient_first_name %></div>
+
+  <div><%= f.label :patient_last_name, "Patient last name" %>
+    <%= f.text_field :patient_last_name %></div>
 
   <div><%= f.label :patient_city, "Patient's city of residence" %>
     <%= f.text_field :patient_city %></div>
@@ -18,8 +21,8 @@
   <div><%= f.label :artist_relationship_to_patient, "Briefly - your relationship to the Patient (friend, relative, neighbor, etc.) "%>
     <%= f.text_area :artist_relationship_to_patient, rows: 2 %></div>
 
-  <div><%= f.label :patient_diagnosis, "Tell us about the Patient's condition, diagnosis, illness or injury." %>
-    <%= f.text_area :patient_diagnosis, rows: 4 %>
+  <div><%= f.label :patient_diagnosis, "Name the Patient's condition, diagnosis, or illness." %>
+    <%= f.text_area :patient_diagnosis, rows: 1 %>
 
   <div><%= f.label :patient_story, "Tell visitors your Patient's story. (Click here for ideas on how to tell a meaningful story.)" %>
     <%= f.text_area :patient_story, rows: 20%>

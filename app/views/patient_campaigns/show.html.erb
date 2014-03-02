@@ -1,2 +1,5 @@
-<h1>PatientCampaigns#show</h1>
-<p>Find me in app/views/patient_campaigns/show.html.erb</p>
+<h1>The Campaign for <%= @patient_campaign.patient_first_name %> <%= @patient_campaign.patient_last_name%>.</h1>
+<h3>By artist <%= @patient_campaign.user.first_name %> <%= @patient_campaign.user.last_name %></h3>
+<p><%= @patient_campaign.patient_story %></p>
+
+
