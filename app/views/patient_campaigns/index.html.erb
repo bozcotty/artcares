@@ -1,8 +1,9 @@
 <h1>Patient Campaigns</h1>
 
-<% @patient_campaigns.each do |campaign| %>
+<% @patient_campaigns.each do |patient_campaign| %>
   <h4>
-    <%= link_to @patient_campaign.campaign_name, patient_campaign %>
+    <%= link_to patient_campaign.campaign_name, patient_campaign %>
   </h4>
+  
   <p>Help <%= patient_campaign.patient_first_name %> deal with <%= patient_campaign.patient_diagnosis %>.</p>
 <% end %>
