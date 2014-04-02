@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140302054551) do
+ActiveRecord::Schema.define(:version => 20140402172652) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -45,6 +45,10 @@ ActiveRecord::Schema.define(:version => 20140302054551) do
     t.string   "physician_first_name"
     t.string   "physician_last_name"
     t.string   "physician_office_phone"
+    t.string   "patient_street_address"
+    t.string   "patient_unit_number"
+    t.string   "patient_zip_code"
+    t.string   "patient_phone_number"
   end
 
   create_table "users", :force => true do |t|
@@ -73,6 +77,10 @@ ActiveRecord::Schema.define(:version => 20140302054551) do
     t.string   "state"
     t.string   "role"
     t.string   "headshot"
+    t.string   "street_address"
+    t.string   "unit_number"
+    t.string   "phone_number"
+    t.string   "zip_code"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

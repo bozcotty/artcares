@@ -4,11 +4,21 @@
 <h4><%= current_user.first_name %> <%= current_user.last_name %> - Artist's Dashboard</h4>
   </div>
 </div>
+
 <div class= "row">
-  <div class ="span3 offset1">
+  <div class ="span4 offset1">
+    <h5>Your Current Patient Campaign(s)</h5>
+    <% if current_user.patient_campaigns.count == 0 %>
+      <p>You have no current patient campaigns.</p>
+    <% end %>
+  </div>
+</div>
+
+<div class= "row">
+  <div class ="span4 offset1">
     <h5>Your Current Artworks</h5>
     <% if current_user.artworks.count == 0 %>
-      <% puts "You have no current artworks" %>
+      <p>You have no current artworks.</p>
     <% end %>
   </div>
 </div>

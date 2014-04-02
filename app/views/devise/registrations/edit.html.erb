@@ -16,7 +16,7 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <p>Please fill out the rest of the form below.</p>
+  <p>Please update the form below, as necessary.</p>
   <br />
 
   <div><%= f.label :first_name, "First Name *" %>
@@ -31,8 +31,11 @@
     <%= f.label :headshot, "Artist Image" %> 
       <%= f.file_field :headshot %></div>
 
-  </br>
+  <div><%= f.label :street_address, "Street Address *" %>
+  <%= f.text_field :street_address %></div>
 
+  <div><%= f.label :unit_number, "Apartment/Unit Number *" %>
+  <%= f.text_field :unit_number %></div>
 
   <div><%= f.label :city, "City *" %>
   <%= f.text_field :city %></div>
@@ -40,7 +43,13 @@
   <div><%= f.label :state, "State *" %>
   <%= f.text_field :state %></div>
 
-  <div><%= f.label :art_website, "Art Website URL *" %>
+  <div><%= f.label :zip_code, "Zip Code *" %>
+  <%= f.text_field :zip_code %></div>
+
+  <div><%= f.label :phone_number, "Phone Number *" %>
+  <%= f.text_field :phone_number %></div>
+
+  <div><%= f.label :art_website, "Your Art Website URL *" %>
   <%= f.text_field :art_website %></div>
 
   <div><%= f.label :type_of_artist, "Type of Artist (i.e. painter, sculptor, jeweler) *" %>
