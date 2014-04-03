@@ -3,3 +3,9 @@
 .error {
   color: red;
 }
+
+@media (min-width: 400px) { body { padding-top: 90px; } }
+
+.nav {
+  font-family: "comic sans";
+}
