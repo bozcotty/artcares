@@ -7,15 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if current_user %>
-<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-<%= link_to "Manage Account Settings", edit_user_registration_path %>
-<%= link_to "My Dashboard", welcome_dashboard_path %>
-<%= link_to "Start a Patient Campaign", new_patient_campaign_path %>
 
+  <div class = "navbar navbar-inverse">
+    <%= image_tag '/assets/artcaring-logo.png' %>
+    <% if current_user %>
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+      <%= link_to "Manage Account Settings", edit_user_registration_path %>
+      <%= link_to "My Dashboard", welcome_dashboard_path %>
+      <%= link_to "Start a Patient Campaign", new_patient_campaign_path %>
 
-  <div align=right>Hello <%= current_user.first_name %></div>
-<% end %>
+      Hello <%= current_user.first_name %>
+    <% end %>
+
+  </div>
+
 
   <% flash.each do |key, value| %>
     <p class<%= key %>><%= value %></p>
