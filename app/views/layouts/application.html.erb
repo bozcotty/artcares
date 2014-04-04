@@ -7,48 +7,35 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navbar navbar-default navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          
-          <nav>
-              <%= link_to (image_tag ('/assets/artcaring-logo.png')), root_path %></a>
-            
-          <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
-            <i class = "icon-align-justify"></i>
-          </button>    
-
-            <div class = "collapse navbar-collapse navHeaderCollapse">
-
-              <ul class="nav pull-right"> 
-              <!-- <ul class="nav navbar-nav navbar-right"> -->
-                <li><%= link_to "Learn", '#' %></li>
-                <li><%= link_to "Shop", '#' %></li>
-                <li><%= link_to "Create a Campaign", new_patient_campaign_path %></li>
-                
-                <li><%= link_to "Sign in", '#' %></li>
-              </ul>
-
-            </div>
-          </nav>
+  
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+   
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+   
+        <!-- Be sure to leave the brand out there if you want it shown -->
+        <a class="brand"><%= link_to (image_tag ('/assets/artcaring-logo.png')), root_path %></a>
+   
+        <!-- Everything you want hidden at 940px or less, place within here -->
+        <div class="nav-collapse collapse">
+          <!-- .nav, .navbar-search, .navbar-form, etc -->
+          <li><%= link_to "Learn", '#' %></li>
+          <li><%= link_to "Shop", '#' %></li>
+          <form class="navbar-search">
+            <input type="text" class="search-query" placeholder="Search">
+          </form>
+          <li><%= link_to "Sign in", '#' %></li>
         </div>
+   
       </div>
+    </div>
   </div>
-
-
- <!--  <div>
-    
-    <% if current_user %>
-      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-      <%= link_to "Manage Account Settings", edit_user_registration_path %>
-      <%= link_to "My Dashboard", welcome_dashboard_path %>
-      <%= link_to "Create a Patient Campaign", new_patient_campaign_path %>
-
-      Hello <%= current_user.first_name %>
-    <% end %>
-
-  </div>
- -->
 
 <!-- flash messages -->
   <% flash.each do |key, value| %>
