@@ -44,7 +44,7 @@ class ArtworksController < ApplicationController
     @artwork.user = current_user
     authorize! :update, @artwork, message: "You need to own the artwork to update it."
     if @artwork.update_attributes(params[:artwork])
-      redirect_to [@patient_campaign, @artwork] notice: "Artwork was updated successfully."
+      redirect_to [@patient_campaign, @artwork], notice: "Artwork was updated successfully."
     else
       flash[:error] = @artwork.errors.full_messages
       render :edit
