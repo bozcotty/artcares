@@ -1,46 +1,47 @@
- 
-<div class= "row">
-  <div class="col-md-4">
-<h4><%= current_user.first_name %> <%= current_user.last_name %> - Artist's Dashboard</h4>
-  </div>
-</div>
-
-<div class= "row">
-  <div class ="col-md-4">
-    <h5>Your Current Patient Campaign(s)</h5>
-    <% if current_user.patient_campaigns.count == 0 %>
-      <p>You have no current patient campaigns.</p>
-    <% end %>
-  </div>
-</div>
-
-<div class= "row">
-  <div class ="col-md-4">
-    <h5>Your Current Artworks</h5>
-    <% if current_user.artworks.count == 0 %>
-      <p>You have no current artworks.</p>
-    <% end %>
-  </div>
-</div>
-
-
-<% current_user.artworks.each do |artwork| %>
+<div class="container">   
   <div class= "row">
-    <div class ="col-md-3">
-      <%= image_tag(artwork.art_image_1.thumb.url) %>
-    </div>
-    <div class = "col-md-3">
-      "<%= artwork.title %>"
-    </div>
-    <div class = "col-md-3">
-      $<%= artwork.price %>
-    </div>
-    <div class = "col-md-3">
-      <%= artwork.patient_campaign %>
+    <div class="col-md-4">
+  <h4><%= current_user.first_name %> <%= current_user.last_name %> - Artist's Dashboard</h4>
     </div>
   </div>
-</br>
-<% end %>
+
+  <div class= "row">
+    <div class ="col-md-4">
+      <h5>Your Current Patient Campaign(s)</h5>
+      <% if current_user.patient_campaigns.count == 0 %>
+        <p>You have no current patient campaigns.</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class= "row">
+    <div class ="col-md-4">
+      <h5>Your Current Artworks</h5>
+      <% if current_user.artworks.count == 0 %>
+        <p>You have no current artworks.</p>
+      <% end %>
+    </div>
+  </div>
+
+
+  <% current_user.artworks.each do |artwork| %>
+    <div class= "row">
+      <div class ="col-md-3">
+        <%= image_tag(artwork.art_image_1.thumb.url) %>
+      </div>
+      <div class = "col-md-3">
+        "<%= artwork.title %>"
+      </div>
+      <div class = "col-md-3">
+        $<%= artwork.price %>
+      </div>
+      <div class = "col-md-3">
+        <%= artwork.patient_campaign %>
+      </div>
+    </div>
+  </br>
+  <% end %>
+</div>
 
 
 

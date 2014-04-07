@@ -1,7 +1,10 @@
 class WelcomeController < ApplicationController
 
+  def index
+  end
+
   # def index
-  #   redirect_to welcome_dashboard_path if current_user
+  #    redirect_to welcome_dashboard_path if current_user
   # end
 
   def about
@@ -14,4 +17,6 @@ class WelcomeController < ApplicationController
     @artworks = current_user.artworks
     @patient_campaigns = current_user.patient_campaigns
   end
+
+  
 end
