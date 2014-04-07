@@ -5,8 +5,8 @@
 
 }
 
-.container .hero {
-  background-color: #red;
+.container .row .summary {
+  padding-left: 15px;
 }
 
 .h1 {
@@ -17,4 +17,9 @@
 #hero {
   background-color:red;
 }
+
+body {
+        font-family: 'Tangerine', serif;
+        font-size: 48px;
+      }
 
