@@ -8,35 +8,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  
-  
-<div class="navbar navbar-default navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          
-          <nav>
-              <%= link_to (image_tag ('/assets/artcaring-logo.png')), root_path %>
-            
-          <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
-            <span class = "glyphicon glyphicon-align-justify"></span>
-          </button>    
 
-            <div class = "collapse navbar-collapse navHeaderCollapse">
-
-              <!-- <ul class="nav pull-right">  -->
-              <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to "Learn", '#' %></li>
-                <li><%= link_to "Shop", '#' %></li>
-                <li><%= link_to "Create a Campaign", new_patient_campaign_path %></li>
-                
-                <li><%= link_to "Sign in", '#' %></li>
-              </ul>
-
-            </div>
-          </nav>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to (image_tag ('/assets/artcaring-logo.png')), root_path %>
         </div>
-      </div>
-  </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><%= link_to "Learn", welcome_learn_path %></li>
+            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop the Gallery<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">By Type of Artwork</a></li>
+                <li><a href="#">By Price</a></li>
+                <li><a href="#">By Patient Campaign</a></li>
+                <li><a href="#">By Artist</a></li>
+                
+              </ul>
+            </li>
+            
+            
+            <li><form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+               </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form></li>
+            <li>
+              <% if current_user %>
+               <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+              <% else %>
+              <%= link_to "Sign In", new_user_session_path %>
+              <% end %>
+            </li>
+          </ul>
+          
+          
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
 
 <!-- flash messages -->
   <% flash.each do |key, value| %>

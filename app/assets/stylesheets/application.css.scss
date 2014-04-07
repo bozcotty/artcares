@@ -4,8 +4,12 @@
   color: red;
 }
 
-@media (min-width: 960px) { body { padding-top: 140px; } }
+@media (min-width: 200px) { body { padding-top: 90px; } }
 
 .nav {
   font-family: "helvetica";
+}
+
+.collapse {
+  padding-top: 20px;
 }

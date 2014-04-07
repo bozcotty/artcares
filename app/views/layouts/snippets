@@ -1,14 +1,12 @@
-
-
 <div class="navbar navbar-default navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           
           <nav>
-              <%= link_to (image_tag ('/assets/artcaring-logo.png')), root_path %></a>
+              <%= link_to (image_tag ('/assets/artcaring-logo.png')), root_path %>
             
           <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
-            <i class = "icon-align-justify"></i>
+            <span class = "glyphicon glyphicon-align-justify"></span>
           </button>    
 
             <div class = "collapse navbar-collapse navHeaderCollapse">
@@ -28,30 +26,3 @@
       </div>
   </div>
 
-  <div class="navbar navbar-default navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          
-          <nav>
-              <%= link_to (image_tag ('/assets/artcaring-logo.png')), root_path %></a>
-            
-          <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
-            <i class = "icon-align-justify"></i>
-          </button>    
-
-            <div class = "collapse navbar-collapse navHeaderCollapse">
-
-              <ul class="nav pull-right"> 
-              <!-- <ul class="nav navbar-nav navbar-right"> -->
-                <li><%= link_to "Learn", '#' %></li>
-                <li><%= link_to "Shop", '#' %></li>
-                <li><%= link_to "Create a Campaign", new_patient_campaign_path %></li>
-                
-                <li><%= link_to "Sign in", '#' %></li>
-              </ul>
-
-            </div>
-          </nav>
-        </div>
-      </div>
-  </div>
