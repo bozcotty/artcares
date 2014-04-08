@@ -5,12 +5,13 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
+  <div id="wrap">
 
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     
@@ -80,8 +81,9 @@
       </div> 
       
       <div class="col-md-2">
-        <div class="btn-group btn-group-xs pull-right">
+        <div class="btn-group btn-group-xs">
           <button type="button" class="btn btn-default"><%= link_to "Your Dashboard", welcome_dashboard_path %></button>
+        </div>
       </div>
     </div>
   </div>
@@ -97,6 +99,31 @@
 
 
 <%= yield %>
+<br>
+  </div><!-- ends the div "wrap (for sticky footer)" -->
+
+
+
+<div id="footer">
+  <div class="container">
+    <div class="col-md-4">
+      <ul class="list-unstyled">
+        <li><%= link_to "Learn", welcome_learn_path %></li>
+        <li><%= link_to "How It Works", welcome_learn_path %></li>
+      </ul>
+    </div>
+
+    <div class="col-md-4">
+      more links here
+    </div>
+
+    <div class="col-md-4">
+      even more links here
+    </div>
+
+  </div>
+</div>
+
 
 </body>
 </html>
