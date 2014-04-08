@@ -1,4 +1,12 @@
+/*
+*= require_tree .
+*/
+
+/* scss variable */
+$grid-float-breakpoint: 940px;
+
 @import "bootstrap";
+
 
 .error {
   color: red;
@@ -38,7 +46,11 @@ body {
 .users .pull-right {
   color: #b5e070;
   font-family: 'Droid Sans', sans-serif;
-  font-size: 15px; 
+  font-size: 14px; 
+}
+
+#dashboard-btn {
+  background-color:#616161;
 }
 
 
@@ -72,8 +84,8 @@ body {
 
 /* more footer styles */
 
-footer .list-unstyled {
-  color:"black";
+#footer .list-unstyled a {
+  color: black;
 }
 
 
