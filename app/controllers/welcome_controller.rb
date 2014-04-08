@@ -13,10 +13,15 @@ class WelcomeController < ApplicationController
   def learn
   end
 
+  def artists_join_us
+  end
+
   def dashboard
     @artworks = current_user.artworks
     @patient_campaigns = current_user.patient_campaigns
   end
+
+
 
   
 end

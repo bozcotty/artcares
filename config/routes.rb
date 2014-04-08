@@ -26,6 +26,7 @@ Artcares::Application.routes.draw do
   get "welcome/about"
   get "welcome/dashboard"
   get "welcome/learn"
+  get "welcome/artists_join_us"
 
   root :to => 'welcome#index'
 end

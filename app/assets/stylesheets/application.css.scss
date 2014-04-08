@@ -4,14 +4,18 @@
   color: red;
 }
 
-@media (min-width: 200px) { body { padding-top: 90px; } }
+@media (min-width: 200px) {  }
+
+body {
+  padding-top: 100px;
+}
 
 .nav {
   font-family: "helvetica";
 }
 
 .collapse {
-  padding-top: 20px;
+  padding-top: 50px;
 }
 
 .container {
