@@ -11,8 +11,9 @@
   font-family: 'Nunito', sans-serif;
   text-align: center;
   background-color: #c96c21;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
-
 
 
 #hero {
@@ -24,13 +25,20 @@
 #hero #summary-story {
   padding-left:30px;
   padding-right:10px;
-  
+}
+
+#hero #summary-story h3 {
+  font-family: 'Fauna One', serif;
 }
 
 #big-buttons {
   background-color: #515151;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+h2.copy-heading {
+  font-family: 'Nunito', sans-serif;
 }
 
 div .col-md-12 {
