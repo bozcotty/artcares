@@ -13,3 +13,11 @@
   </div>
 
 <% end %>
+
+  <p>Step 1. If you're an artist, and know someone personally who could use some financial help during a health hardship - you're in like Flynn! We'd love to have you <%= link_to "sign-up", new_user_registration_path %>!</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-5 col-md-offset-1">
+    <p>Step 2. Once you've signed-up, you're ready to create a Patient Campaign. This is where you'll 

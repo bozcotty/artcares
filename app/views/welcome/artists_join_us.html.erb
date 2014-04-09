@@ -1,75 +1,97 @@
 <div class="container-fluid">
  
-<h2 class="copy-heading">Artists join us! Here's how it works...</h2>
+<h2 class="copy-heading text-center">Artists join us! Here's how it works...</h2>
 
-<div class="row">
-  <div class="col-md-5 col-md-offset-1">
+<div class="row os-font">
+  <div class="col-md-4 col-md-offset-2">
     <p><%=(image_tag ('/assets/artcaring-patient-campaigns.png'))%></p>
   </div>
 
-  <div class="col-md-5">
-    <p>Step 1. If you're an artist, and know someone personally who could use some financial help during a health hardship - you're in like Flynn! We'd love to have you <%= link_to "sign-up", new_user_registration_path %>!</p>
+  <div class="col-md-4">
+    <p>1. If you're an artist, and know someone personally who could use some financial help during a health hardship - you're in! We'd love to have you <%= link_to "sign-up", new_user_registration_path %>!</p>
   </div>
 </div>
+<br>
 
-<div class="row">
-  <div class="col-md-5 col-md-offset-1">
-    <p>Step 2. Once you've signed-up, you're ready to create a Patient Campaign. This is where you'll 
-
+<div class="row os-font">
+  <div class="col-md-4 col-md-offset-2">
+    <p>2. Once you've signed-up, verified your email, and signed back in, you're ready to create a Patient Campaign. This is where you'll tell us about the person who will benefit from your art sales on ArtCaring.
     </p>
+
+    <% if current_user %>
+      <p>Looks like you're signed-up and signed-in! <%= link_to "
+      Start your Patient Campaign here", new_patient_campaign_path %>.</p>
+    <% end %>
+
   </div>
 
-  <div class="col-md-5">
+  <div class="col-md-4">
     <p><%=(image_tag ('/assets/artcaring-artworks.png'))%></p>
   </div>
 </div>
+<br>
 
-<div class="row">
-  <div class="col-md-5 col-md-offset-1">
+<div class="row os-font">
+  <div class="col-md-4 col-md-offset-2">
     <p><%=(image_tag ('/assets/artcaring-approved.png'))%></p>
   </div>
-  <div class="col-md-5">
-    <p>New Patient Campaigns are verified and approved based on the information the artist provides for the Campaign. ArtCaring checks the information provided in the Patient Campaign to confirm the authenticity of the Patient's situation.</p>
+  <div class="col-md-4">
+    <p>3. With a Patient Campaign set up, you'll be ready to start listing artworks. Provide as much information about each artwork as you can, and make sure you upload great product photos! Next step...read through our details and conditions below!</p>
   </div>
 </div>
+<br>
 
 
-<h2 class="copy-heading">Where do you fit in?</h2>
+<h2 class="copy-heading text-center">This stuff is important, too. Keep reading...</h2>
 
-<div class="row">
-  <div class="col-md-5 col-md-offset-1">
-    <p>Whether you came to ArtCaring through a personal invitation from an artist you already know, by word of mouth, or some other means, we're glad you're here! By purchasing an artwork on ArtCaring.com <strong>you help someone directly...in a very big way!</strong>
-    </p>
+<div class="row os-font">
+  <div class="col-md-4 col-md-offset-2">
+    <p>4. Let's cover the basic details and conditions for how ArtCaring works... 
   </div>
 
-  <div class="col-md-5">
+  <div class="col-md-4">
     <p><%=(image_tag ('/assets/artcaring-art-shopping.png'))%></p>
   </div>
 </div>
+<br>
 
-<div class="row">
-  <div class="col-md-5 col-md-offset-1">
+<div class="row os-font">
+  <div class="col-md-4 col-md-offset-2">
     <p><%=(image_tag ('/assets/artcaring-art-mediums.png'))%></p>
   </div>
 
-  <div class="col-md-5">
-    <p>So, when you're ready, go ahead and <strong><%= link_to "search and shop by type of work", welcome_learn_path %></strong>. We have art in many media, including painting, drawing, sculpture, wood, mixed media, jewelry, fiber, ceramics, glass, metalwork, photography and printmaking.
+  <div class="col-md-4">
+    <p>5. When you set up your Patient Campaign:
+      <ul>
+        <li>You will specify what percentage (between 0% and 30%) of artwork sales you'll want to keep.</li>
+        
+        <li>Be honest. Don't heap bad juju on yourself by making up false information - as it will need to be verified on our end :)</li>
+        
+      </ul>
     </p>
   </div>
 </div>
+<br>
 
-<div class="row">
-  <div class="col-md-5 col-md-offset-1">
-    <p>What if you'd like to help someone based on their story...<strong><%= link_to "search and shop by Patient Campaign", welcome_learn_path %></strong>. Or if you'd like to help someone with a particular condition, injury or disease, <strong><%= link_to "search and shop by health condition", welcome_learn_path %></strong>.
+<div class="row os-font">
+  <div class="col-md-4 col-md-offset-2">
+    <p>6. As soon as you've listed your art in your Campaign:
+      <ul>
+        <li>Make sure you contact everyone on your mailing list, especially your previou buyers, as they will be the most likely people to support your Campaign!</li>
+        
+        <li>Use social media to tell the world about what you're trying to do for your Patient!</li>
+        
+      </ul>
     </p>
   </div>
 
-  <div class="col-md-5">
+  <div class="col-md-4">
     <p><%=(image_tag ('/assets/artcaring-purchases.png'))%></p>
   </div>
 </div>
 
 
-<h2 class="copy-heading">Here, artists and art lovers come together for the benefit of others.</h2>
+
+<h2 class="copy-heading text-center">Here, artists and art lovers come together for the benefit of others.</h2>
 
 </div>
