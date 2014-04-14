@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :headshot, HeadshotUploader
 
-  has_many :patient_campaigns
+  has_one :patient_campaigns
   has_many :artworks
   
   ROLES = %w[member moderator admin]

@@ -26,7 +26,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to (image_tag ('/assets/artcaring-logo.png')), root_path, class: "navbar-brand" %>
+          <%= link_to (image_tag ('/assets/artcaring.png')), root_path, class: "navbar-brand" %>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -114,12 +114,17 @@
     <div class="col-md-4">
       <ul class="list-unstyled">
         <li><%= link_to "Learn", welcome_learn_path %></li>
-        <li><%= link_to "How It Works", welcome_learn_path %></li>
+        <li><%= link_to "Artists Join Us", welcome_artists_join_us_path %></li>
+        <li><%= link_to "About Us", welcome_about_path %></li>
       </ul>
     </div>
 
     <div class="col-md-4">
-      more links here
+      <ul class="list-unstyled">
+        <li><%= link_to "Terms of Use", welcome_terms_and_conditions_path %></li>
+        <li><%= link_to "X", welcome_learn_path %></li>
+        <li><%= link_to "Y", welcome_about_path %></li>
+      </ul>
     </div>
 
     <div class="col-md-4">
