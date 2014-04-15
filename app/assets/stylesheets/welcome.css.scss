@@ -37,9 +37,11 @@
   padding-bottom: 30px;
 }
 
-h2.copy-heading {
+h2.copy-heading, h4.copy-heading {
   font-family: 'Nunito', sans-serif;
 }
+
+
 
 div .col-md-12 {
   background-color: #a7a7a7;
@@ -47,6 +49,10 @@ div .col-md-12 {
 
 div.os-font {
   font-size: 18px;
+}
+
+#dim_unavailable h5.greyed, p.greyed {
+  color: #c4c4c4;
 }
 
 

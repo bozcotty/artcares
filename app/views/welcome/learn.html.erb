@@ -15,7 +15,7 @@
 
 <div class="row os-font">
   <div class="col-md-4 col-md-offset-2">
-    <p>Artists then add <strong>artworks</strong> to their Campaign where anyone can buy them (securely, via <a href=https://stripe.com/ target="_blank">Stripe</a>). Once an artwork has sold and received by the buyer, proceeds from the sale can be released. The artist has the option to keep a portion, up to 30%, of the sale proceeds (plus shipping/handling costs). The remainder of the sale, less fees, is disbursed to the Patient.
+    <p>Artists then add <strong>artworks</strong> to their Campaign where anyone can buy them (securely, via <a href=https://stripe.com/ target="_blank">Stripe</a>). The artist has the option to keep a portion, up to 30%, of the sale proceeds (plus shipping/handling costs). The remainder of the sale, less <%= link_to "fees", welcome_fees_path %>, is disbursed to the Patient.
     </p>
   </div>
 
@@ -30,7 +30,7 @@
     <p><%=(image_tag ('/assets/artcaring-approved.png'))%></p>
   </div>
   <div class="col-md-4">
-    <p>We verify the Patient Campaigns based on the information provided by the artists, to ensure that you are truly helping individuals in need with your purchases.</p>
+    <p>Depending on whether the artist keeps a portion of the sale, and whether the buyer opts to pay the fees on top of the sale, the Patient will end up receiving between 62% and 100% of the sale price of an Artwork! We verify the Patient Campaigns, by following up on the information provided when Campaigns are created.</p>
   </div>
 </div>
 <br><br>
