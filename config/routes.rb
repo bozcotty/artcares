@@ -27,7 +27,7 @@ Artcares::Application.routes.draw do
   get "welcome/dashboard"
   get "welcome/learn"
   get "welcome/artists_join_us"
-  get "welcome/terms_and_conditions"
+  get "welcome/terms_of_use"
   get "welcome/faq"
 
   root :to => 'welcome#index'
