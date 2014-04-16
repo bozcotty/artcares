@@ -30,5 +30,6 @@ class PatientCampaignsController < ApplicationController
   def edit
     @patient_campaign = PatientCampaign.find(params[:id])
     authorize! :edit, @patient_campaign, message: "You need to own the Patient Campaign to edit it."
+    redirect_to @patient_campaign
   end
 end
