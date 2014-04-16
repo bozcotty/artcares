@@ -37,7 +37,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'figaro'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-
+gem 'simple_form'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

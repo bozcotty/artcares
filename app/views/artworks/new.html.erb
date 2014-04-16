@@ -1,7 +1,6 @@
-<p>List a new artwork for sale</p>
+<p>List a new Artwork for sale</p>
 
-
-<!-- rem - attach it to a patient_campaign -->
+<div class="col-md-8 col-md-offset-2">
 
 <%= form_for @artwork do |f| %>
   <div><%= f.label :title, "Title of Artwork" %>
@@ -23,14 +22,13 @@
   <%= f.text_field :shipping_price %></div>
 
 
-  <p>Upload up to 3 images (.jpg/.jpeg format). The first image will be the one that represents the artwork's listing on the site. It should be the most representative of the artwork.</p>
+  <p>Upload up to 3 images (.jpg/.jpeg format). The first image will be the one that represents the artwork's listing on the site.</p>
 
   <div><%= image_tag(@artwork.art_image_1.url) if @artwork.art_image_1?  %>
     <%= f.label :art_image_1, "Image 1" %> 
       <%= f.file_field :art_image_1 %>
     <span class="cancel">cancel</span></div>
     
-
   <div><%= image_tag(@artwork.art_image_2.url) if @artwork.art_image_2?  %>
     <%= f.label :art_image_2, "Image 2" %> 
       <%= f.file_field :art_image_1 %>
@@ -43,6 +41,8 @@
 
   <p><%= f.submit "Add New Artwork" %></p>
 <% end %>
+
+</div>
 
 
 
