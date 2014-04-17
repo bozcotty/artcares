@@ -95,7 +95,6 @@ body {
 }
 
 
-
 /* more footer styles */
 
 #footer .list-unstyled a {
@@ -115,6 +114,21 @@ body {
   background-color: #92c9e1;
   padding-top: 10px;
   padding-bottom: 5px;
+}
+
+#orange-bg {
+  background-color: #f3953f;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.control-group {
+  margin-bottom: 9px;
+}
+
+input.btn {
+  color: white;
+  background-color: #69abd3;
 }
 
 

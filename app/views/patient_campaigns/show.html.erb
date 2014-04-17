@@ -10,7 +10,6 @@
       <%= image_tag(@patient_campaign.patient_image_1.medium.url) if @patient_campaign.patient_image_1? %>
     </div>
     <div class="col-md-3" align="left">
-      <br>
       <p>Name: <strong><%= @patient_campaign.patient_first_name %> <%=@patient_campaign.patient_last_name%></strong></p>
       <p>Hometown: <strong><%= @patient_campaign.patient_city%>, <%= @patient_campaign.patient_state %></strong></p>
       <p>Situation: <strong><%= @patient_campaign.patient_diagnosis%></strong></p>

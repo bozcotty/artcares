@@ -13,5 +13,6 @@ class PatientCampaign < ActiveRecord::Base
   validates :patient_story, presence: true
   validates :patient_image_1, presence: true
   validates :patient_diagnosis, presence: true
+  validates :user_id, uniqueness: true
   
 end

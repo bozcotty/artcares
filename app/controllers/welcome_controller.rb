@@ -18,7 +18,6 @@ class WelcomeController < ApplicationController
 
   def dashboard
     @artworks = current_user.artworks
-    @patient_campaigns = current_user.patient_campaigns
   end
 
 
