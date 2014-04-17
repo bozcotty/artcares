@@ -30,6 +30,17 @@ class PatientCampaignsController < ApplicationController
   def edit
     @patient_campaign = PatientCampaign.find(params[:id])
     authorize! :edit, @patient_campaign, message: "You need to own the Patient Campaign to edit it."
-    redirect_to @patient_campaign
   end
+
+  def update
+    @patient_campaign = PatientCampaign.find(params[:id])
+    authorize! :update, @patient_campaign, message: "You need to own the Patient Campaign to edit it."
+    if @patient_campaign.update_attributes(params[:patient_campaign])
+      redirect_to @patient_campaign, notice: "Your updates were saved successfully."
+    else
+      flash[:error] = "Error saving Patient Campaign changes. Please try again."
+      render :edit
+    end
+  end
+
 end

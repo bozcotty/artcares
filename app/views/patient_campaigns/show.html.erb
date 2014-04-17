@@ -1,5 +1,29 @@
-<h1>The Campaign for <%= @patient_campaign.patient_first_name %> <%= @patient_campaign.patient_last_name%>.</h1>
-<h3>By artist <%= @patient_campaign.user.first_name %> <%= @patient_campaign.user.last_name %></h3>
-<p><%= @patient_campaign.patient_story %></p>
+<div class="container-fluid">
+  <div class="row" id="green-bg">
+    <div class="col-md-4 col-md-offset-1">
+      <h2 class="copy-heading">The Campaign for <br><%= @patient_campaign.patient_first_name %> <%= @patient_campaign.patient_last_name%>.</h2>
+       
+      <p><%= @patient_campaign.patient_story %></p>
+    </div>
+    <div class="col-md-3">
+      <%= image_tag(@patient_campaign.patient_image_1.medium.url) if @patient_campaign.patient_image_1? %>
+    </div>
+    <div class="col-md-3">
+      <p align="left"><%= @patient_campaign.patient_first_name %>
+    </div>
+      
+  </div>
+
+  <div class="row" id="blue-bg">
+    <div class="col-md-4 col-md-offset-1">
+      <h3 class="copy-heading" align="right">Created by artist: <%= @patient_campaign.user.first_name %> <%= @patient_campaign.user.last_name %></h3>
+      <h5 class="copy-heading" align="right">From: <%=@patient_campaign.user.city %>, <%=@patient_campaign.user.state %>
+    </div>
+
+    <div class="col-md-3">
+      <p align="left"><%= image_tag(@patient_campaign.user.headshot.thumb.url) if @patient_campaign.user.headshot? %></p>
+    </div>
+  </div>
+</div>
 
 

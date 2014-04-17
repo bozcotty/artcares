@@ -56,6 +56,17 @@ body {
   background-color:#616161;
 }
 
+h2.copy-heading, h3.copy-heading, h4.copy-heading, h5.copy-heading {
+  font-family: 'Nunito', sans-serif;
+}
+
+
+/* Image Styles
+-------------------------------------------------- */
+
+
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -96,26 +107,18 @@ body {
 
 #green-bg {
   background-color: #c9e49e;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #blue-bg {
   background-color: #92c9e1;
-  padding-top: 5px;
+  padding-top: 10px;
   padding-bottom: 5px;
 }
 
 
-p.center200img {
-   width: 200px;
-   height: 200px;
-   position: absolute;
-   left: 50%;
-   top: 50%; 
-   margin-left: -100px;
-   margin-top: -100px;
-}
+
 
 
 
