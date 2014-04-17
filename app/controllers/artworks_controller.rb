@@ -7,7 +7,7 @@ class ArtworksController < ApplicationController
   def new
     @patient_campaign = PatientCampaign.find(params[:patient_campaign_id])
     @artwork = Artwork.new
-    authorize! :create, @artwork, message: "You need to own the Patient Campaign to add an artwork to it." 
+    authorize! :create, Artwork, message: "You need to own the Patient Campaign to add an artwork to it." 
   end
 
   def create
@@ -16,7 +16,7 @@ class ArtworksController < ApplicationController
     # @artwork.user = current_user
     @artwork = current_user.artworks.build(params[:artwork])
     @artwork.patient_campaign = @patient_campaign
-      authorize! :create, @artwork, message: "You need to be signed up as an artist to list artworks."
+      authorize! :create, Artwork, message: "You need to be signed up as an artist to list artworks."
    
     if @artwork.save
       flash[:notice] = "Your artwork listing was saved successfully."

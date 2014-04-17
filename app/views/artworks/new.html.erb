@@ -2,7 +2,7 @@
 
 <div class="col-md-8 col-md-offset-2">
 
-<%= form_for @artwork do |f| %>
+<%= form_for [@patient_campaign, @artwork] do |f| %>
   <div><%= f.label :title, "Title of Artwork" %>
   <%= f.text_field :title %></div>
 

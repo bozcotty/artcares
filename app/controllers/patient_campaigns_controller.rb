@@ -15,7 +15,7 @@ class PatientCampaignsController < ApplicationController
   end
 
   def create 
-    @patient_campaign = current_user.patient_campaign.new(params[:patient_campaign])
+    @patient_campaign = current_user.build_patient_campaign(params[:patient_campaign])
     authorize! :create, PatientCampaign, message: "You need to sign up to create a Patient Campaign."
     if @patient_campaign.save
       flash[:notice] = "Patient Campaign was saved successfully."

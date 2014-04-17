@@ -30,16 +30,16 @@
       <% if current_user.patient_campaign && current_user.patient_campaign.artworks.count == 0 %>
         <h5>Your Artworks:</h5>
         <p>(You have no current artworks.)</p>
-        <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path %>
+        <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
         
-      <% elsif current_user.patient_campaign && current_user.patient_campaigns.artworks.count >= 1 %>
+      <% elsif current_user.patient_campaign && current_user.patient_campaign.artworks.count >= 1 %>
         <h5>Your Artworks:</h5>
 
-        <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path %>
+        <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
 
-        <% current_user.patient_campaign.artwork.each do |artwork| %>
-            <p><%= link_to current_user.patient_campaign.artwork.title, current_user.patient_campaign.artwork %>
-            <!-- <p><%= link_to "Edit", edit_patient_campaign_path %></p> -->
+        <% current_user.patient_campaign.artworks.each do |artwork| %>
+            <p><%= link_to current_user.patient_campaign.artwork.title, current_user.patient_campaign.artwork %></p>
+            
         <% end %>
 
       
@@ -50,17 +50,15 @@
   
 
 
-  <% current_user.artworks.each do |artwork| %>
+  <% current_user.patient_campaign.artworks.each do |artwork| %>
     <div class= "row">
-      <div class ="col-md-3 col-md-offset-1">
+      <div class ="col-md-2 col-md-offset-1">
         <%= image_tag(artwork.art_image_1.thumb.url) %>
       </div>
-      <div class = "col-md-3">
+      <div class = "col-md-2">
         <p><%= artwork.title %></p>
         <p>$<%= artwork.price %></p>
       </div>
-      
-      
     </div>
   </br>
   <% end %>
