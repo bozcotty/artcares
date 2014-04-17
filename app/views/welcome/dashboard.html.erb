@@ -5,6 +5,8 @@
     </div>
   </div>
 
+
+
   <div class= "row">
     <div class ="col-md-6">
       <h5>Your Patient Campaign:</h5>
@@ -12,26 +14,17 @@
         <p>(You have no current Patient Campaign. Please start a Patient Campaign...after which you can start listing Artworks!) </p>
         
         <p><%= link_to (image_tag ('/assets/btn-start-campaign.png')), new_patient_campaign_path %></p>
-      <% else %>
+      
+      <% elsif current_user.patient_campaigns.count >= 1 %>
         <% current_user.patient_campaigns.each do |campaign| %>
-             <p><%= link_to (image_tag ('/assets/btn-edit-campaign.png')), edit_patient_campaign_path %></p>
-        <% end %>
+          <%= link_to "Campaign", @patient_campaign_path %>
+        <% end %>  
+
       <% end %>
     </div>
   </div>
 
-  <div class= "row">
-    <div class ="col-md-4" id="dim_unavailable">
-      <% if current_user.patient_campaigns.count >= 1 && current_user.artworks.count == 0 %>
-        <h5>Your Artworks:</h5>
-        <p>(You have no current artworks.)</p>
-        <p><%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path %>  
-      <% elsif current_user.patient_campaigns.count >= 1 && current_user.artworks.count >= 1 %>
-        <h5>Your Artworks:</h5>
-        <p><%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path %>
-      <% end %>
-    </div>
-  </div>
+  
 
 
   <% current_user.artworks.each do |artwork| %>

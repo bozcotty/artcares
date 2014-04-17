@@ -43,4 +43,17 @@ class PatientCampaignsController < ApplicationController
     end
   end
 
+  def destroy
+    @patient_campaign = PatientCampaign.find(params[:id])
+    campaign_name = @patient_campaign.campaign_name
+    authorize! :destroy, @patient_campaign, message: "You need to own the Patient Campaign to delete it."
+    if @patient_campaign.destroy
+      flash[:notice] = "\"#{campaign_name}\" was deleted successfully."
+      redirect_to @patient_campaign
+    else
+      flash[:error] = "There was an error deleting the Patient Campaign."
+      render :show
+    end
+  end
+
 end

@@ -3,7 +3,7 @@ class PatientCampaign < ActiveRecord::Base
                   :patient_story, :patient_image_1, :patient_street_address, :patient_unit_number, :patient_zip_code, :patient_phone_number
 
   belongs_to :user
-  has_many :artworks
+  has_many :artworks, dependent: :destroy
 
   mount_uploader :patient_image_1, PatientImageUploader
 

@@ -36,7 +36,7 @@ class PatientImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :medium do
-    process :resize_to_fill => [250, 250]
+    process :resize_to_fill => [230, 230]
   end
 
   version :thumb do

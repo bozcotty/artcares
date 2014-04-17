@@ -6,10 +6,15 @@
       <p><%= @patient_campaign.patient_story %></p>
     </div>
     <div class="col-md-3">
+      <br>
       <%= image_tag(@patient_campaign.patient_image_1.medium.url) if @patient_campaign.patient_image_1? %>
     </div>
-    <div class="col-md-3">
-      <p align="left"><%= @patient_campaign.patient_first_name %>
+    <div class="col-md-3" align="left">
+      <br>
+      <p>Name: <strong><%= @patient_campaign.patient_first_name %> <%=@patient_campaign.patient_last_name%></strong></p>
+      <p>Hometown: <strong><%= @patient_campaign.patient_city%>, <%= @patient_campaign.patient_state %></strong></p>
+      <p>Situation: <strong><%= @patient_campaign.patient_diagnosis%></strong></p>
+      <p>Relationship to the Artist: <strong><%= @patient_campaign.artist_relationship_to_patient%></strong></p>
     </div>
       
   </div>
@@ -23,6 +28,20 @@
     <div class="col-md-3">
       <p align="left"><%= image_tag(@patient_campaign.user.headshot.thumb.url) if @patient_campaign.user.headshot? %></p>
     </div>
+  </div>
+
+  <div>
+    Insert all of the artists artworks show view (a partial?) here
+  </div>
+
+  <div>
+    <% if can? :edit, @patient_campaign %>
+    <%= link_to "Edit This Campaign", @patient_campaign, method: :edit, class: 'btn btn-large btn-block btn-warning', confirm: 'Are you sure you want to edit this campaign?' %> 
+    Note: trouble with edit button taken to routing error: No route matches [POST] "/patient_campaigns/2"
+    <% end %>
+    <% if can? :destroy, @patient_campaign %>
+    <%= link_to "End This Campaign", @patient_campaign, method: :delete, class: 'btn btn-large btn-block btn-danger', confirm: 'Are you sure you want to delete this Patient Campaign?' %> 
+    <% end %>
   </div>
 </div>
 

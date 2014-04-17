@@ -1,47 +1,28 @@
-<%= form_for @patient_campaign do |f| %>
-
-      <div class="form-group"><%= f.label :campaign_name, "Name your Patient Campaign, (i.e. 'Mary's Cancer Fund' or 'Support for Bill's Back Surgery')" %>
-        <%= f.text_field :campaign_name %></div>
-
-      <div class="form-group"><%= f.label :patient_first_name, "First Name of Patient" %>
-        <%= f.text_field :patient_first_name %></div>
-
-      <div class="form-group"><%= f.label :patient_last_name, "Last Name of Patient" %>
-        <%= f.text_field :patient_last_name %></div>
-
-      <div class="form-group"><%= f.label :patient_street_address, "Patient's Street Address" %>
-        <%= f.text_field :patient_street_address %></div>
-
-      <div class="form-group"><%= f.label :patient_unit_number, "Patient's Apartment/Unit #" %>
-        <%= f.text_field :patient_unit_number %></div>
-
-      <div class="form-group"><%= f.label :patient_city, "Patient's City of Residence" %>
-        <%= f.text_field :patient_city %></div>
-
-      <div class="form-group"><%= f.label :patient_state, "Patient's State of Residence" %>
-        <%= f.text_field :patient_state %></div>
-
-      <div class="form-group"><%= f.label :patient_zip_code, "Patient's Zip Code" %>
-        <%= f.text_field :patient_zip_code %></div>
-
-      <div class="form-group"><%= f.label :patient_phone_number, "Patient's Phone Number" %>
-        <%= f.text_field :patient_phone_number %></div>
-
-      <div class="form-group"><%= f.label :artist_relationship_to_patient, "Briefly - your relationship to the Patient (friend, relative, neighbor, etc.) "%>
-        <%= f.text_area :artist_relationship_to_patient, rows: 1 %></div>
-
-      <div class="form-group"><%= f.label :patient_diagnosis, "Name the Patient's condition, diagnosis, or illness." %>
-        <%= f.text_area :patient_diagnosis, rows: 1 %>
-      <br><br>
-      <div class="form-group"><%= f.label :patient_story, "Tell a brief, compelling story about your Patient. (i.e. what's special about this individual, what do they need help with?)" %>
-        <%= f.text_area :patient_story, rows: 12%>
-
-      <div class="form-group"><%= image_tag(@patient_campaign.patient_image_1.url) if @patient_campaign.patient_image_1? %>
-        <br>
-        <%= f.label :patient_image_1, "Upload a photo of your Patient (square format works best!)" %>
-          <%= f.file_field :patient_image_1 %>
-        <br><span class="cancel">delete photo</span></div>
-        <br>
-      <p><%= f.submit "Publish your Patient Campaign" %></p>
+<div class="container-fluid">
+<br>
+ <div class="row col-md-5 col-md-offset-1" id="orange-bg">
+      <%= simple_form_for @patient_campaign do |f| %>
       
-<%end%>
+      <%= f.input :campaign_name, required: true, label: "Name your Patient Campaign, (i.e. 'Mary\'s Cancer Fund' or 'Support for Bill\'s Back Surgery')" %><br>
+      <%= f.input :patient_first_name, required: true, label: "First Name of Patient" %><br>
+      <%= f.input :patient_last_name, required: true, label: "Last Name of Patient" %><br>
+      <%= f.input :patient_street_address, required: true, label: 'Street Address' %><br>
+      <%= f.input :patient_unit_number, required: true, label: 'Apt/Unit #' %><br>
+      <%= f.input :patient_city, required: true, label: 'City' %><br>
+      <%= f.input :patient_state, required: true, label: 'State' %><br>
+      <%= f.input :patient_zip_code, required: true, label: 'Zip Code' %><br>
+      <%= f.input :patient_phone_number, required: true, label: 'Phone Number' %><br>
+      <%= f.input :artist_relationship_to_patient, required: true, label: 'This person\'s relationship to you (friend, relative, neighbor, etc.)' %><br>
+  </div>
+
+  <div class="row col-md-5 col-md-offset-1"id="orange-bg">
+      <br>
+      <%= f.input :patient_diagnosis, required: true, label: 'Name the Patient\'s condition, diagnosis, major injury, or illness' %><br>
+      <%= f.input :patient_story, required: true, label: 'Tell a brief descriptive and compelling story about your Patient, their situation, and how you\'re going to help.' %><br>
+      <%= image_tag(@patient_campaign.patient_image_1.url) if @patient_campaign.patient_image_1? %><br>
+      <%= f.input :patient_image_1, required: true, label: 'Upload a photo of your Patient (square format works best!)' %><br>
+      <span class="cancel">delete photo</span><br>
+      <br><%= f.button :submit %>
+      <% end %>
+  </div>
+</div>

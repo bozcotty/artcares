@@ -1,0 +1,20 @@
+<% else %>
+        <% current_user.patient_campaigns.each do |campaign| %>
+            <p><%= link_to "Campaign", @patient_campaign_path %>
+            <!-- <p><%= link_to "Edit", edit_patient_campaign_path %></p> -->
+        <% end %>
+
+
+
+<div class= "row">
+    <div class ="col-md-4" id="dim_unavailable">
+      <% if current_user.patient_campaigns.count >= 1 && current_user.patient_campaigns.artworks.count == 0 %>
+        <h5>Your Artworks:</h5>
+        <p>(You have no current artworks.)</p>
+        <p><%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path %>  
+      <% elsif current_user.patient_campaigns.count >= 1 && current_user.patient_campaigns.artworks.count >= 1 %>
+        <h5>Your Artworks:</h5>
+        <p><%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path %>
+      <% end %>
+    </div>
+  </div>
