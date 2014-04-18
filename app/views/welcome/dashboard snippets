@@ -33,3 +33,7 @@ How i want the artworks to show up when listed:
     </div>
   </br>
   <% end %>
+
+  <% current_user.patient_campaign.artworks.each do |artwork| %>
+            <%= link_to artwork.title, patient_campaign_artwork_path(current_user.patient_campaign) %>
+  <% end %>

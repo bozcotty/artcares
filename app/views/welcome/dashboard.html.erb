@@ -1,7 +1,7 @@
 <div class="container">   
   <div class= "row">
     <div class="col-md-4">
-  <h4 class="copy-heading"><%= current_user.first_name %> <%= current_user.last_name %> - Artist's Dashboard</h4>
+  <h3 class="copy-heading"><%= current_user.first_name %> <%= current_user.last_name %> - Artist's Dashboard</h3>
     </div>
   </div>
 
@@ -9,7 +9,7 @@
 
   <div class= "row">
     <div class ="col-md-6">
-      <h5>Your Patient Campaign:</h5>
+      <h4 class="copy-heading">Your Patient Campaign:</h4>
       <% if not current_user.patient_campaign %>
         <p>(You have no current Patient Campaign.)</p>
         <p>Please start a Patient Campaign...after which you can start listing Artworks!) </p>
@@ -25,22 +25,32 @@
       <% end %>
     </div>
   </div>
-
+<br>
   <div class= "row">
     <div class ="col-md-4" id="dim_unavailable">
+      <h4 class="copy-heading">Your Artworks:</h4>
       <% if current_user.patient_campaign && current_user.patient_campaign.artworks.count == 0 %>
-        <h5>Your Artworks:</h5>
+        
         <p>(You have no current artworks.)</p>
         <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
         
       <% elsif current_user.patient_campaign && current_user.patient_campaign.artworks.count >= 1 %>
-        <h5>Your Artworks:</h5>
-
+        
         <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
 
         <% current_user.patient_campaign.artworks.each do |artwork| %>
-            <p><%= link_to current_user.patient_campaign.artwork.title, current_user.patient_campaign.artwork %></p>
-            
+          <br>
+          <div class= "row">
+            <div class ="col-md-2 col-md-offset-1">
+              <%= image_tag(artwork.art_image_1.thumb.url) %>
+            </div>
+            <div class = "col-md-2">
+              <%= link_to artwork.title, @artwork %>
+              $<%= artwork.price %>
+              <p><%= artwork.medium %></p>
+            </div>
+          </div>
+          </br>
         <% end %>
 
       

@@ -24,7 +24,7 @@
       <%= image_tag(@patient_campaign.patient_image_1.url) if @patient_campaign.patient_image_1? %>
       <%= f.input :patient_image_1,label:'Upload a photo of your Patient (square format works best!)' %>delete photo
       <br><br>
-      <%= f.button :submit %>
+      <%= f.button :submit, "Submit Patient Campaign" %>
       <% end %>
   </div>
 </div> 

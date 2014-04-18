@@ -1,20 +1,18 @@
-<div class="container-fluid">
-
-  <h4 class="text-center">*Note: All fields are required.</h4>
-  <div class="row col-md-5 col-md-offset-1">
+<div class="row col-md-5 col-md-offset-1">
 
     <%= simple_form_for [@patient_campaign, @artwork] do |f| %>
 
-      <%= f.input :title, label: "Title of Artwork" %>
-      <%= f.input :size, label: "Dimensions/Size" %>
-      <%= f.input :medium, label: "Medium" %>
-      <%= f.input :summary, label: "Description of Work" %>
-      <%= f.input :price, label: "Price" %>
-      <%= f.input :shipping_price, label: "Shipping Cost" %>
+      <%= f.input :title, :input_html => {:maxlength => 45, :size => 45}, label: "Title of Artwork" %>
+      <%= f.input :size, :input_html => {:maxlength => 20, :size => 45}, label: "Dimensions/Size" %>
+      <%= f.input :medium, :input_html => {:maxlength => 40, :size => 45}, label: "Medium" %>
+      <%= f.input :summary, :input_html => { :rows => 5 }, label: "Description of Work (Limit: 200 characters)" %>
+      <%= f.input :price, label: "Price (US $)" %>
+      <%= f.input :shipping_price, label: "Shipping & Handling Cost (US $)" %>
   </div>
 
-  <div class="row col-md-5 col-md-offset-1">
-    <p>Upload up to 3 images (.jpg/.jpeg format). The first image will be the one that represents the artwork listing on the site.</p>
+  <div class="row col-md-5">
+    
+    <p><strong>Upload up to 3 images</strong> of this Artwork (.jpg/.jpeg format). <br>At least one image required.</p>
 
     <%= image_tag(@artwork.art_image_1.url) if @artwork.art_image_1?  %>
       <%= f.input :art_image_1, label: "Image 1" %> 
@@ -26,9 +24,7 @@
 
     <%= image_tag(@artwork.art_image_3.url) if @artwork.art_image_3?  %>
       <%= f.input :art_image_3, label: "Image 3" %> 
-      delete photo<br><br>
-
-    <%= f.button :submit %>
+      delete photo<br><br><br>
+    <%= f.button :submit, "List Artwork" %>
     <% end %>
   </div>
-</div>

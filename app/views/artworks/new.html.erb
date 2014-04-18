@@ -5,6 +5,8 @@
       <p><%=(image_tag ('/assets/artcaring-list-artworks-sm.png'))%></p>
     </div>
     <div class="col-md-6">
+      <br>
+      <br>
       <h2 class="copy-heading text-center">List a new Artwork!</h2>
 
       <h4 class="text-center">Provide the details here, and remember to include great photographs of your work.</h4>
@@ -13,10 +15,17 @@
   </div>
 
   <div class="row">
-    
-    <div class="col-md-8 col-md-offset-2">
-      <%= render partial: 'form', locals: { patient_campaign: @patient_campaign, artworks: @artworks } %>
-    </div>
+    <h4 class="text-center">*Required fields</h4>
+  </div>
+
+  <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <%= render partial: 'form', locals: { patient_campaign: @patient_campaign, artworks: @artworks } %>
+      </div>
+  </div>
+
+
+
   </div>
 
 

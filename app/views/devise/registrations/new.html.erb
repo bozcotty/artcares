@@ -1,65 +1,66 @@
-<h2>Sign up</h2>
+<div class="container-fluid">
+  <div class="row" id="green-bg">
+    <div class="col-md-3 text-center">
+      <br>
+       <p><%=(image_tag ('/assets/artcaring-signup-sm.png'))%></p>
+    </div>
+    <div class="col-md-6">
+      <br>
+      <br>
+      <h2 class="copy-heading text-center">Sign Up Here!</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+      <h4 class="text-center">By signing up with ArtCaring, you get to help someone in need, through your art!</h4>
 
-  <div><%= f.label :email, "Email *" %>
-  <%= f.email_field :email, :autofocus => true %></div>
+    </div>
+  </div>
+  <br>
 
-  <div><%= f.label :password, "Password *" %>
-  <%= f.password_field :password %></div>
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div><%= f.label :password_confirmation, "Password Confirmation *" %>
-  <%= f.password_field :password_confirmation %></div>
-  <br />
+      <%= f.input :email, label: "Email", :input_html => {:maxlength => 45, :size => 45} %>
+      <%= f.input :password, label: "Password", :input_html => {:maxlength => 25, :size => 25} %>
+      <%= f.input :password_confirmation, label: "Password Confirmation", :input_html => {:maxlength => 25, :size => 25} %>
+      
+    <p>Please fill out the rest of the form below.</p>
+    <br />
 
-  <p>Please fill out the rest of the form below.</p>
-  <br />
+      <%= f.input :first_name, label: "First Name", :input_html => {:maxlength => 30, :size => 30} %>
 
-  <div><%= f.label :first_name, "First Name *" %>
-  <%= f.text_field :first_name %></div>
 
-  <div><%= f.label :last_name, "Last Name *" %>
-  <%= f.text_field :last_name %></div>
+      <%= f.input :last_name, label: "Last Name", :input_html => {:maxlength => 40, :size => 30}%>
+      
 
-  <p>Upload an image of yourself (jpg or jpeg file):</p>
+      <p>Upload an image of yourself (jpg or jpeg file):</p>
 
-  <div><%= image_tag(@user.headshot.url) if @user.headshot?  %>
-    <%= f.label :headshot, "Artist Image" %> 
-      <%= f.file_field :headshot %></div>
+      <%= image_tag(@user.headshot.url) if @user.headshot?  %>
+        <%= f.input :headshot,  label: "Artist Image/Headshot", :input_html => {:maxlength => 45, :size => 45} %> 
+      
+      <%= f.input :street_address, label: "Street Address", :input_html => {:maxlength => 45, :size => 45} %>
+      
+      <%= f.input :unit_number, label: "Apt/Unit #", :input_html => {:maxlength => 15, :size => 15} %>
+      
+      <%= f.input :city, label: "City", :input_html => {:maxlength => 30, :size => 30} %>
+      
+      <%= f.input :state, label: "State", :input_html => {:maxlength => 20, :size => 20} %>
+      
+      <%= f.input :zip_code, label: "Zip Code", :input_html => {:maxlength => 15, :size => 15} %>
+     
+      <%= f.input :phone_number, label: "Phone Number", :input_html => {:maxlength => 20, :size => 20} %>
+      
+      <%= f.input :art_website, label: "Your Art Website URL", :input_html => {:maxlength => 55, :size => 45} %>
+      
+      <%= f.select :type_of_artist, [ 'Painter', 'Sculptor', 'Jeweler', 'Photographer', 'Fiber Artist', 'Mixed Media Artist', 'Woodworker', 'Metalsmith', 'Glass Artist', 'Ceramic Artist',  'Graphite/Ink Artist', 'Printmaker'  ], :prompt => 'Type of Artist (Select One)' %>
+      
+      
+      Your Media<%= f.input :artist_statement, :input_html => { :rows => 10 }, label: "Brief Artist Statement (500 characters or less) *" %>
+      
 
-  <div><%= f.label :street_address, "Street Address *" %>
-  <%= f.text_field :street_address %></div>
+      <%= f.button :submit, "Sign Up" %>
+      <br />
+      
 
-  <div><%= f.label :unit_number, "Apartment/Unit Number *" %>
-  <%= f.text_field :unit_number %></div>
-
-  <div><%= f.label :city, "City *" %>
-  <%= f.text_field :city %></div>
-
-  <div><%= f.label :state, "State *" %>
-  <%= f.text_field :state %></div>
-
-  <div><%= f.label :zip_code, "Zip Code *" %>
-  <%= f.text_field :zip_code %></div>
-
-  <div><%= f.label :phone_number, "Phone Number *" %>
-  <%= f.text_field :phone_number %></div>
-
-  <div><%= f.label :art_website, "Your Art Website URL *" %>
-  <%= f.text_field :art_website %></div>
-
-  <div><%= f.label :type_of_artist, "Type of Artist (i.e. painter, sculptor, jeweler) *" %>
-  <%= f.text_field :type_of_artist %></div>
-
-  <div><%= f.label :artist_statement, "Brief Artist Statement (500 characters or less) *" %>
-  <%= f.text_area :artist_statement %></div>
-
-<div><%= f.submit "Sign up" %></div>
-  <br />
-  
-
-<% end %>
+    <% end %>
 
 
 

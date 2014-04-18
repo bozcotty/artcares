@@ -37,3 +37,11 @@
 
   <p><%= f.submit "Add New Artwork" %></p>
 <% end %>
+
+
+
+form partial:
+
+<div class="col-md-8 col-md-offset-2">
+      <%= render partial: 'form', locals: { patient_campaign: @patient_campaign, artworks: @artworks } %>
+    </div>
