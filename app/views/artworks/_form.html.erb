@@ -1,0 +1,34 @@
+<div class="container-fluid">
+
+  <h4 class="text-center">*Note: All fields are required.</h4>
+  <div class="row col-md-5 col-md-offset-1">
+
+    <%= simple_form_for [@patient_campaign, @artwork] do |f| %>
+
+      <%= f.input :title, label: "Title of Artwork" %>
+      <%= f.input :size, label: "Dimensions/Size" %>
+      <%= f.input :medium, label: "Medium" %>
+      <%= f.input :summary, label: "Description of Work" %>
+      <%= f.input :price, label: "Price" %>
+      <%= f.input :shipping_price, label: "Shipping Cost" %>
+  </div>
+
+  <div class="row col-md-5 col-md-offset-1">
+    <p>Upload up to 3 images (.jpg/.jpeg format). The first image will be the one that represents the artwork listing on the site.</p>
+
+    <%= image_tag(@artwork.art_image_1.url) if @artwork.art_image_1?  %>
+      <%= f.input :art_image_1, label: "Image 1" %> 
+      delete photo<br><br>
+      
+    <%= image_tag(@artwork.art_image_2.url) if @artwork.art_image_2?  %>
+      <%= f.input :art_image_2, label: "Image 2" %> 
+      delete photo<br><br>
+
+    <%= image_tag(@artwork.art_image_3.url) if @artwork.art_image_3?  %>
+      <%= f.input :art_image_3, label: "Image 3" %> 
+      delete photo<br><br>
+
+    <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

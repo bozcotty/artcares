@@ -9,21 +9,20 @@
       
       <h4 class="text-center">Remember: You may not change your Patient!</h4>
 
-      <p>If you need to edit information regarding your Patient, please do that here. We want Patient Campaigns to run smoothly Change only necessary information. </p>
+      <p>If you need to edit information regarding your Patient, please do that here. We want Patient Campaigns to run smoothly. Change only necessary information. </p>
       <ul>
         <li>Some items may not be editable without ArtCaring permission.</li>
         <li>You may run one Patient Campaign at a time.</li>
         <li>You will not be able to delete your Patient Campaign if transactions have not been completed with outstanding buyers.</li>
       </ul>
-      <p>Please fill in your edited information below. Only edit critical information as needed. If you can avoid editing the Patient Campaign, things will run more smoothly.</p>
+      
     </div>
   </div>
 </div>
-<br>
 
 
-<div class="col-md-8 col-md-offset-2">
-  
-    <%= render partial: 'form', locals: { patient_campaign: @patient_campaign } %>
-          
+  <div class="row" id="orange-bg">
+    <div class="col-md-8 col-md-offset-2">
+      <%= render partial: 'form', locals: { patient_campaign: @patient_campaign } %>
+    </div>
   </div>

@@ -35,11 +35,12 @@
 
   <div>
     <% if can? :edit, @patient_campaign %>
-    <%= link_to "Edit This Campaign", @patient_campaign, method: :edit, class: 'btn btn-large btn-block btn-warning', confirm: 'Are you sure you want to edit this campaign?' %> 
-    Note: trouble with edit button taken to routing error: No route matches [POST] "/patient_campaigns/2"
+    <%= link_to "Edit This Campaign", edit_patient_campaign_path(@patient_campaign), class: 'btn btn-large btn-block btn-warning', confirm: 'Are you sure you want to edit this campaign?' %> 
+      or, 2nd argument for link_to above could be [:edit, @patient_campaign]
     <% end %>
     <% if can? :destroy, @patient_campaign %>
-    <%= link_to "End This Campaign", @patient_campaign, method: :delete, class: 'btn btn-large btn-block btn-danger', confirm: 'Are you sure you want to delete this Patient Campaign?' %> 
+    <%= link_to "End This Campaign", @patient_campaign, method: :delete, class: 'btn btn-large btn-block btn-danger', confirm: 'Are you sure you want to delete this Patient Campaign?' %>
+
     <% end %>
   </div>
 </div>

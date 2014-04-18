@@ -18,3 +18,18 @@
       <% end %>
     </div>
   </div>
+
+
+How i want the artworks to show up when listed:
+  <% current_user.patient_campaign.artworks.each do |artwork| %>
+    <div class= "row">
+      <div class ="col-md-2 col-md-offset-1">
+        <%= image_tag(artwork.art_image_1.thumb.url) %>
+      </div>
+      <div class = "col-md-2">
+        <p><%= artwork.title %></p>
+        <p>$<%= artwork.price %></p>
+      </div>
+    </div>
+  </br>
+  <% end %>

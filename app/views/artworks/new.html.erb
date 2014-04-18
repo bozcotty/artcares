@@ -1,46 +1,24 @@
-<p>List a new Artwork for sale</p>
+<div class="container-fluid">
+  <div class="row" id="green-bg">
+    <div class="col-md-3 text-center">
+      <br>
+      <p><%=(image_tag ('/assets/artcaring-list-artworks-sm.png'))%></p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="copy-heading text-center">List a new Artwork!</h2>
 
-<div class="col-md-8 col-md-offset-2">
+      <h4 class="text-center">Provide the details here, and remember to include great photographs of your work.</h4>
 
-<%= form_for [@patient_campaign, @artwork] do |f| %>
-  <div><%= f.label :title, "Title of Artwork" %>
-  <%= f.text_field :title %></div>
+    </div>
+  </div>
 
-  <div><%= f.label :size, "Dimensions/Size" %>
-  <%= f.text_field :size %></div>
-
-  <div><%= f.label :medium, "Medium" %>
-  <%= f.text_field :medium %></div>
-
-  <div><%= f.label :summary, "Summary" %>
-  <%= f.text_field :summary %></div>
-
-  <div><%= f.label :price, "Price" %>
-  <%= f.text_field :price %></div>
-
-  <div><%= f.label :shipping_price, "Shipping Cost" %>
-  <%= f.text_field :shipping_price %></div>
-
-
-  <p>Upload up to 3 images (.jpg/.jpeg format). The first image will be the one that represents the artwork's listing on the site.</p>
-
-  <div><%= image_tag(@artwork.art_image_1.url) if @artwork.art_image_1?  %>
-    <%= f.label :art_image_1, "Image 1" %> 
-      <%= f.file_field :art_image_1 %>
-    <span class="cancel">cancel</span></div>
+  <div class="row">
     
-  <div><%= image_tag(@artwork.art_image_2.url) if @artwork.art_image_2?  %>
-    <%= f.label :art_image_2, "Image 2" %> 
-      <%= f.file_field :art_image_1 %>
-    <span class="cancel">cancel</span></div>
+    <div class="col-md-8 col-md-offset-2">
+      <%= render partial: 'form', locals: { patient_campaign: @patient_campaign, artworks: @artworks } %>
+    </div>
+  </div>
 
-  <div><%= image_tag(@artwork.art_image_3.url) if @artwork.art_image_3?  %>
-    <%= f.label :art_image_3, "Image 3" %> 
-      <%= f.file_field :art_image_1 %>
-    <span class="cancel">cancel</span></div>
-
-  <p><%= f.submit "Add New Artwork" %></p>
-<% end %>
 
 </div>
 

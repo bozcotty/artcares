@@ -1,8 +1,3 @@
-<p>Edit this Artwork</p>
-
-
-<!-- rem - attach it to a patient_campaign -->
-
 <%= form_for [@patient_campaign, @artwork] do |f| %>
   <div><%= f.label :title, "Title of Artwork" %>
   <%= f.text_field :title %></div>
@@ -23,23 +18,22 @@
   <%= f.text_field :shipping_price %></div>
 
 
-  <p>Upload up to 3 images (.jpg/.jpeg format). The first image will be the one that represents the artwork's listing on the site. It should be the most representative of the artwork.</p>
+  <p>Upload up to 3 images (.jpg/.jpeg format). The first image will be the one that represents the artwork's listing on the site.</p>
 
   <div><%= image_tag(@artwork.art_image_1.url) if @artwork.art_image_1?  %>
     <%= f.label :art_image_1, "Image 1" %> 
       <%= f.file_field :art_image_1 %>
-    <span class="cancel">delete image</span></div>
+    <span class="cancel">cancel</span></div>
     
-
   <div><%= image_tag(@artwork.art_image_2.url) if @artwork.art_image_2?  %>
     <%= f.label :art_image_2, "Image 2" %> 
       <%= f.file_field :art_image_1 %>
-    <span class="cancel">delete image</span></div>
+    <span class="cancel">cancel</span></div>
 
   <div><%= image_tag(@artwork.art_image_3.url) if @artwork.art_image_3?  %>
     <%= f.label :art_image_3, "Image 3" %> 
       <%= f.file_field :art_image_1 %>
-    <span class="cancel">delete image</span></div>
+    <span class="cancel">cancel</span></div>
 
-  <p><%= f.submit "Save Artwork" %></p>
+  <p><%= f.submit "Add New Artwork" %></p>
 <% end %>
