@@ -30,6 +30,7 @@ Artcares::Application.routes.draw do
   get "welcome/terms_of_use"
   get "welcome/faq"
   get "welcome/fees"
+  get "welcome/formplay"
 
   root :to => 'welcome#index'
 end
