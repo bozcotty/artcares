@@ -8,11 +8,9 @@ class PatientCampaign < ActiveRecord::Base
   mount_uploader :patient_image_1, PatientImageUploader
 
   validates :artist_relationship_to_patient, presence: true, length: {maximum: 30}
-  validates :patient_city, presence: true
-  validates :patient_state, presence: true
-  validates :patient_story, presence: true
-  validates :patient_image_1, presence: true
-  validates :patient_diagnosis, presence: true
+
+  validates :patient_city, :patient_state, :patient_story, :patient_image_1, :patient_diagnosis, :patient_zip_code, :patient_phone_number, presence: true
+
   validates :user_id, uniqueness: true
   
 end

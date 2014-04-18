@@ -1,4 +1,9 @@
-<div class="row col-md-5 col-md-offset-1">
+  <div class="row">
+    <h4 class="text-center">*Required fields</h4>
+    <br>
+  </div>
+
+  <div class="row col-md-5 col-md-offset-1">
 
     <%= simple_form_for [@patient_campaign, @artwork] do |f| %>
 
@@ -24,7 +29,7 @@
 
     <%= image_tag(@artwork.art_image_3.url) if @artwork.art_image_3?  %>
       <%= f.input :art_image_3, label: "Image 3" %> 
-      delete photo<br><br><br>
+     cancel photo<br><br>
     <%= f.button :submit, "List Artwork" %>
     <% end %>
   </div>
