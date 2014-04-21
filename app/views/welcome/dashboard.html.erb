@@ -44,17 +44,32 @@
       <% elsif current_user.patient_campaign && current_user.patient_campaign.artworks.count >= 1 %>
         
         <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
+      <br><br>
+    </div>
+  </div>
 
         <% current_user.patient_campaign.artworks.each do |artwork| %>
-          <br>
+          
           <div class= "row">
-            <div class ="col-md-2 col-md-offset-1">
-              <%= image_tag(artwork.art_image_1.thumb.url) %>
+            <div class ="col-md-2" >
+              <p style="float: right"><%= image_tag(artwork.art_image_1.thumb.url) %></p>
+
             </div>
-            <div class = "col-md-2">
-              <%= link_to artwork.title, edit_patient_campaign_artwork_path %>
-              $<%= artwork.price %>
-              <p><%= artwork.medium %></p>
+            <div class = "col-md-3">
+              
+              <%= artwork.title %>
+              
+              <br>
+              $<%= artwork.price %><br>
+              <%= artwork.medium %><br>
+              <% if can? :edit, Artwork %>
+              <%= link_to "Edit", edit_patient_campaign_artwork_path(artwork.patient_campaign, artwork)%>
+              <% end %><br>
+
+              <% if can? :destroy, Artwork %>
+                <%= link_to "Delete", patient_campaign_artwork_path(artwork.patient_campaign, artwork), method: :delete, confirm: 'Are you sure you want to delete this Artwork?' %>
+              <% end %>
+              
             </div>
           </div>
           </br>
