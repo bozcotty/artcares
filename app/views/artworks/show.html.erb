@@ -5,9 +5,7 @@
     <div class="col-md-7">
       <%= image_tag @artwork.art_image_1 %>
 
-      <% if can? :update, @artwork %>
-      <%= link_to "Edit This Listing", edit_patient_campaign_artwork_path %>
-      <% end %>
+      
 
     </div>
 
@@ -23,8 +21,13 @@
         <p>Medium: <%= @artwork.medium %>   
         <p>Price:<%= number_to_currency(@artwork.price) %></p>
         
+        <% if can? :update, @artwork %>
+      <%= link_to "Edit Artwork", edit_patient_campaign_artwork_path %>
+      <% end %><br>
+
         <% if can? :destroy, @patient_campaign, @artwork %>
-        <%= link_to "Delete Artwork", [@patient_campaign, @artwork,] , method: :delete, class: 'btn btn-large btn-block btn-danger', confirm: 'Are you sure you want to delete this Patient Campaign?' %>
+        <%= link_to "Delete Artwork", [@patient_campaign, @artwork,] , method: :delete, confirm: 'Are you sure you want to delete this Patient Campaign?' %>
+        <% end %>
 
     </div>
 

@@ -19,6 +19,7 @@
 // for cancelling art uploads in artworks>new 
 $(function(){
   $('.cancel').click(function(){
-    $(this).siblings('input[type=file]').val('')
+    $(this).parent().find('input[type=file]').val('')
+    return false
   })
 })

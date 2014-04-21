@@ -10,7 +10,9 @@ Artcares::Application.routes.draw do
   resources :patient_campaigns
 
   resources :patient_campaigns do
-    resources :artworks
+    resources :artworks do
+      post :buy
+    end
   end
   
   resources :users, only: [:index, :show] # for public view

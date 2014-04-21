@@ -29,7 +29,7 @@
 
     <%= image_tag(@artwork.art_image_3.url) if @artwork.art_image_3?  %>
       <%= f.input :art_image_3, label: "Image 3" %> 
-     cancel photo<br><br>
+     <a href='#' class='cancel'>Cancel</a><br><br>
     <%= f.button :submit, "List Artwork" %>
     <% end %>
   </div>

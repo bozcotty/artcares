@@ -66,4 +66,27 @@ class ArtworksController < ApplicationController
   end
   
 
+  # form_tag patient_campaign_artwork_buy_path(artwork.patient_campaign, artwork) do
+  #   stripe checkout stuff
+  # end
+  def buy
+    @artwork = Artwork.find(params[:artwork_id])
+
+    charge = Stripe::Charge.create(
+      :card        => params[:stripe_Token],
+      :amount      => @artwork.price * 100 + shipping_cost,
+      :description => "#{params[:stripeEmail]} purchased #{@artwork.title}",
+      :currency    => 'usd'
+    )
+
+    @buyer = Buyer.create(name: params[:stripeShippingName),
+                          city: params[:stripeShippingAddressCity])
+
+    PurchaseMailer.new_purchase(@artwork, @buyer).deliver
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to charges_path
+  end
+
 end
