@@ -6,18 +6,18 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :first_name, :last_name, :city, :state, :art_website, 
-                  :type_of_artist, :artist_statement, :email, :password, :password_confirmation, :remember_me,
+                  :type_of_artist, :artist_statement, :email, :email_confirmation, :password, :password_confirmation, :remember_me,
                   :provider, :uid, :headshot, :street_address, :unit_number, :zip_code, :phone_number
 
 
   # validates :art_website,'url is valid', presence: true,
-
+  validates :email, :password, confirmation: true
   validates :type_of_artist, presence: true, length: {maximum: 40}
   validates :artist_statement, length: { maximum: 500 }, presence: true
 
   mount_uploader :headshot, HeadshotUploader
 
-  has_one :patient_campaign
+  has_one :patient_campaign, dependent: :destroy
   has_many :artworks
   
   ROLES = %w[member moderator admin]

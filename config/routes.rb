@@ -2,7 +2,7 @@ Artcares::Application.routes.draw do
   
   
   
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
 
   resources :artists, only: [:index, :show]
   # artists index would show a list of artists, show would show detail page of artists info for public view

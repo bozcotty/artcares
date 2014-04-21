@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140402172652) do
+ActiveRecord::Schema.define(:version => 20140421003342) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20140402172652) do
     t.string   "patient_unit_number"
     t.string   "patient_zip_code"
     t.string   "patient_phone_number"
+    t.integer  "artist_percentage"
   end
 
   create_table "users", :force => true do |t|
