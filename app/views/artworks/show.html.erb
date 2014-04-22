@@ -2,24 +2,33 @@
 
 
   <div class="row">
-    <div class="col-md-7">
-      <%= image_tag @artwork.art_image_1 %>
+    <div class="col-md-5 col-md-offset-1">
+      <br>
 
-      
+      <p style="float:right"><%= image_tag @artwork.art_image_1 %></p>
+        <br>
+      <% if @artwork.art_image_2? %>
+        <p style="float:right"><%= image_tag @artwork.art_image_2%></p>
+        <br>
+      <% end %>
+      <% if @artwork.art_image_3? %>
+        <p style="float:right"><%= image_tag @artwork.art_image_3%></p>
+      <% end %>
+
 
     </div>
 
     <div class="col-md-5">
       
-      
-
       <div class="page-header">
         <h3>"<%= @artwork.title %>"<small> by <%= @artwork.user.first_name %> <%= @artwork.user.last_name %></small></h3>
 
         <p><%= image_tag(@artwork.user.headshot.thumb.url) if @artwork.user.headshot? %></p>
         <p>Size: <%= @artwork.size %></p>
         <p>Medium: <%= @artwork.medium %>   
-        <p>Price:<%= number_to_currency(@artwork.price) %></p>
+        <p>Price: <%= number_to_currency(@artwork.price) %></p>
+        <p>Description: <%= @artwork.summary%></p>
+
         
         <% if can? :update, @artwork %>
       <%= link_to "Edit Artwork", edit_patient_campaign_artwork_path %>
@@ -28,6 +37,7 @@
         <% if can? :destroy, @patient_campaign, @artwork %>
         <%= link_to "Delete Artwork", [@patient_campaign, @artwork,] , method: :delete, confirm: 'Are you sure you want to delete this Patient Campaign?' %>
         <% end %>
+      </div>
 
     </div>
 

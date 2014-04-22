@@ -79,7 +79,7 @@ class ArtworksController < ApplicationController
       :currency    => 'usd'
     )
 
-    @buyer = Buyer.create(name: params[:stripeShippingName),
+    @buyer = Buyer.create(name: params[:stripeShippingName],
                           city: params[:stripeShippingAddressCity])
 
     PurchaseMailer.new_purchase(@artwork, @buyer).deliver

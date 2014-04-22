@@ -21,11 +21,11 @@
 
     <%= image_tag(@artwork.art_image_1.url) if @artwork.art_image_1?  %>
       <%= f.input :art_image_1, label: "Image 1" %> 
-      delete photo<br><br>
+      <a href='#' class='cancel'>Cancel</a><br><br>
       
     <%= image_tag(@artwork.art_image_2.url) if @artwork.art_image_2?  %>
       <%= f.input :art_image_2, label: "Image 2" %> 
-      delete photo<br><br>
+      <a href='#' class='cancel'>Cancel</a><br><br>
 
     <%= image_tag(@artwork.art_image_3.url) if @artwork.art_image_3?  %>
       <%= f.input :art_image_3, label: "Image 3" %> 
