@@ -1,5 +1,5 @@
 class Purchase < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "shalemont@gmail.com"
 
   def new_purchase(artwork, buyer)
     @artwork = artwork
