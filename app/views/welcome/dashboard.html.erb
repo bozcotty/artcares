@@ -15,50 +15,64 @@
 <!-- Patient Campaign Section -->
   <div class= "row">
 
-    <div class ="col-md-6">
-      <h4 class="copy-heading">Your Patient Campaign:</h4>
-      <% if not current_user.patient_campaign %>
-        <p>(You have no current Patient Campaign.)</p>
-        <p>Please start a Patient Campaign...after which you can start listing Artworks!) </p>
+    <% if not current_user.patient_campaign %>
+
+      <div class ="col-md-6">
+        <h4 class="copy-heading">Your Patient Campaign:</h4>
         
-        <p><%= link_to (image_tag ('/assets/btn-start-campaign.png')), new_patient_campaign_path %></p>
-      
-      <% else %>
-    </div>
+          <p>(You have no current Patient Campaign.)</p>
+          <p>Please start a Patient Campaign...after which you can start listing Artworks!) </p>
+          
+          <p><%= link_to (image_tag ('/assets/btn-start-campaign.png')), new_patient_campaign_path %></p>
+              
+      </div>
+
+    <% elsif current_user.patient_campaign %>
+
+      <div class ="col-md-6">
+        <h4 class="copy-heading">Your Patient Campaign:</h4>
+      </div>
+
+      <div class="col-md-2">
+        <%= link_to (image_tag ('/assets/btn-sm-edit-camp.png')), edit_patient_campaign_path(current_user.patient_campaign) %>
+      </div>
+
+
   </div>
   <div class="row">
-    <div class="col-md-1">
-      <%= image_tag(current_user.patient_campaign.patient_image_1.thumb.url) %>
-    </div>
-    <div class="col-md-5">
-
+      <div class="col-md-1">
+        <%= image_tag(current_user.patient_campaign.patient_image_1.thumb.url) %>
+      </div>
+      <div class="col-md-5">
         <strong><%= link_to current_user.patient_campaign.campaign_name, current_user.patient_campaign %></strong>
-          <%#= link_to campaign.campaign_name, "/patient_campaigns/#{campaign.id}" %>
-          <%#= link_to campaign.campaign_name, patient_campaign_path(campaign.id) %>
-          <%#= link_to campaign.campaign_name, patient_campaign_path(campaign) %>
-      <% end %>
-    </div>
-    <div class="col-md-2">
-
-        <%= link_to (image_tag ('/assets/btn-sm-edit-camp.png')), edit_patient_campaign_path(current_user.patient_campaign) %>
-      
-    </div>
+            <%#= link_to campaign.campaign_name, "/patient_campaigns/#{campaign.id}" %>
+            <%#= link_to campaign.campaign_name, patient_campaign_path(campaign.id) %>
+            <%#= link_to campaign.campaign_name, patient_campaign_path(campaign) %>
+      </div>
+    <% end %>
   </div>
+       
 
 <hr>
 
 <!-- Artworks Section -->
   <div class= "row">
-    <div class ="col-md-4" id="dim_unavailable">
+    
+    <% if current_user.patient_campaign && current_user.patient_campaign.artworks.count == 0 %>
+
+    <div class ="col-md-6" id="dim_unavailable">
       <h4 class="copy-heading">Your Artworks:</h4>
-      <% if current_user.patient_campaign && current_user.patient_campaign.artworks.count == 0 %>
-        
-        <p>(You have no current artworks.)</p>
-        <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
-        
-      <% elsif current_user.patient_campaign && current_user.patient_campaign.artworks.count >= 1 %>
-        
-        <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
+      <p>(You have no current artworks.)</p>
+      <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
+    </div>  
+     
+    <% elsif current_user.patient_campaign && current_user.patient_campaign.artworks.count >= 1 %>
+
+    <div class ="col-md-6" id="dim_unavailable">
+      <h4 class="copy-heading">Your Artworks:</h4>
+    </div>
+    <div class = "col-md-2">     
+        <%= link_to (image_tag ('/assets/btn-sm-list-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
       <br><br>
     </div>
   </div>
