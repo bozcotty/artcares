@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140421003342) do
+ActiveRecord::Schema.define(:version => 20140424174320) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -27,6 +27,25 @@ ActiveRecord::Schema.define(:version => 20140421003342) do
     t.string   "art_image_3"
     t.integer  "user_id"
     t.integer  "patient_campaign_id"
+  end
+
+  create_table "buyers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "address_line_1"
+    t.string   "address_zip"
+    t.string   "address_city"
+    t.string   "address_state"
+    t.string   "address_country"
+    t.string   "address_country_code"
+    t.string   "shipping_name"
+    t.string   "shipping_address_line1"
+    t.string   "shipping_address_zip"
+    t.string   "shipping_address_city"
+    t.string   "shipping_address_state"
+    t.string   "shipping_address_country"
+    t.string   "shipping_address_country_code"
   end
 
   create_table "patient_campaigns", :force => true do |t|
