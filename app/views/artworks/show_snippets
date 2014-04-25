@@ -1,0 +1,8 @@
+<div class="col-md-6 text-right">
+              <%= form_tag [@patient_campaign, @artwork, :buy] do %>
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-description=“<%= @artwork.title %>“
+                    data-amount=“<%= @artwork.price %>“, data-shipping-address=true></script>
+                <% end %>
+            </div>
