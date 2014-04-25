@@ -40,7 +40,7 @@ class PatientImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_fill => [45, 45]
+    process :resize_to_fill => [80, 80]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

@@ -74,7 +74,7 @@ class ArtworksController < ApplicationController
 
     charge = Stripe::Charge.create(
       :card        => params[:stripe_Token],
-      :amount      => (@artwork.price * 100) + @artwork.shipping_cost,
+      :amount      => (@artwork.price * 100) + @artwork.shipping_price,
       :description => "#{params[:stripeEmail]} purchased #{@artwork.title}",
       :currency    => 'usd'
     )

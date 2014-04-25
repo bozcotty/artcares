@@ -6,6 +6,8 @@ class PatientCampaign < ActiveRecord::Base
   belongs_to :user
   has_many :artworks, dependent: :destroy
 
+  after_create :full_name
+
   mount_uploader :patient_image_1, PatientImageUploader
 
   validates :artist_relationship_to_patient, presence: true, length: {maximum: 30}
@@ -19,5 +21,8 @@ class PatientCampaign < ActiveRecord::Base
 
   validates :artist_percentage, numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 30 }
 
+  def full_name
+    patient_first_name + " " + patient_last_name
+  end
   
 end

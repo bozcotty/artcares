@@ -19,19 +19,23 @@
     </div>
 
     <div class="col-md-5">
-      <div class="page-header">
-        <h3>"<%= @artwork.title %>"<small> by <%= @artwork.user.first_name %> <%= @artwork.user.last_name %></small></h3>
+      <div>
+        <br>
+        <h4 class="copy-heading">"<%= @artwork.title %>"<small> by <%= @artwork.user.first_name %> <%= @artwork.user.last_name %></small></h4>
           <div class="row">
-            <div class="col-md-6">
-              <h3><%= image_tag(@artwork.user.headshot.thumb.url) if @artwork.user.headshot? %></h3>
+            <div class="col-md-2">
+              <%= image_tag(@artwork.user.headshot.thumb.url) if @artwork.user.headshot? %>
             </div>
-            <div class="col-md-3 text-right">
-              <h3><small> for (patient first name, patient last name)</small></h3>
+            <div class="col-md-5 text-right">
+              <p> for <%= link_to (@artwork.user.patient_campaign.full_name), [@patient_campaign], method: :get %> </p>
+                (<%= @artwork.user.patient_campaign.patient_diagnosis %>)
+
             </div>
-            <div class="col-md-3 text-right">
-              <h3><small> (patient pic goes here) </small></h3>
+            <div class="col-md-5">
+              <%= image_tag(@artwork.user.patient_campaign.patient_image_1.thumb.url) %>
             </div>
           </div>
+          <hr>
           <div class="row">
             <div class="col-md-6">
               <p>Size: <%= @artwork.size %></p>
@@ -49,7 +53,12 @@
               <% end %>
             </div>
             <div class="col-md-6 text-right">
-              <%= link_to (image_tag ('/assets/btn-buy.png')), [@patient_campaign, @artwork,], method: :buy%>
+              <%= form_tag [@patient_campaign, @artwork, :buy] do %>
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-description=“<%= @artwork.title %>“
+                    data-amount=“<%= @artwork.price %>“, data-shipping-address=true></script>
+                <% end %>
             </div>
           </div>
 
