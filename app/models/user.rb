@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
                   :type_of_artist, :artist_statement, :email, :email_confirmation, :password, :password_confirmation, :remember_me,
                   :provider, :uid, :headshot, :street_address, :unit_number, :zip_code, :phone_number
 
+  after_create :full_name
 
   # validates :art_website,'url is valid', presence: true,
   validates :email, :password, confirmation: true, presence: true
@@ -30,6 +31,10 @@ class User < ActiveRecord::Base
   before_create :set_member
   def set_member
     self.role ||= 'member'
+  end
+
+  def full_name
+    first_name + " " + last_name
   end
 
 end

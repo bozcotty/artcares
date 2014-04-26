@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-
+<!-- artwork images -->
   <div class="row">
     <div class="col-md-5">
       <br>
@@ -15,19 +15,20 @@
         <p style="float:right"><%= image_tag @artwork.art_image_3%></p>
       <% end %>
 
-
     </div>
 
+<!-- artwork info section -->
     <div class="col-md-5">
       <div>
         <br>
-        <h4 class="copy-heading">"<%= @artwork.title %>"<small> by <%= @artwork.user.first_name %> <%= @artwork.user.last_name %></small></h4>
+        <!-- change the link to an artist view page, (to be made) -->
+        <h4 class="copy-heading">"<%= @artwork.title %>"<small> by <%= link_to (@artwork.user.full_name), [@artwork.user], method: :get %></small></h4>
           <div class="row">
             <div class="col-md-2">
               <%= image_tag(@artwork.user.headshot.thumb.url) if @artwork.user.headshot? %>
             </div>
             <div class="col-md-5 text-right">
-              <p> for <%= link_to (@artwork.user.patient_campaign.full_name), [@patient_campaign], method: :get %> </p>
+              <p> for <%= link_to (@artwork.user.patient_campaign.full_name), [@artwork.patient_campaign], method: :get %> </p>
                 (<%= @artwork.user.patient_campaign.patient_diagnosis %>)
 
             </div>
@@ -43,7 +44,7 @@
               <p>Price: <%= number_to_currency(@artwork.price) %></p>
               <p>Description: <%= @artwork.summary%></p>
 
-              
+<!-- owner's edit links               -->
               <% if can? :update, @artwork %>
                 <%= link_to "Edit Artwork", edit_patient_campaign_artwork_path %>
                 <% end %><br>

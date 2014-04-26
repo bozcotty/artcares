@@ -7,7 +7,7 @@ CarrierWave.configure do |config|
     # :region                 => 'us-west-2' 
   } 
   config.fog_directory  = ENV['AWS_BUCKET']
-  config.fog_public     = true 
+  config.fog_public     = false 
 end 
 
 # Ref:
