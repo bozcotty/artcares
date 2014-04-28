@@ -17,7 +17,7 @@
   <div class="col-md-4 col-md-offset-2">
     <p>2. Once you've signed-up and we've confirmed your account, you're ready to <strong>create a Patient Campaign</strong>. This is where you'll tell us about the person who will benefit from your art sales on ArtCaring.</p>
 
-    <% if current_user && current_user.patient_campaign != 1 %> 
+    <% if current_user and not current_user.patient_campaign %> 
       <p>Looks like you're signed-up and signed-in! <%= link_to "
       Start your Patient Campaign here", new_patient_campaign_path %>.</p>
     <% end %>
