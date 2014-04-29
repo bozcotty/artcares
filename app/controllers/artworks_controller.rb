@@ -81,7 +81,8 @@ class ArtworksController < ApplicationController
       )
     
 
-    @buyer = Buyer.where(name: params[:stripeBillingName], 
+    @buyer = Buyer.where(name: params[:stripeBillingName],
+      email: params[:stripeEmail], 
       address_line_1: params[:stripeBillingAddressLine1], 
       address_apartment: params[:stripeBillingAddressApt], 
       address_zip: params[:stripeBillingAddressZip], 
