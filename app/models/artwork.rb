@@ -24,7 +24,7 @@ class Artwork < ActiveRecord::Base
 
   def stripe_amount
     # converted to cents!
-    (price*100) + (shipping_price*100)
+    ((price*100) + (shipping_price*100)).to_i
   end
 
 end

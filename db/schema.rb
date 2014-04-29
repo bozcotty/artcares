@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140424174320) do
+ActiveRecord::Schema.define(:version => 20140429222151) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -40,12 +40,14 @@ ActiveRecord::Schema.define(:version => 20140424174320) do
     t.string   "address_country"
     t.string   "address_country_code"
     t.string   "shipping_name"
-    t.string   "shipping_address_line1"
+    t.string   "shipping_address_line_1"
     t.string   "shipping_address_zip"
     t.string   "shipping_address_city"
     t.string   "shipping_address_state"
     t.string   "shipping_address_country"
     t.string   "shipping_address_country_code"
+    t.string   "address_apartment"
+    t.string   "shipping_address_apartment"
   end
 
   create_table "patient_campaigns", :force => true do |t|

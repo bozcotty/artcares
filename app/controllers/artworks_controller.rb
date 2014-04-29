@@ -73,16 +73,30 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.find(params[:artwork_id])
 
     charge = Stripe::Charge.create(
-      :card        => params[:stripe_Token],
+      :card        => params[:stripeToken],
       # amount is in cents! (includes price + shipping price)
       :amount      => @artwork.stripe_amount,
-      :description => "#{params[:stripe_Email]} purchased #{@artwork.title}",
+      :description => "#{params[:stripeEmail]} purchased #{@artwork.title}",
       :currency    => 'usd'
       )
     
 
-    @buyer = Buyer.find_or_create_by(name: params[:stripeShippingName],
-                          city: params[:stripeShippingAddressCity])
+    @buyer = Buyer.where(name: params[:stripeBillingName], 
+      address_line_1: params[:stripeBillingAddressLine1], 
+      address_apartment: params[:stripeBillingAddressApt], 
+      address_zip: params[:stripeBillingAddressZip], 
+      address_city: params[:stripeBillingAddressCity], 
+      address_state: params[:stripeBillingAddressState], 
+      address_country: params[:stripeBillingAddressCountry], 
+      address_country_code: params[:stripeBillingAddressCountryCode],
+      shipping_name: params[:stripeShippingName], 
+      shipping_address_line_1: params[:stripeShippingAddressLine1], 
+      shipping_address_apartment: params[:stripeShippingAddressApt], 
+      shipping_address_zip: params[:stripeShippingAddressZip], 
+      shipping_address_city: params[:stripeShippingAddressCity], 
+      shipping_address_state: params[:stripeShippingAddressState], 
+      shipping_address_country: params[:stripeShippingAddressCountry], 
+      shipping_address_country_code: params[:stripeShippingAddressCountryCode]).first_or_create
 
     PurchaseMailer.new_purchase(@artwork, @buyer).deliver
 
