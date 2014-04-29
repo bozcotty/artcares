@@ -74,19 +74,24 @@ class ArtworksController < ApplicationController
 
     charge = Stripe::Charge.create(
       :card        => params[:stripe_Token],
-      :amount      => (@artwork.price * 100) + @artwork.shipping_price,
-      :description => "#{params[:stripeEmail]} purchased #{@artwork.title}",
+      # amount is in cents! (includes price + shipping price)
+      :amount      => @artwork.stripe_amount,
+      :description => "#{params[:stripe_Email]} purchased #{@artwork.title}",
       :currency    => 'usd'
-    )
+      )
+    
 
     @buyer = Buyer.find_or_create_by(name: params[:stripeShippingName],
                           city: params[:stripeShippingAddressCity])
 
     PurchaseMailer.new_purchase(@artwork, @buyer).deliver
 
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to charges_path
-  end
+  
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to charges_path
+    end
+  
+  
 
 end

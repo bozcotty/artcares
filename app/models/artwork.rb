@@ -7,6 +7,8 @@ class Artwork < ActiveRecord::Base
   belongs_to :patient_campaign
   # validates user.id == patient_campaign.user.id
 
+  after_create :stripe_amount
+
   validates :title, :size, :medium, :price, :shipping_price, :summary, presence: true
   validates :price, numericality: { greater_than: 99.99, less_than_or_equal_to: 25000.00 }
   validates :shipping_price, presence: true
@@ -20,6 +22,9 @@ class Artwork < ActiveRecord::Base
   mount_uploader :art_image_2, ArtImageUploader
   mount_uploader :art_image_3, ArtImageUploader
 
-  
+  def stripe_amount
+    # converted to cents!
+    (price*100) + (shipping_price*100)
+  end
 
 end

@@ -6,3 +6,32 @@
                     data-amount=“<%= @artwork.price %>“, data-shipping-address=true></script>
                 <% end %>
             </div>
+
+#tried custom install of my buy button - got 'we're sorry but something went wrong':
+            <%= form_tag [@patient_campaign, @artwork, :buy] do %>
+                <script src="https://checkout.stripe.com/checkout.js"></script>
+
+                <button id="customButton"><%= (image_tag ('/assets/btn-buy.png'))</button>
+
+                <script>
+                  var handler = StripeCheckout.configure({
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    
+                    
+                    token: function(token, args) {
+      #Use the token to create the charge with a server-side script.
+      #You can access the token ID with `token.id`
+                      }
+                    });
+
+                  document.getElementById('customButton').addEventListener('click', function(e) {
+                    // Open Checkout with further options
+                    handler.open({
+                      data-description=“<%= @artwork.title %>“
+                      data-amount=“<%= @artwork.price %>“, data-shipping-address=true>
+                    });
+                    e.preventDefault();
+                  });
+                </script>
+
+              <% end %>
