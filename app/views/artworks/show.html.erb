@@ -40,9 +40,10 @@
           <div class="row">
             <div class="col-md-6">
               <p>Size: <%= @artwork.size %></p>
-              <p>Medium: <%= @artwork.medium %>   
+              <p>Medium: <%= @artwork.medium %></p>  
               <p>Price: <%= number_to_currency(@artwork.price) %></p>
-              <p>Description: <%= @artwork.summary%></p>
+              <p>Shipping and Handling (Continental US): <%= number_to_currency(@artwork.shipping_price) %></p>
+              <p>Description: <%=@artwork.summary%></p>
 
 <!-- owner's edit links               -->
               <% if can? :update, @artwork %>
@@ -58,7 +59,13 @@
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                     data-description=“<%= @artwork.title %>“
-                    data-amount=“<%= @artwork.price %>“, data-shipping-address=true></script>
+                    data-amount=“<%= @artwork.price %>“, 
+                    data-image="<%= image_tag(@artwork.art_image_1.thumb.url) %>",
+                    data-label="Buy Now"
+                    data-shipping-address=true>,
+                    
+
+                </script>
                 <% end %>
             </div>
             </div>
