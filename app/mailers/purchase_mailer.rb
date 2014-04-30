@@ -1,4 +1,4 @@
-class Purchase < ActionMailer::Base
+class PurchaseMailer < ActionMailer::Base
   default from: "shalemont@gmail.com"
 
   def new_purchase(artwork, buyer)
