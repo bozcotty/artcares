@@ -1,1 +1,51 @@
-You just bought some art, bucky!
+<div class="container-fluid">
+ 
+  <h2 class="copy-heading text-center">Thank You for your purchase of:
+  <br> 
+  "<%= @artwork.title %>" by <%=@artwork.user.full_name%></h2>
+
+
+  <div class="row text-center">
+    <%= image_tag(@artwork.art_image_1.small.url) %>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <div class="row">
+        <div class="col-md-11 panel panel-default">
+          <h4>Item Details:</h4>
+          Size: <%=@artwork.size %><br>
+          Medium: <%=@artwork.medium %><br>
+          Price (incl. shipping): <%= number_to_currency(@artwork.price + @artwork.shipping_price) %><br>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-11 col-md-offset-1 panel panel-default">
+          <h4>Shipping To:</h4>
+          <%=@buyer.shipping_name %><br>
+          <%=@buyer.shipping_address_line_1 %><br>
+          <% if @buyer.shipping_address_apartment? %>
+            <%=@buyer.shipping_address_apartment %><br>
+          <% end %>
+          <%=@buyer.shipping_address_city %>, <%=@buyer.shipping_address_state %><br>
+          <%=@buyer.shipping_address_country_code %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="style-two">
+  
+  <div class="row text-center">
+  <h4> You just made someone's day! </h4>
+  
+  <%= link_to image_tag(@artwork.user.patient_campaign.patient_image_1.thumb.url), [@artwork.patient_campaign], method: :get %><br>
+  <%=link_to @artwork.user.patient_campaign.full_name, [@artwork.patient_campaign], method: :get %>
+</div>
+
+
+
+</div>
