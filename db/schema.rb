@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140429225336) do
+ActiveRecord::Schema.define(:version => 20140501210528) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20140429225336) do
     t.string   "art_image_3"
     t.integer  "user_id"
     t.integer  "patient_campaign_id"
+    t.string   "category"
   end
 
   create_table "buyers", :force => true do |t|
