@@ -40,7 +40,7 @@
 
       <p>Upload an image of yourself (jpg or jpeg file):</p>
 
-      <%= image_tag(@user.headshot.url) if @user.headshot?  %>
+      <%= image_tag(@user.headshot.small.url) if @user.headshot?  %>
         <%= f.input :headshot,  label: "Artist Image/Headshot", :input_html => {:maxlength => 45, :size => 45} %> 
       
       <%= f.input :street_address, label: "Street Address", :input_html => {:maxlength => 45, :size => 45} %>

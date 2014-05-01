@@ -77,11 +77,8 @@ class ArtworksController < ApplicationController
       # amount is in cents! (includes price + shipping price)
       :amount      => @artwork.stripe_amount,
       :description => "#{params[:stripeEmail]} purchased #{@artwork.title}",
-      :currency    => 'usd',
-      :image       => @artwork.art_image_1.thumb.url,
-      :name        => 'ArtCaring.com',
-      :label       => 'Buy Now',
-      )
+      :currency    => 'usd'
+            )
     
 
     @buyer = Buyer.where(name: params[:stripeBillingName],
@@ -100,7 +97,7 @@ class ArtworksController < ApplicationController
       shipping_address_city: params[:stripeShippingAddressCity], 
       shipping_address_state: params[:stripeShippingAddressState], 
       shipping_address_country: params[:stripeShippingAddressCountry], 
-      shipping_address_country_code: params[:stripeShippingAddressCountryCode])
+      shipping_address_country_code: params[:stripeShippingAddressCountryCode]).first_or_create
       
 
 

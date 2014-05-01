@@ -26,9 +26,9 @@
         
         <%= f.input :patient_diagnosis, :input_html => {:maxlength => 40, :size => 30}, label: 'Name the Patient\'s condition, diagnosis, major injury, or illness' %>
         <%= f.input :patient_story, :input_html => { :rows => 15 }, label: 'Tell a brief descriptive and compelling story about your Patient, their situation, and how you\'re going to help.'  %>
-        <%= image_tag(@patient_campaign.patient_image_1.url) if @patient_campaign.patient_image_1? %>
-        <%= f.input :patient_image_1,label:'Upload a photo of your Patient (square format works best!)' %><span class="cancel">delete photo</span>
-        <%= f.input :artist_percentage, :input_html => {:maxlength => 2, :size => 2}, label:'What percentage (between 0% and 30%) of any art sales do you want to sent to you?' %>
+        <%= image_tag(@patient_campaign.patient_image_1.small.url) if @patient_campaign.patient_image_1? %>
+        <%= f.input :patient_image_1,label:'Upload a photo of your Patient (square format works best!)' %><span class="cancel">delete photo</span><br><br>
+        <%= f.input :artist_percentage, :input_html => {:maxlength => 2, :size => 2}, label:'What percentage (between 0% and 30%) of any art sales do you want to keep?' %>
         <br><br>
         <%= f.button :submit, "Submit Patient Campaign" %>
         <% end %>

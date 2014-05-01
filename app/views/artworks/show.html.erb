@@ -42,7 +42,7 @@
               <p>Size: <%= @artwork.size %></p>
               <p>Medium: <%= @artwork.medium %></p>  
               <p>Price: <%= number_to_currency(@artwork.price) %></p>
-              <p>Shipping and Handling (Continental US): <%= number_to_currency(@artwork.shipping_price) %></p>
+              <p>Shipping Cost (US): <%= number_to_currency(@artwork.shipping_price) %></p>
               <p>Description: <%=@artwork.summary%></p>
 
 <!-- owner's edit links               -->
@@ -53,14 +53,17 @@
               <% if can? :destroy, @patient_campaign, @artwork %>
                 <%= link_to "Delete Artwork", [@patient_campaign, @artwork,] , method: :delete, confirm: 'Are you sure you want to delete this Patient Campaign?' %>
               <% end %>
-            </div>
+
+              </div>
+
+<!-- for stripe checkout button -->
             <div class="col-md-6 text-right">
-                            <%= form_tag [@patient_campaign, @artwork, :buy] do %>
+                <%= form_tag [@patient_campaign, @artwork, :buy] do %>
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                    data-description=“<%= @artwork.title %>“
-                    data-amount=“<%= @artwork.price %>“, 
-                    data-image="<%= image_tag(@artwork.art_image_1.thumb.url) %>",
+                    data-description="<%= @artwork.title %>",
+                    data-amount="<%= @artwork.stripe_amount %>", 
+                    data-image="<%= @artwork.art_image_1.thumb.url.html_safe %>",
                     data-label="Buy Now"
                     data-shipping-address=true>,
                     

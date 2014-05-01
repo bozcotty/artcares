@@ -8,8 +8,10 @@
     <%= simple_form_for [@patient_campaign, @artwork] do |f| %>
 
       <%= f.input :title, :input_html => {:maxlength => 45, :size => 45}, label: "Title of Artwork" %>
-      <%= f.input :size, :input_html => {:maxlength => 20, :size => 45}, label: "Dimensions/Size" %>
-      <%= f.input :medium, :input_html => {:maxlength => 40, :size => 45}, label: "Medium" %>
+      <%= f.input :size, :input_html => {:maxlength => 20, :size => 45}, label: "Dimensions/Size" %><br>
+      <%= f.input :category, :label => "Art Category", :collection => ['Painting', 'Sculpture', 'Jewelry', 'Photography', 'Fiber/Wearables', 'Mixed Media (2D or 3D)', 'Wood', 'Metal', 'Glass', 'Ceramics',  'Drawing', 'Printmaking']%>
+      <br>
+      <%= f.input :medium, :input_html => {:maxlength => 40, :size => 45}, label: "Medium (i.e. oil, acrylic, watercolor. etc.)" %>
       <%= f.input :summary, :input_html => { :rows => 5 }, label: "Description of Work (Limit: 200 characters)" %>
       <%= f.input :price, label: "Price (US $)" %>
       <%= f.input :shipping_price, label: "Shipping & Handling Cost (US $)" %>
@@ -19,15 +21,15 @@
     
     <p><strong>Upload up to 3 images</strong> of this Artwork (.jpg/.jpeg format). <br>At least one image required.</p>
 
-    <%= image_tag(@artwork.art_image_1.url) if @artwork.art_image_1?  %>
+    <%= image_tag(@artwork.art_image_1.small.url) if @artwork.art_image_1?  %>
       <%= f.input :art_image_1, label: "Image 1" %> 
       <a href='#' class='cancel'>Cancel</a><br><br>
       
-    <%= image_tag(@artwork.art_image_2.url) if @artwork.art_image_2?  %>
+    <%= image_tag(@artwork.art_image_2.small.url) if @artwork.art_image_2?  %>
       <%= f.input :art_image_2, label: "Image 2" %> 
       <a href='#' class='cancel'>Cancel</a><br><br>
 
-    <%= image_tag(@artwork.art_image_3.url) if @artwork.art_image_3?  %>
+    <%= image_tag(@artwork.art_image_3.small.url) if @artwork.art_image_3?  %>
       <%= f.input :art_image_3, label: "Image 3" %> 
      <a href='#' class='cancel'>Cancel</a><br><br>
     <%= f.button :submit, "List Artwork" %>

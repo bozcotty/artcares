@@ -39,6 +39,10 @@ class PatientImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [230, 230]
   end
 
+    version :small do
+    process :resize_to_fill => [110, 110]
+  end
+
   version :thumb do
     process :resize_to_fill => [80, 80]
   end

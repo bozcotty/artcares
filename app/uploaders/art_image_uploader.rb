@@ -33,7 +33,7 @@ class ArtImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
   version :small do
-    process :resize_to_fill => [180, 180]
+    process :resize_to_fill => [110, 110]
   end
 
   # Create different versions of your uploaded files:
