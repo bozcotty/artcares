@@ -1,0 +1,12 @@
+Paintings index
+<div class="container-fluid">
+
+    <% @patient_campaigns.artworks.painting.each do |artwork| %>
+      <div>
+        <%= image_tag(artwork.art_image_1.small.url) %>
+      </div>
+      </br>
+    <%end %>
+</div>
+
+

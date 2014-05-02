@@ -21,9 +21,6 @@ Artcares::Application.routes.draw do
 
   get 'dashboard', to: 'welcome#dashboard', as: 'dashboard'
   
-
- 
-
   get "welcome/index"
   get "welcome/about"
   get "welcome/dashboard"
@@ -35,4 +32,9 @@ Artcares::Application.routes.draw do
   get "welcome/formplay"
 
   root :to => 'welcome#index'
+
+  # Shop By Routes:
+
+  get "patient_campaigns/artworks/index_painting"
+
 end

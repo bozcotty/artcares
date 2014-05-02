@@ -37,31 +37,56 @@
                         
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">By Type of Artwork<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Painting</a></li>
-                    </ul>
+              <ul class="dropdown-menu dropdown-menu-left">
+                <li>
+                    <div class="row" style="width: 580px;">
+                        <ul class="list-unstyled col-md-4 col-md-offset-1">
+                            <li><a href="#"><strong>By Type of Artwork</strong></a></li>
+                            <li><a herf="#">Painting</a><li>
+                            <li><a herf="#">Drawing</a><li>
+                            <li><a herf="#">Mixed Media (2D/3D)</a><li>
+                            <li><a herf="#">Printmaking</a><li>
+                            <li><a herf="#">Photography</a><li>
+                            <li><a herf="#">Sculpture</a><li>
+                            <li><a herf="#">Ceramics</a><li>
+                            <li><a herf="#">Jewelry</a><li>
+                            <li><a herf="#">Wood</a><li>
+                            <li><a herf="#">Metal</a><li>
+                            <li><a herf="#">Glass</a><li>
+                            <li><a herf="#">Fiber</a><li>
+                        </ul>
+                        <ul class="list-unstyled col-md-3">
+                            <li><a href="#"><strong>By Price Range</strong></a></li>
+                            <li><a href="#">$100 - $500</a></li>
+                            <li><a href="#">$501 - $1,000</a></li>
+                            <li><a href="#">$1,001 - $2,000</a></li>
+                            <li><a href="#">$2,001 - $3,000</a></li>
+                            <li><a href="#">$3,001 - $5,000</a></li>
+                            <li><a href="#">$Over $,5000</a></li>
+                        </ul>
+                        <ul class="list-unstyled col-md-4">
+                            <li><a href="#"><strong>By Other Factors</strong></a></li>
+                            <li><a href="#">Disease/Injury/Illness</a></li>
+                            <li><a href="#">Patient's Age Range</a></li>
+                            <li><a href="#">Patient's Location</a></li>
+                            <li><a href="#">Artist's Location</a></li>
+                        </ul>
+                    </div>
                 </li>
-                <li><a href="#">By Price</a></li>
-                <li><a href="#">By Patient Campaign</a></li>
-                <li><a href="#">By Artist</a></li>
               </ul>
             </li>
 
             <li><%= link_to "Learn", welcome_learn_path %></li>
 
             <li><%= link_to "Artists Join Us", welcome_artists_join_us_path %></li>
-                        
+            
+            
             <li><form class="navbar-form navbar-right" role="search">
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
                </div>
                 <button type="submit" class="btn btn-default">Submit</button>
-              </form>
-            </li>
-
+              </form></li>
             <li>
               <% if current_user %>
                <%= link_to "Log out", destroy_user_session_path, :method => :delete %>

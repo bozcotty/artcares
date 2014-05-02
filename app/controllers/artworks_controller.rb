@@ -109,6 +109,12 @@ class ArtworksController < ApplicationController
       redirect_to charges_path
   end
   
+# Shop by Actions...
+
+  def index_painting
+    @artworks = Artwork.painting.all
+  end
+  
   
 
 end
