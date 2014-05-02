@@ -109,11 +109,14 @@ class ArtworksController < ApplicationController
       redirect_to charges_path
   end
   
-# Shop by Actions...
+# Shop By Actions...
 
   def index_painting
-    #list all artworks, regardless of patient_campaign with 'painting' defined as the category
-    
+    @artworks = Artwork.where(:category => "Painting")
+  end
+
+  def index_sculpture
+    @artworks = Artwork.where(:category => "Sculpture")
   end
   
   

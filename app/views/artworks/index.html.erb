@@ -1,9 +1,11 @@
 <!-- This is the artworks index...a list of all artworks in db, to be linkable to each artwork.show and (paginated) -->
 
+Sculpture index
 <div class="container-fluid">
 
-    <% @patient_campaigns.artworks.each do |artwork| %>
+    <% @artworks.each do |artwork| %>
       <div>
+        <%= artwork.title %><br>
         <%= image_tag(artwork.art_image_1.small.url) %>
       </div>
       </br>
@@ -11,14 +13,4 @@
 </div>
 
 
-<% @patient_campaigns.artworks.in_groups_of(4).each do |group| %>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <% group.each do |artwork| %>
-        <div class="artwork">
-          <%= image_tag(artwork.art_image_1.small.url) %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+

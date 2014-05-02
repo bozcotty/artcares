@@ -36,5 +36,6 @@ Artcares::Application.routes.draw do
   # Shop By Routes:
 
   get "artworks/index_painting"
+  get "artworks/index_sculpture"
 
 end
