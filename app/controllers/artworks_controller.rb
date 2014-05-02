@@ -112,7 +112,8 @@ class ArtworksController < ApplicationController
 # Shop by Actions...
 
   def index_painting
-    @artworks = Artwork.painting.all
+    #list all artworks, regardless of patient_campaign with 'painting' defined as the category
+    
   end
   
   
