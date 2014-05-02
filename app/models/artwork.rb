@@ -20,7 +20,7 @@ class Artwork < ActiveRecord::Base
   scope :painting, where(:category == "Painting")
 
 
-  <%= f.input :category, :label => "Art Category", :collection => ['Painting', 'Sculpture', 'Jewelry', 'Photography', 'Fiber/Wearables', 'Mixed Media (2D or 3D)', 'Wood', 'Metal', 'Glass', 'Ceramics',  'Drawing', 'Printmaking']%>
+  # <%= f.input :category, :label => "Art Category", :collection => ['Painting', 'Sculpture', 'Jewelry', 'Photography', 'Fiber/Wearables', 'Mixed Media (2D or 3D)', 'Wood', 'Metal', 'Glass', 'Ceramics',  'Drawing', 'Printmaking']%>
   
 
   mount_uploader :art_image_1, ArtImageUploader
