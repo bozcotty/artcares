@@ -17,7 +17,6 @@ class Artwork < ActiveRecord::Base
   validates :user, presence: true
   validates :patient_campaign, presence: true
 
-  
   mount_uploader :art_image_1, ArtImageUploader
   mount_uploader :art_image_2, ArtImageUploader
   mount_uploader :art_image_3, ArtImageUploader

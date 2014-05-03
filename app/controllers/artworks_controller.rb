@@ -65,10 +65,6 @@ class ArtworksController < ApplicationController
     end
   end
   
-
-  # form_tag patient_campaign_artwork_buy_path(artwork.patient_campaign, artwork) do
-  #   stripe checkout stuff
-  # end
   def buy
     @artwork = Artwork.find(params[:artwork_id])
 
@@ -115,8 +111,48 @@ class ArtworksController < ApplicationController
     @artworks = Artwork.where(:category => "Painting")
   end
 
+  def index_drawing
+    @artworks = Artwork.where(:category => "Drawing")
+  end
+
+  def index_mixed_media
+    @artworks = Artwork.where(:category => "Mixed Media (2D or 3D)")
+  end
+
+  def index_printmaking
+    @artworks = Artwork.where(:category => "Printmaking")
+  end
+
+  def index_photography
+    @artworks = Artwork.where(:category => "Photography")
+  end 
+
   def index_sculpture
     @artworks = Artwork.where(:category => "Sculpture")
+  end
+
+  def index_ceramics
+    @artworks = Artwork.where(:category => "Ceramics")
+  end
+
+  def index_jewelry
+    @artworks = Artwork.where(:category => "Jewelry")
+  end
+
+  def index_wood
+    @artworks = Artwork.where(:category => "Wood")
+  end
+
+  def index_metal
+    @artworks = Artwork.where(:category => "Metal")
+  end
+
+  def index_glass
+    @artworks = Artwork.where(:category => "Glass")
+  end
+
+  def index_fiber
+    @artworks = Artwork.where(:category => "Fiber")
   end
   
   
