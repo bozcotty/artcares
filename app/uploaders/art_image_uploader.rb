@@ -32,6 +32,10 @@ class ArtImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  version :medium do 
+    process :resize_to_fill => [260, 260]
+  end
+
   version :small do
     process :resize_to_fill => [110, 110]
   end
