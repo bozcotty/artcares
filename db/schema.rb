@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140502174939) do
+ActiveRecord::Schema.define(:version => 20140501210528) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(:version => 20140502174939) do
     t.string   "address_apartment"
     t.string   "shipping_address_apartment"
     t.string   "email"
+    t.string   "dataName"
+    t.string   "dataImage"
+    t.string   "dataLabel"
   end
 
   create_table "patient_campaigns", :force => true do |t|
