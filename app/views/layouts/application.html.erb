@@ -110,13 +110,13 @@
   <div class="container-fluid">
     <div class="row users">
       <div class="col-md-10">
-        <p class="pull-right"> Hello, <%= current_user.first_name || current_user.email%></p>
+        <h5 class="pull-right copy-heading"> Hello, <%= current_user.first_name || current_user.email%></h5>
       </div> 
       
       <div class="col-md-2">
-        <div class="btn-group btn-group-xs">
-          <button type="button" class="btn btn-default"><%= link_to "Your Dashboard", welcome_dashboard_path %></button>
-        </div>
+        
+          <%= link_to (image_tag ('/assets/your-dashboard.png')),welcome_dashboard_path %>
+        
       </div>
     </div>
   </div>

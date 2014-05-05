@@ -46,14 +46,16 @@ body {
   background-color: #475156;
 }
 
-.users .pull-right {
-  color: #4a9ed1;
-  font-family: 'Droid Sans', sans-serif;
-  font-size: 14px; 
+.users h5 {
+  padding-top: 2px;
 }
 
-#dashboard-btn {
-  background-color:#616161;
+.users .pull-right {
+  color: #4a9ed1;
+}
+
+div#dash-button {
+  padding-top: 5px;
 }
 
 h2.copy-heading, h3.copy-heading, h4.copy-heading, h5.copy-heading, p.copy-heading {
