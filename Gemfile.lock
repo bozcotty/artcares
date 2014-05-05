@@ -42,7 +42,6 @@ GEM
     bcrypt-ruby (3.1.2)
     bootstrap-sass (3.1.1.0)
       sass (~> 3.2)
-    breadcrumbs_on_rails (2.3.0)
     builder (3.0.4)
     cancan (1.6.10)
     carrierwave (0.9.0)
@@ -170,7 +169,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.1.1.0)
-  breadcrumbs_on_rails
   cancan
   carrierwave
   coffee-rails (~> 3.2.1)
