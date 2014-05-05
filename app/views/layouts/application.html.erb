@@ -96,11 +96,7 @@
               
               <% end %>
             </li>
-            <li> 
-              <% if not current_user %>
-              <%= link_to "Sign Up", new_user_registration_path %>
-              <% end %>
-            </li>
+            
           </ul>
           
           
@@ -137,14 +133,14 @@
 
 
 <%= yield %>
-<br>
+
   </div><!-- ends the div "wrap (for sticky footer)" -->
 
 
 
 <div id="footer">
   <div class="container">
-    <div class="col-md-2">
+    <div class="col-md-2 col-md-offset-6">
       <ul class="list-unstyled">
         <li><%= link_to "Learn", welcome_learn_path %></li>
         <li><%= link_to "Artists Join Us", welcome_artists_join_us_path %></li>
@@ -156,12 +152,12 @@
       <ul class="list-unstyled">
         <li><%= link_to "Terms of Use", welcome_terms_of_use_path %></li>
         <li><%= link_to "Fees", welcome_fees_path %></li>
-        <li><%= link_to "Y", welcome_about_path %></li>
+        <li><%= link_to "", welcome_about_path %></li>
       </ul>
     </div>
 
     <div class="col-md-2">
-      even more links here
+      
     </div>
 
   </div>

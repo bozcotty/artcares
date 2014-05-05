@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :first_name, :last_name, :city, :state, :art_website, 
-                  :type_of_artist, :artist_statement, :email, :email_confirmation, :password, :password_confirmation, :remember_me,
+                  :type_of_artist, :artist_statement, :email, :password, :password_confirmation, :remember_me,
                   :provider, :uid, :headshot, :street_address, :unit_number, :zip_code, :phone_number
 
   after_create :full_name

@@ -43,11 +43,11 @@ body {
 }
 
 .users {
-  background-color: #a7a7a7;
+  background-color: #475156;
 }
 
 .users .pull-right {
-  color: #b5e070;
+  color: #4a9ed1;
   font-family: 'Droid Sans', sans-serif;
   font-size: 14px; 
 }
@@ -98,23 +98,28 @@ body {
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -60px;
+  margin: 0 auto -100px;
   /* Pad bottom by footer height */
-  padding: 0 0 60px;
+  padding: 0 0 100px;
 }
 
 /* Set the fixed height of the footer here */
 #footer {
-  height: 80px;
-  background-color: #f5f5f5;
+  height: 100px;
+  background-color: #475156;
   color:"blue";
 }
 
 
 /* more footer styles */
 
+#footer .list-unstyled {
+  margin-top: 15px;
+  }
+
 #footer .list-unstyled a {
-  color: black;
+  color: #4a9ed1;
+  
 }
 
 /* Forms styles
@@ -147,6 +152,18 @@ input.btn {
   color: white;
   background-color: #69abd3;
 }
+
+/*------Sign-in form-------*/
+
+row #form {
+width:300px; 
+margin-top: 15px;
+margin-right:auto; 
+margin-left:auto; 
+border-radius: 15px;
+border: 1px solid #69abd3;
+}
+
 
 
 

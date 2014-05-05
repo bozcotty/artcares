@@ -10,16 +10,23 @@
 #headline {
   font-family: 'Nunito', sans-serif;
   text-align: center;
-  background-color: #c96c21;
-  padding-top: 15px;
+  background-color: #d6792e;
+  color: #1c3c50;
+  padding-top: 12px;
   padding-bottom: 15px;
 }
 
+/* hero area----------
+---------------------*/
 
 #hero {
-  background-color: #d0d0d0;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  background-color: #edb78c;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+#hero img{
+   border-radius: 10px;
 }
 
 #hero #summary-story {
@@ -32,7 +39,7 @@
 }
 
 #big-buttons {
-  background-color: #515151;
+  background-color: #637278;
   padding-top: 30px;
   padding-bottom: 30px;
 }
@@ -61,6 +68,29 @@ div.os-font {
 .container hr {
 margin: 5px 0;
 }
+
+/* cycle odd/even table rows----------
+---------------------*/
+
+tr.odd {
+  background-color: #efefef;
+  height: 49px; /* +2px top and bottom of image thumb size */
+}
+
+tr.even {
+  background-color: #fff;
+  height: 49px; /* +2px top and bottom of image thumb size */
+}
+
+.rounded {
+  border-radius: 5px;
+}
+
+
+
+
+
+
 
 /* Gradient color1 - color2 - color1 */
 hr.style-one {

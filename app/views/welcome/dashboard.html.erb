@@ -42,16 +42,14 @@
   <hr>
 
   <div class="row">
-      <div class="col-md-2">
-        <span class="img-thumbnail"><%= image_tag(current_user.patient_campaign.patient_image_1.thumb.url) %></span>
-      </div>
-      <div class="col-md-5">
-        
+      <div class="col-md-6" style="display: inline-block">
+        <span style="float:left; padding-right: 15px"><%= image_tag(current_user.patient_campaign.patient_image_1.thumb.url) %></span>
         <h4 class="copy-heading"><%= link_to current_user.patient_campaign.campaign_name, current_user.patient_campaign %></h4>
             <%#= link_to campaign.campaign_name, "/patient_campaigns/#{campaign.id}" %>
             <%#= link_to campaign.campaign_name, patient_campaign_path(campaign.id) %>
             <%#= link_to campaign.campaign_name, patient_campaign_path(campaign) %>
       </div>
+      
     <% end %>
   </div>
        
@@ -78,42 +76,42 @@
           </div>
   </div>
 
-  <hr>
-
+        <table>
         <% current_user.patient_campaign.artworks.each do |artwork| %>
           
-          <div class= "row" id="align-bot">
-            <div class ="col-md-1" >
-              <p><%= image_tag(artwork.art_image_1.thumb.url) %></p>
+          <tr class="<%= cycle("odd", "even") -%>">
+            <td class ="col-md-1" >
+              <span class="<%= "rounded" %>" ><%= image_tag(artwork.art_image_1.thumb.url) %></span>
 
-            </div>
-            <div class = "col-md-2">
+            </td>
+            <td class = "col-md-3">
               <%= artwork.title %>
-            </div>
-            <div class = "col-md-2">
+            </td>
+            <td class = "col-md-2">
               <%= artwork.category %>: <%= artwork.medium %>
-            </div>
-            <div class = "col-md-2">
+            </td>
+            <td class = "col-md-2">
               <%= artwork.size %>
-            </div>
-            <div class = "col-md-2">
+            </td>
+            <td class = "col-md-2" style="text-align:right">
               <%= number_to_currency(artwork.price) %>
-            </div> 
-            <div class = "col-md-1" style="text-align: right">
+            </td> 
+            <td class = "col-md-1" style="text-align:right">
               <% if can? :edit, Artwork %>
                   <%= link_to "Edit", edit_patient_campaign_artwork_path(artwork.patient_campaign, artwork)%>
                   <% end %>
-            </div>    
-            <div class = "col-md-1">     
+            </td>    
+            <td class = "col-md-1">     
               <% if can? :destroy, Artwork %>
                   <%= link_to "Delete", patient_campaign_artwork_path(artwork.patient_campaign, artwork), method: :delete, confirm: 'Are you sure you want to delete this Artwork?' %>
                   <% end %>
-            </div>  
+            </td>  
                         
             
-          </div>
-          <hr>
+          </tr>
+          <!-- <hr> -->
         <% end %>
+      </table>
 
       
       <% end %>
