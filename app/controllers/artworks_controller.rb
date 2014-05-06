@@ -158,7 +158,22 @@ class ArtworksController < ApplicationController
   def index_fiber
     @artworks = Artwork.where(:category => "Fiber")
   end
+
+# ------------
   
+  # GET /artworks/search
+  # GET /artworks/search.xml
+
+  def search
+    @artworks = Artwork.search do
+      keywords params[:query]
+    end.results
+
+    respond_to do |format|
+      format.html { render :action => "index"}
+      format.xml { render :xml => @artworks}
+    end
+  end
   
 
 end

@@ -14,6 +14,8 @@ Artcares::Application.routes.draw do
       post :buy
     end
   end
+
+  resources :artworks, only: [:search] 
   
   resources :users, only: [:index, :show] # for public view
 
@@ -46,5 +48,6 @@ Artcares::Application.routes.draw do
   get "artworks/index_metal"
   get "artworks/index_glass"
   get "artworks/index_fiber"
+
   
 end

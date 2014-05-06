@@ -9,6 +9,18 @@ class Artwork < ActiveRecord::Base
 
   after_create :stripe_amount
 
+  searchable do 
+   text :title, :category, :summary
+   text :medium, :boost => 2
+
+   integer :price
+
+   string  :sort_title do
+      title.downcase.gsub(/^(an?|the)/, '')
+    end
+
+  end
+
   validates :title, :size, :medium, :price, :shipping_price, :summary, :category, presence: true
   validates :price, numericality: { greater_than: 99.99, less_than_or_equal_to: 25000.00 }
   validates :shipping_price, presence: true
