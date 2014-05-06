@@ -6,6 +6,10 @@ class PatientCampaign < ActiveRecord::Base
   belongs_to :user
   has_many :artworks, dependent: :destroy
 
+  searchable do
+    text :campaign_name, :patient_diagnosis, :patient_story, :patient_state, :patient_city, :patient_first_name
+  end
+
   after_create :full_name
 
   mount_uploader :patient_image_1, PatientImageUploader

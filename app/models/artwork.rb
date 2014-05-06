@@ -10,12 +10,12 @@ class Artwork < ActiveRecord::Base
   after_create :stripe_amount
 
   searchable do 
-   text :title, :category, :summary
-   text :medium, :boost => 2
+    text :title, :category, :summary
+    text :medium, :boost => 2
 
-   integer :price
+    integer :price
 
-   string  :sort_title do
+    string  :sort_title do
       title.downcase.gsub(/^(an?|the)/, '')
     end
 

@@ -4,10 +4,9 @@ Artcares::Application.routes.draw do
   
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
 
-  resources :artists, only: [:index, :show]
   # artists index would show a list of artists, show would show detail page of artists info for public view
   
-  resources :patient_campaigns
+
 
   resources :patient_campaigns do
     resources :artworks do
@@ -15,7 +14,7 @@ Artcares::Application.routes.draw do
     end
   end
 
-  resources :artworks, only: [:search] 
+  
   
   resources :users, only: [:index, :show] # for public view
 
@@ -48,6 +47,8 @@ Artcares::Application.routes.draw do
   get "artworks/index_metal"
   get "artworks/index_glass"
   get "artworks/index_fiber"
+
+  get "artworks/search"
 
   
 end
