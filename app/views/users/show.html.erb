@@ -20,24 +20,24 @@
     </div>
 
 <!-- patient campaign info -->
-  <!-- patient campaign info -->
+  
     <div class="col-md-4">
-      <%= if user.patient_campaign? %>
-      <h4 class="copy-heading">Artist's Patient: <%= @patient_campaign.full_name %></h4>
-      <p>(Artist's <%= @patient_campaign.artist_relationship_to_patient %>)</p>
+      <% if @patient_campaign %>
+        <h4 class="copy-heading">Artist's Patient: <%= @patient_campaign.full_name %></h4>
+        <p>(Artist's <%= @patient_campaign.artist_relationship_to_patient %>)</p>
 
-      <div class="row">
-        <div class="col-md-4">
-          <%= link_to image_tag(@patient_campaign.patient_image_1.small.url), patient_campaign_path %>
-        </div>
-        <div class="col-md-8">
-          <h5 class="copy-heading"><%= @patient_campaign.campaign_name %></h5>
-          <p><%= @patient_campaign.patient_story %></p>
-          <hr>
+        <div class="row">
+          <div class="col-md-4">
+            <%= link_to image_tag(@patient_campaign.patient_image_1.small.url), patient_campaign_path %>
+          </div>
+          <div class="col-md-8">
+            <h5 class="copy-heading"><%= @patient_campaign.campaign_name %></h5>
+            <p><%= @patient_campaign.patient_story %></p>
+            <hr>
 
       <% else %>
-      <p>This user does not have a patient campaign yet.</p> 
-
+          <p>This user does not have a patient campaign yet.</p> 
+      <% end %>
         </div>
       </div>
 
