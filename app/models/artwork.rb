@@ -9,7 +9,10 @@ class Artwork < ActiveRecord::Base
 
   after_create :stripe_amount
 
-
+  # sunspot
+  searchable do
+    text :title, :summary
+  end
 
   validates :title, :size, :medium, :price, :shipping_price, :summary, :category, presence: true
   validates :price, numericality: { greater_than: 99.99, less_than_or_equal_to: 25000.00 }
@@ -19,6 +22,7 @@ class Artwork < ActiveRecord::Base
   validates :art_image_1, presence: true
   validates :user, presence: true
   validates :patient_campaign, presence: true
+  validates :category, inclusion: {in: ['Painting', 'Sculpture', 'Jewelry', 'Photography', 'Fiber/Wearables', 'Mixed Media (2D or 3D)', 'Wood', 'Metal', 'Glass', 'Ceramics',  'Drawing', 'Printmaking']}
 
 
   mount_uploader :art_image_1, ArtImageUploader

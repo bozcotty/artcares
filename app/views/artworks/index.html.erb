@@ -1,6 +1,6 @@
 <!-- This is the artworks index...a list of all artworks in db, to be linkable to each artwork.show and (paginated) -->
 
-Sculpture index
+<!-- Sculpture index
 <div class="container-fluid">
 
     <% @artworks.each do |artwork| %>
@@ -10,7 +10,28 @@ Sculpture index
       </div>
       </br>
     <%end %>
+</div> -->
+
+
+
+<%= params[:category] ? params[:category].capitalize : 'Artworks' %> index
+<div class="container-fluid">
+
+ 
+
+  <div class ="col-md-10 col-md-offset-1">
+    <% @artworks.in_groups_of(3, false) do |row_tasks| %>
+      
+        <% for artwork in row_tasks %>
+        <span class="img-margin">
+          <%= link_to image_tag(artwork.art_image_1.medium.url), [artwork.patient_campaign, artwork] %>
+          
+        </span>
+        <% end %>
+     
+     <br><br>
+    <% end %>
+ 
+  </div>
+  
 </div>
-
-
-

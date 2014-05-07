@@ -1,7 +1,11 @@
 class ArtworksController < ApplicationController
 
   def index 
-    @artworks = Artwork.all
+    if params[:category]
+      @artworks = Artwork.where(category: params[:category])
+    else
+      @artworks = Artwork.all
+    end
   end
 
   def new

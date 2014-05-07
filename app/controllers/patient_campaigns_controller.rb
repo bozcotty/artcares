@@ -1,6 +1,9 @@
 class PatientCampaignsController < ApplicationController
   def index
-    @patient_campaigns = PatientCampaign.all
+    @search = PatientCampaign.search do
+      fulltext params[:search]
+    end
+    @patient_campaigns = @search.results
   end
 
   def show

@@ -29,22 +29,26 @@ Artcares::Application.routes.draw do
   get "welcome/faq"
   get "welcome/fees"
 
+  get 'search', to: 'search#index'
+
   root :to => 'welcome#index'
 
   # Shop By Routes:
 
-  get "artworks/index_painting"
-  get "artworks/index_drawing"
-  get "artworks/index_mixed_media"
-  get "artworks/index_printmaking"
-  get "artworks/index_photography"
-  get "artworks/index_sculpture"
-  get "artworks/index_ceramics"
-  get "artworks/index_jewelry"
-  get "artworks/index_wood"
-  get "artworks/index_metal"
-  get "artworks/index_glass"
-  get "artworks/index_fiber"
+  resources :artworks, only: :index
+
+  # get "artworks/index_painting"
+  # get "artworks/index_drawing"
+  # get "artworks/index_mixed_media"
+  # get "artworks/index_printmaking"
+  # get "artworks/index_photography"
+  # get "artworks/index_sculpture"
+  # get "artworks/index_ceramics"
+  # get "artworks/index_jewelry"
+  # get "artworks/index_wood"
+  # get "artworks/index_metal"
+  # get "artworks/index_glass"
+  # get "artworks/index_fiber"
 
   get "artworks/search"
 

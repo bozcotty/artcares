@@ -1,0 +1,10 @@
+<% @results.each do |result| %>
+  <% render result %>
+<% end %>
+
+
+
+<!-- def render(x)
+  x_class = x.class.to_s.underscorize
+  render partial: "#{x_class.pluralize}/#{x_class}", locals: {x_class => x}
+end -->
