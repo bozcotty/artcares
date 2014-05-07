@@ -6,6 +6,7 @@ class PatientCampaign < ActiveRecord::Base
   belongs_to :user
   has_many :artworks, dependent: :destroy
 
+  # sunspot
   searchable do
     text :campaign_name, :patient_diagnosis, :patient_story, :patient_state, :patient_city, :patient_first_name
   end

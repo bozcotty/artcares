@@ -83,7 +83,7 @@
 
             </td>
             <td class = "col-md-3">
-              <%= artwork.title %>
+              <%= link_to (artwork.title), patient_campaign_artwork_path(artwork.patient_campaign, artwork) %>
             </td>
             <td class = "col-md-2">
               <%= artwork.category %>: <%= artwork.medium %>

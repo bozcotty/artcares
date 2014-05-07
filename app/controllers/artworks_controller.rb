@@ -1,17 +1,13 @@
 class ArtworksController < ApplicationController
 
-  
-
   def index 
     @artworks = Artwork.all
-    
   end
 
   def new
     @patient_campaign = PatientCampaign.find(params[:patient_campaign_id])
     @artwork = Artwork.new
     authorize! :create, Artwork, message: "You need to own the Patient Campaign to add an artwork to it." 
-    
   end
 
   def create
@@ -160,20 +156,9 @@ class ArtworksController < ApplicationController
   end
 
 # ------------
-  
-  # GET /artworks/search
-  # GET /artworks/search.xml
 
-  def search
-    @artworks = Artwork.search do
-      keywords params[:query]
-    end.results
 
-    respond_to do |format|
-      format.html { render :action => "index"}
-      format.xml { render :xml => @artworks}
-    end
-  end
+ 
   
 
 end

@@ -1,11 +1,7 @@
 Paintings index
 <div class="container-fluid">
 
-  <%= form_tag search_artworks_path, :method => :get do %>
-  <p>
-    <%= text_field_tag :query, params[:query] %> <%= submit_tag "Search" %>
-  </p>
-  <% end %>
+ 
 
   <div class ="col-md-10 col-md-offset-1">
     <% @artworks.in_groups_of(3, false) do |row_tasks| %>
