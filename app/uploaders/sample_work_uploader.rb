@@ -4,7 +4,9 @@ class SampleWorkUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
+
+  include Sprockets::Helpers::RailsHelper
 
   # Choose what kind of storage to use for this uploader:
   storage :fog
@@ -25,7 +27,7 @@ class SampleWorkUploader < CarrierWave::Uploader::Base
   # end
 
     # Process files as they are uploaded:
-  process :resize_to_limit => [200, -1]
+  process :resize_to_limit=> [200, -1]
   # process :scale => [200, 200]
   #
   # def scale(width, height)

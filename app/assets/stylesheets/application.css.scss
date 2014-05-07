@@ -87,10 +87,11 @@ span.img-margin {
   margin-bottom: 15px;
 }
 
-
-
-
-
+div ul.bot-align li {
+  vertical-align: bottom;
+  display: table-cell;
+  padding-right: 10px;
+}
 
 
 /* Sticky footer styles
