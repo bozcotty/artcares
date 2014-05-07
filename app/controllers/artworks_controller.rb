@@ -2,7 +2,7 @@ class ArtworksController < ApplicationController
 
   def index 
     if params[:category]
-      @artworks = Artwork.where(category: params[:category])
+      @artworks = Artwork.where(category: params[:category].downcase)
     else
       @artworks = Artwork.all
     end

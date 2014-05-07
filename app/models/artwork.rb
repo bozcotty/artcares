@@ -8,6 +8,7 @@ class Artwork < ActiveRecord::Base
   # validates user.id == patient_campaign.user.id
 
   after_create :stripe_amount
+  before_save :normalize_category
 
   # sunspot
   searchable do
@@ -32,6 +33,10 @@ class Artwork < ActiveRecord::Base
   def stripe_amount
     # converted to cents!
     ((price*100) + (shipping_price*100)).to_i
+  end
+
+  def normalize_category
+    self.category.downcase!
   end
 
 end
