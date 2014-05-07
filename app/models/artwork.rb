@@ -11,7 +11,7 @@ class Artwork < ActiveRecord::Base
 
   # sunspot
   searchable do
-    text :title, :summary
+    text :title, :summary, :medium, :category
   end
 
   validates :title, :size, :medium, :price, :shipping_price, :summary, :category, presence: true

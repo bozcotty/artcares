@@ -1,8 +1,8 @@
 <% @results.each do |result| %>
-  <% render result %>
+  <%= render result %>
 <% end %>
 
-
+<!-- render looks for a partial on the class its rendering -->
 
 <!-- def render(x)
   x_class = x.class.to_s.underscorize

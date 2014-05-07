@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
 
   after_create :full_name
 
+  # sunspot
+  searchable do
+    text :first_name, :last_name, :city, :state, :type_of_artist, :artist_statement 
+  end
+  
   # validates :art_website,'url is valid', presence: true,
   validates :email, :password, confirmation: true, presence: true
   validates :type_of_artist, presence: true, length: {maximum: 40}
