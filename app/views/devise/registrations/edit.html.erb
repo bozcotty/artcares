@@ -45,17 +45,37 @@
 
       <%= image_tag(@user.headshot.small.url) if @user.headshot?  %>
         <%= f.input :headshot,  label: "Artist Image/Headshot", :input_html => {:maxlength => 45, :size => 45} %> 
+
+      <hr>
+
+      <p>Upload 4 art images that best represent your work (jpg or jpeg file):</p>
+
+      <%= image_tag(@user.sample_work_1.small.url) if @user.sample_work_1?  %>
+        <%= f.input :sample_work_1,  label: "Sample Image 1" %> 
+      <hr>
+      <%= image_tag(@user.sample_work_2.small.url) if @user.sample_work_2?  %>
+        <%= f.input :sample_work_2,  label: "Sample Image 2" %> 
+      <hr>
+      <%= image_tag(@user.sample_work_3.small.url) if @user.sample_work_3?  %>
+        <%= f.input :sample_work_3,  label: "Sample Image 3" %> 
+      <hr>
+      <%= image_tag(@user.sample_work_4.small.url) if @user.sample_work_4?  %>
+        <%= f.input :sample_work_4,  label: "Sample Image 4" %> 
+      <hr>
+      <br>
       
+      
+
+    </div>
+
+    <div class="row col-md-5">
+
       <%= f.input :street_address, label: "Street Address", :input_html => {:maxlength => 45, :size => 45} %>
     
       
       <%= f.input :unit_number, label: "Apt/Unit #", :input_html => {:maxlength => 15, :size => 15} %>
       
       <%= f.input :city, label: "City", :input_html => {:maxlength => 30, :size => 30} %>
-
-    </div>
-
-    <div class="row col-md-5">
           
       <%= f.input :state, label: "State", :input_html => {:maxlength => 20, :size => 20} %>
 

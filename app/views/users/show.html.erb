@@ -1,53 +1,42 @@
 <div class="container-fluid">
-
-<!-- artwork images -->
+ <br>
+<!-- artist headshot -->
   <div class="row">
-    <div class="col-md-7">
-      <br>
-      <p class="text-center"><%= image_tag @user.headshot %></p>
-      <br>
+    <div class="col-md-4">
+     
+      <p class="text-left"><%= image_tag @user.headshot %></p>
     </div>
 
-<!-- artwork info section -->
-    <div class="col-md-5">
-      <br>
+<!-- artist info -->
+    <div class="col-md-4">
+    
         <!-- change the link to an artist view page, (to be made) -->
-      <h4 class="copy-heading"><%= @user.full_name%></h4>
-        <div class="row">
-          <div class="col-md-2">
-            
-          </div>
-          <div class="col-md-5 text-right">
-            <h5 class="copy-heading">
-            </h5>
-          </div>
-          
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-md-5">
-            <p><%= @user.city %>, <%= @user.state %></p>
-            <p><%= @user.type_of_artist %></p>
-            <p>Artist Statement: <%= @user.artist_statement %></p>  
-            
-          </div>
-          <div class="col-md-5">
-            <%= @patient_campaign %>  
-          
-          </div>
-
-
-          </div>
-        </div>
-
+      <h3 class="copy-heading"><%= @user.full_name%></h3>
+      <h4 class="copy-heading"><%= @user.type_of_artist %><br>
+        <%= @user.city %>, <%= @user.state %></h4>
+      <hr>
       
-
+      <p>Artist Statement: <%= @user.artist_statement %></p>  
     </div>
 
+<!-- patient campaign info -->
+    <div class="col-md-4">
+      
+      <h4 class="copy-heading">Artist's Patient: <%= @patient_campaign.full_name %></h4>
+      <p>(Artist's <%= @patient_campaign.artist_relationship_to_patient %>)</p>
 
+      <div class="row">
+        <div class="col-md-4">
+          <%= link_to image_tag(@patient_campaign.patient_image_1.small.url), patient_campaign_path %>
+        </div>
+        <div class="col-md-8">
+          <h5 class="copy-heading"><%= @patient_campaign.campaign_name %></h5>
+          <p><%= @patient_campaign.patient_story %></p>
+          <hr>
+          
+        </div>
+      </div>
 
-
-
-
+    </div>
   </div>
 </div>

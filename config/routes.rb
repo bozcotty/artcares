@@ -13,8 +13,6 @@ Artcares::Application.routes.draw do
       post :buy
     end
   end
-
-  
   
   resources :users, only: [:index, :show] # for public view
 
