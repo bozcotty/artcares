@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140507171127) do
+ActiveRecord::Schema.define(:version => 20140507202800) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(:version => 20140507171127) do
     t.string   "art_image_3"
     t.integer  "user_id"
     t.integer  "patient_campaign_id"
-    t.string   "category"
     t.boolean  "original_work"
+    t.string   "category"
   end
 
   create_table "buyers", :force => true do |t|
