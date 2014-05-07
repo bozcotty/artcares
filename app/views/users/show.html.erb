@@ -1,4 +1,53 @@
-<!-- show a user detail page -->
-This is the public facing page for an individual artist.<br>
+<div class="container-fluid">
 
-Artwork listings belonging to <%= @user.first_name %> <%= @user.last_name %>.
+<!-- artwork images -->
+  <div class="row">
+    <div class="col-md-7">
+      <br>
+      <p class="text-center"><%= image_tag @user.headshot %></p>
+      <br>
+    </div>
+
+<!-- artwork info section -->
+    <div class="col-md-5">
+      <br>
+        <!-- change the link to an artist view page, (to be made) -->
+      <h4 class="copy-heading"><%= @user.full_name%></h4>
+        <div class="row">
+          <div class="col-md-2">
+            
+          </div>
+          <div class="col-md-5 text-right">
+            <h5 class="copy-heading">
+            </h5>
+          </div>
+          
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-5">
+            <p><%= @user.city %>, <%= @user.state %></p>
+            <p><%= @user.type_of_artist %></p>
+            <p>Artist Statement: <%= @user.artist_statement %></p>  
+            
+          </div>
+          <div class="col-md-5">
+            <%= @patient_campaign %>  
+          
+          </div>
+
+
+          </div>
+        </div>
+
+      
+
+    </div>
+
+
+
+
+
+
+  </div>
+</div>
