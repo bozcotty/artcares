@@ -1,7 +1,16 @@
-<% @results.each do |result| %>
-  <%= render result %>
-<% end %>
 
+
+  <div class="col-md-12 search-row">
+    <h4 class="copy-heading">Search Results:</h4>
+    <% @results.each do |result| %>
+
+      <%= render result %>
+      <hr style="hr-thin">
+    <% end %>
+
+  </div>
+
+    
 <!-- render looks for a partial on the class its rendering -->
 
 <!-- def render(x)

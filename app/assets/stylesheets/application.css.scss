@@ -77,6 +77,7 @@ hr.style-two {
     background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
 }
 
+
 /* Image Styles
 -------------------------------------------------- */
 
@@ -92,6 +93,8 @@ div ul.bot-align li {
   display: table-cell;
   padding-right: 10px;
 }
+
+
 
 
 /* Sticky footer styles
@@ -175,9 +178,45 @@ border: 1px solid #69abd3;
 }
 
 
+/* Center artwork index
+-------------------------------------------------- */
+
+.center-div {
+ width: 825px; 
+ margin: 0 auto; 
+ 
+}
+
+/* cycle odd/even table rows----------
+---------------------*/
+
+tr.odd {
+  background-color: #efefef;
+  height: 49px; /* +2px top and bottom of image thumb size */
+}
+
+tr.even {
+  background-color: #fff;
+  height: 49px; /* +2px top and bottom of image thumb size */
+}
 
 
+/* Search index styles
+-------------------------------------------------- */
 
+span.search-margin{
+  margin-right: 10px;
+}
+
+div.search-row {
+  height: 46px;
+  padding-top: 2px;
+  background-color: white;
+  }
+
+div.search-row span, span a {
+  vertical-align: bottom;
+}
 
 
 

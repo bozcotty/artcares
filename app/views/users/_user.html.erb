@@ -1,4 +1,30 @@
-<span class="img-margin">
-  <%= link_to image_tag(user.headshot.thumb.url), user %>
+<div class="container-fluid">
   
-</span>
+  <div class="row search-row">
+    
+      <span class="search-margin"><%= link_to image_tag(user.headshot.micro.url), user %></span>
+      <span class="search-margin"><%= link_to (user.full_name), user %>,</span>
+      <span class="search-margin"><%= link_to (user.type_of_artist), user %>:</span>
+      
+      <span class="search-margin">
+        <% if user.sample_work_1? %>
+          <%= link_to image_tag(user.sample_work_1.micro.url), user %>
+        <% end %>
+      </span>
+
+      <span class="search-margin">
+        <% if user.sample_work_2? %>
+          <%= link_to image_tag(user.sample_work_2.micro.url), user %>
+        <% end %>
+      </span>
+
+      <span class="search-margin">
+        <% if user.sample_work_3? %>
+          <%= link_to image_tag(user.sample_work_3.micro.url), user %>
+        <% end %>
+      </span>
+
+     
+    
+  </div>
+</div>

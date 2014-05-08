@@ -1,21 +1,19 @@
 <%= params[:category] ? params[:category].capitalize : 'Artworks' %> index
 <div class="container-fluid">
 
- 
-
-  <div class ="col-md-10 col-md-offset-1">
-    <% @artworks.in_groups_of(3, false) do |row_tasks| %>
-      
-        <% for artwork in row_tasks %>
-        <span class="img-margin">
-          <%= link_to image_tag(artwork.art_image_1.medium.url), [artwork.patient_campaign, artwork] %>
+  <div class="center-div">
+    
+    
+        <% @artworks.in_groups_of(3, false) do |row_tasks| %>
           
-        </span>
+            <% for artwork in row_tasks %>
+            <span class="img-margin">
+              <%= link_to image_tag(artwork.art_image_1.medium.url), [artwork.patient_campaign, artwork] %>
+            </span>
+            <% end %>
+         
+         <br><br>
         <% end %>
-     
-     <br><br>
-    <% end %>
- 
+      
   </div>
-  
 </div>
