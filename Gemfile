@@ -40,6 +40,8 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'simple_form'
 gem 'haml', '~> 4.0.5'
 gem 'sunspot_rails'
+gem 'omniauth-facebook'
+gem 'will_paginate', '~> 3.0'
 
 
 # To use ActiveModel has_secure_password

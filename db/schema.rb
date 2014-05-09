@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140507202800) do
+ActiveRecord::Schema.define(:version => 20140507202744) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(:version => 20140507202800) do
     t.integer  "user_id"
     t.integer  "patient_campaign_id"
     t.boolean  "original_work"
-    t.string   "category"
   end
 
   create_table "buyers", :force => true do |t|
@@ -109,10 +108,6 @@ ActiveRecord::Schema.define(:version => 20140507202800) do
     t.string   "unit_number"
     t.string   "phone_number"
     t.string   "zip_code"
-    t.string   "sample_work_1"
-    t.string   "sample_work_2"
-    t.string   "sample_work_3"
-    t.string   "sample_work_4"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

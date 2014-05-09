@@ -42,6 +42,10 @@ body {
   align: left;
 }
 
+
+/* User login/dashboard line styles
+-------------------------------------------------- */
+
 .users {
   background-color: #475156;
 }
@@ -58,6 +62,10 @@ div#dash-button {
   padding-top: 5px;
 }
 
+
+/* Header font
+-------------------------------------------------- */
+
 h2.copy-heading, h3.copy-heading, h4.copy-heading, h5.copy-heading, p.copy-heading {
   font-family: 'Nunito', sans-serif;
 }
@@ -65,6 +73,21 @@ h2.copy-heading, h3.copy-heading, h4.copy-heading, h5.copy-heading, p.copy-headi
 ul #pad-left {
   margin-left: 10px;
 
+}
+
+
+/* <hr> styles-------------------------------*/
+
+
+/* Gradient color1 - color2 - color1 */
+hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:      -o-linear-gradient(left, #ccc, #333, #ccc); 
 }
 
 /* Gradient transparent - color - transparent */
@@ -75,6 +98,13 @@ hr.style-two {
     background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
     background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
     background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+}
+
+hr.style-six {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 
