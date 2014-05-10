@@ -28,15 +28,24 @@
             <% end %>
           </span>
 
-          <span class="search-margin"><%= link_to (@user.patient_campaign.full_name), [user.patient_campaign, user]
-            <%= link_to image_tag(user.sample_work_3.micro.url), user %>
+          <% if user.patient_campaign %>
+          <span class="search-margin">
+            for <%= link_to (user.patient_campaign.full_name), user.patient_campaign %>
           </span>
+
+          <span class="search-margin">
+            for <%= link_to image_tag(user.patient_campaign.patient_image_1.micro.url), user.patient_campaign %>
+          </span>
+
+          
+
+          <% end %>
 
         </div>
         <hr>
       <% end %>
     
-
+<!-- link_to (@artwork.user.patient_campaign.full_name), [@artwork.patient_campaign], method: :get  -->
     
   </div>
 </div>
