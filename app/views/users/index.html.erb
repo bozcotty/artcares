@@ -1,2 +1,42 @@
-This is the index of all artists.
-Do artist headshot thumb + thumbs of artist's 4 sample artworks + patient image thumbnail at end
+<div class="container-fluid">
+  <div class="col-md-12 col-md-offset-1 search-row">
+    <h4 class="copy-heading">Our Artists:</h4>
+    
+      <% @users.each do |user|%>
+
+        <div class="row">
+       
+          <span class="search-margin"><%= link_to image_tag(user.headshot.micro.url), user %></span>
+          <span class="search-margin"><%= link_to (user.full_name), user %>,</span>
+          <span class="search-margin"><%= link_to (user.type_of_artist), user %>:</span>
+          
+          <span class="search-margin">
+            <% if user.sample_work_1? %>
+              <%= link_to image_tag(user.sample_work_1.micro.url), user %>
+            <% end %>
+          </span>
+
+          <span class="search-margin">
+            <% if user.sample_work_2? %>
+              <%= link_to image_tag(user.sample_work_2.micro.url), user %>
+            <% end %>
+          </span>
+
+          <span class="search-margin">
+            <% if user.sample_work_3? %>
+              <%= link_to image_tag(user.sample_work_3.micro.url), user %>
+            <% end %>
+          </span>
+
+          <span class="search-margin"><%= link_to (@user.patient_campaign.full_name), [user.patient_campaign, user]
+            <%= link_to image_tag(user.sample_work_3.micro.url), user %>
+          </span>
+
+        </div>
+        <hr>
+      <% end %>
+    
+
+    
+  </div>
+</div>
