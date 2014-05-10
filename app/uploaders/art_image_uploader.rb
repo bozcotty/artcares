@@ -40,6 +40,10 @@ class ArtImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [110, 110]
   end
 
+  version :capsule do
+    process :resize_to_fill => [75, 75]
+  end
+  
     # Create different versions of your uploaded files:
   version :thumb do
     process :resize_to_fill => [45, 45]

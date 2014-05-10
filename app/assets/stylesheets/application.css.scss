@@ -62,12 +62,40 @@ div#dash-button {
   padding-top: 5px;
 }
 
+/* -------Capsules: sign in form, user and pat_campaign index pages------- */
+
+.form-capsule {
+  width: 300px; 
+  padding: 10px 20px 20px 20px; 
+  margin: 15px auto; 
+  border-radius: 10px;
+  border: 1px solid #428bca;
+  }
+
+.index-capsule {
+  display: inline-block;
+  width: 250px; 
+  height: 240px;
+  padding: 20px 20px 20px 20px; 
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  border-radius: 15px;
+  border: 0px dashed black;
+  background-color: #c9e49e;
+  }
+
 
 /* Header font
 -------------------------------------------------- */
 
-h2.copy-heading, h3.copy-heading, h4.copy-heading, h5.copy-heading, p.copy-heading {
+h2.copy-heading, h3.copy-heading, h4.copy-heading, h5.copy-heading, p.copy-heading, span.copy-heading {
   font-family: 'Nunito', sans-serif;
+}
+
+span.copy-heading-18{
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
 }
 
 ul #pad-left {

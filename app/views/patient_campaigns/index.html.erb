@@ -1,22 +1,42 @@
 <div class="container-fluid">
-  <div class="row" id="green-bg">
+  <div class="row" id="blue-bg">
 
-    <h2 class="copy-heading text-center" id="green-bg">Patient Campaigns</h2>
+    <h2 class="copy-heading text-center" id="blue-bg">Patient Campaigns</h2>
 
   </div>
- <!-- sunspot solr -->
-  <%= form_tag patient_campaigns_path, :method => :get do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  <% end %> 
 
-<% @patient_campaigns.each do |patient_campaign| %>
-  <h4>
-    <%= link_to patient_campaign.campaign_name, patient_campaign %>
-  </h4>
-  
-  <p>Help <%= patient_campaign.patient_first_name %> deal with <%= patient_campaign.patient_diagnosis %>.</p>
-<% end %>
+
+  <div class="center-div">
+
+      <% @patient_campaigns.in_groups_of(3, false) do |row_tasks|%>
+      
+            <% for patient_campaign in row_tasks %>
+              <div class="index-capsule">
+                <%= link_to image_tag(patient_campaign.patient_image_1.capsule.url), patient_campaign %><br>
+                <span class="copy-heading">
+                  <%= link_to (patient_campaign.full_name), patient_campaign %><br>
+                </span> 
+                
+                  <%= (patient_campaign.patient_city) %>, 
+                  <%= (patient_campaign.patient_state)%> <br>
+                  
+                  <hr class="style-two">
+                  <%= (patient_campaign.campaign_name) %>
+                             
+              </div>
+            <% end %>
+        
+           
+         
+      <% end %>
+   
+  </div>
+
+
+
+
+
+
 <%= will_paginate @patient_campaigns %>
 
   

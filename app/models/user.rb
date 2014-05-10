@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable,
+         :omniauthable, :omniauth_providers => [:facebook]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :first_name, :last_name, :city, :state, :art_website, 
@@ -19,7 +20,7 @@ class User < ActiveRecord::Base
   end
   
   # validates :art_website,'url is valid', presence: true,
-  validates :email, :password, confirmation: true, presence: true
+  # validates :email, :password, confirmation: true, presence: true
   validates :type_of_artist, presence: true, length: {maximum: 40}
   validates :artist_statement, length: { maximum: 500 }, presence: true
   validates :first_name, :last_name, :headshot, :street_address, :city, :state, :zip_code, :art_website, :phone_number, presence: true
