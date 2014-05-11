@@ -48,7 +48,7 @@ class HeadshotUploader < CarrierWave::Uploader::Base
   end
 
   version :micro do
-    process :resize_to_fill => [40, 40]
+    process :resize_to_fill => [60, 60]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

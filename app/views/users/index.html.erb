@@ -4,54 +4,44 @@
     <h2 class="copy-heading text-center" id="green-bg">Artists</h2>
 
   </div>
-    <div class="col-md-10 col-md-offset-1 search-row">
-      <br>
-      
-        <% @users.each do |user|%>
+    
+  <div class="center-div">
+   
+    
+      <% @users.in_groups_of(3, false) do |row_tasks|%>
 
-          <div class="row">
-         
-            <span class="search-margin"><%= link_to image_tag(user.headshot.micro.url), user %></span>
-            <span class="search-margin"><%= link_to (user.full_name), user %>,</span>
-            <span class="search-margin"><%= link_to (user.type_of_artist), user %>:</span>
+        <% for user in row_tasks %>
+          <div class="index-capsule-user">
             
-            <span class="search-margin">
-              <% if user.sample_work_1? %>
-                <%= link_to image_tag(user.sample_work_1.micro.url), user %>
+            <%= link_to image_tag(user.headshot.capsule.url), user %>
+            <br>
+            <span class="copy-heading">
+              <h4><%= link_to (user.full_name), user %></h4>
+              <%= link_to (user.type_of_artist), user %><br>
+            </span>
+
+              <%= (user.city) %>, <%= (user.state) %>
+
+            <hr class="style-two">
+
+            <div class="three-images">
+              <% if user.sample_work_1 %>
+              <%= link_to image_tag(user.sample_work_1.capsule.url), user %>
               <% end %>
-            </span>
 
-            <span class="search-margin">
-              <% if user.sample_work_2? %>
-                <%= link_to image_tag(user.sample_work_2.micro.url), user %>
+              <% if user.sample_work_2 %>
+              <%= link_to image_tag(user.sample_work_2.capsule.url), user %>
               <% end %>
-            </span>
 
-            <span class="search-margin">
-              <% if user.sample_work_3? %>
-                <%= link_to image_tag(user.sample_work_3.micro.url), user %>
+              <% if user.sample_work_3 %>
+              <%= link_to image_tag(user.sample_work_3.capsule.url), user %>
               <% end %>
-            </span>
-
-            <% if user.patient_campaign %>
-            <span class="search-margin">
-              for <%= link_to (user.patient_campaign.full_name), user.patient_campaign %>
-            </span>
-
-            <span class="search-margin">
-              for <%= link_to image_tag(user.patient_campaign.patient_image_1.micro.url), user.patient_campaign %>
-            </span>
-
-            
-
-            <% end %>
-
+            </div>
           </div>
-          <hr>
         <% end %>
-      
-  <!-- link_to (@artwork.user.patient_campaign.full_name), [@artwork.patient_campaign], method: :get  -->
-      
-    </div>
+
+      <% end %>
+
   </div>
+   
 </div>

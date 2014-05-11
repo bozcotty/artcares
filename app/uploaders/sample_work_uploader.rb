@@ -45,6 +45,10 @@ class SampleWorkUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [80, 80]
   end
 
+  version :capsule do
+    process :resize_to_fill => [75, 75]
+  end
+
   version :micro do
     process :resize_to_fill => [40, 40]
   end
