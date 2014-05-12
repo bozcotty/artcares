@@ -4,5 +4,10 @@ development:
   SENDGRID_USERNAME: "here"
   SENDGRID_PASSWORD: "here"
   AWS_BUCKET: artcaring-dev
+  STRIPE_PUBLISHABLE_KEY: 
+  FACEBOOK_ID: 
+  FACEBOOK_SECRET:
 production:
   AWS_BUCKET: artcaring-prod
+  FACEBOOK_ID: 
+  FACEBOOK_SECRET:

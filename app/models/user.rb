@@ -3,13 +3,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
-         :omniauthable
+         :omniauthable, :omniauth_providers => [:facebook]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :first_name, :last_name, :city, :state, :art_website, 
                   :type_of_artist, :artist_statement, :email, :password, :password_confirmation, :remember_me,
                   :provider, :uid, :headshot, :street_address, :unit_number, :zip_code, :phone_number,
-                  :sample_work_1, :sample_work_2, :sample_work_3
+                  :sample_work_1, :sample_work_2, :sample_work_3, :provider, :uid
 
 
   after_create :full_name
@@ -34,6 +34,26 @@ class User < ActiveRecord::Base
 
   has_one :patient_campaign, dependent: :destroy
   has_many :artworks
+
+
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+    user = User.where( provider: auth.provider, uid: auth.uid ).first
+    # raise auth.inspect
+    unless user
+      pass = Devise.friendly_token[0,20]
+      user = User.new( first_name: auth.extra.raw_info.first_name,
+                       last_name: auth.extra.raw_info.last_name,
+                       provider: auth.provider,
+                       uid: auth.uid,
+                       email: auth.info.email,
+                       password: pass,
+                       password_confirmation: pass
+                      )
+      user.skip_confirmation!
+      user.save
+    end
+    user
+  end
   
   ROLES = %w[member moderator admin]
 

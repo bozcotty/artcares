@@ -74,6 +74,7 @@ div#dash-button {
   border-radius: 15px;
   border: 0px dashed black;
   background-color: #c9e49e;
+  vertical-align: top;
   }
 
 .index-capsule-user {
@@ -87,6 +88,7 @@ div#dash-button {
   border-radius: 15px;
   border: 0px dashed black;
   background-color: #c9e49e;
+  vertical-align: top;
   }
 
 .three-images {
@@ -266,8 +268,18 @@ border: 1px solid #69abd3;
 -------------------------------------------------- */
 
 .center-div {
- width: 1000px; 
- margin: 0 auto; 
+  width: 820px; 
+  margin: 0 auto; 
+}
+
+.center-div-patient {
+  width: 840px; 
+  margin: 0 auto;
+}
+
+.center-div-artist {
+  width: 1000px; 
+  margin: 0 auto;
 }
 
 /* cycle odd/even table rows----------

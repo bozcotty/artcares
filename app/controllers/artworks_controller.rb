@@ -2,9 +2,9 @@ class ArtworksController < ApplicationController
 
   def index 
     if params[:category]
-      @artworks = Artwork.where(category: params[:category].downcase).paginate(page: params[:page], per_page: 10)
+      @artworks = Artwork.where(category: params[:category].downcase).paginate(page: params[:page], per_page: 6)
     else
-      @artworks = Artwork.all
+      @artworks = Artwork.all.paginate(page: params[:page], per_page: 6)
     end
   end
 
@@ -43,6 +43,15 @@ class ArtworksController < ApplicationController
   end
 
   def update
+
+    if params[:artwork][:art_image_1].blank?
+      params[:artwork].delete("art_image_1")
+    end
+
+    if params[:artwork][:category].blank?
+      params[:artwork].delete("category")
+    end
+
     @patient_campaign = PatientCampaign.find(params[:patient_campaign_id])
     @artwork = Artwork.find(params[:id])
     @artwork.user = current_user

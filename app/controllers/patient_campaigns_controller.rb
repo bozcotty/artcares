@@ -2,8 +2,9 @@ class PatientCampaignsController < ApplicationController
   def index
     @search = PatientCampaign.search do
       fulltext params[:search]
+      paginate(page: params[:page] || 1, per_page: 5)
     end
-    @patient_campaigns = @search.results{paginate(page: params[:page], per_page:3)}
+    @results = @search.results
   end
 
   def show
@@ -36,6 +37,11 @@ class PatientCampaignsController < ApplicationController
   end
 
   def update
+
+    if params[:patient_campaign][:patient_image_1].blank?
+      params[:patient_campaign].delete("patient_image_1")
+    end
+
     @patient_campaign = PatientCampaign.find(params[:id])
     authorize! :update, @patient_campaign, message: "You need to own the Patient Campaign to edit it."
     if @patient_campaign.update_attributes(params[:patient_campaign])

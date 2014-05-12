@@ -11,10 +11,11 @@
                 <%= link_to image_tag(artwork.art_image_1.medium.url), [artwork.patient_campaign, artwork] %>
               </span>
             <% end %>
-         
+            
          <br><br>
         <% end %>
         <%= will_paginate @artworks %>
+        
   </div>
 
 </div>

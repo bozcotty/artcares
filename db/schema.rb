@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140512022846) do
+ActiveRecord::Schema.define(:version => 20140512205441) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20140512022846) do
     t.boolean  "original_work"
     t.string   "category"
   end
+
+  add_index "artworks", ["patient_campaign_id"], :name => "index_artworks_on_patient_campaign_id"
 
   create_table "buyers", :force => true do |t|
     t.string   "name"
@@ -51,9 +53,6 @@ ActiveRecord::Schema.define(:version => 20140512022846) do
     t.string   "address_apartment"
     t.string   "shipping_address_apartment"
     t.string   "email"
-    t.string   "dataName"
-    t.string   "dataImage"
-    t.string   "dataLabel"
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -128,6 +127,8 @@ ActiveRecord::Schema.define(:version => 20140512022846) do
     t.string   "sample_work_1"
     t.string   "sample_work_2"
     t.string   "sample_work_3"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
