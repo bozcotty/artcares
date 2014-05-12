@@ -20,6 +20,15 @@ class WelcomeController < ApplicationController
     @artworks = current_user.artworks
   end
 
+  def faq
+  end
+
+  def fees
+  end
+
+  def terms_of_use
+  end
+
 
 
   
