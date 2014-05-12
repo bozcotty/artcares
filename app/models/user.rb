@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :omniauthable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :first_name, :last_name, :city, :state, :art_website, 

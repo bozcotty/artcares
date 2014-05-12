@@ -3,7 +3,7 @@ class PatientCampaignsController < ApplicationController
     @search = PatientCampaign.search do
       fulltext params[:search]
     end
-    @patient_campaigns = @search.results{paginate(page: params[:page], per_page:10)}
+    @patient_campaigns = @search.results{paginate(page: params[:page], per_page:3)}
   end
 
   def show
