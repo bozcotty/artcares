@@ -6,11 +6,11 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :production do
-  gem 'sqlite3'
+  gem 'pg'
 end
 
 group :development do
-  gem 'pg'
+  gem 'sqlite3'
 end
 
 
@@ -42,6 +42,8 @@ gem 'haml', '~> 4.0.5'
 gem 'sunspot_rails'
 gem 'omniauth-facebook'
 gem 'will_paginate', '~> 3.0'
+gem 'swiftype'
+gem 'delayed_job_active_record'
 
 
 # To use ActiveModel has_secure_password
