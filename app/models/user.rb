@@ -15,9 +15,13 @@ class User < ActiveRecord::Base
   after_create :full_name
 
   # sunspot
-  searchable do
-    text :first_name, :last_name, :city, :state, :type_of_artist, :artist_statement 
-  end
+  # searchable do
+  #   text :first_name, :last_name, :city, :state, :type_of_artist, :artist_statement 
+  # end
+
+  # pgsearch
+  include PgSearch
+  multisearchable :against => [:full_name, :type_of_artist, :city, :state]
   
   # validates :art_website,'url is valid', presence: true,
   # validates :email, :password, confirmation: true, presence: true

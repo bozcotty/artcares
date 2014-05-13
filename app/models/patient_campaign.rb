@@ -7,9 +7,13 @@ class PatientCampaign < ActiveRecord::Base
   has_many :artworks, dependent: :destroy
 
   # sunspot
-  searchable do
-    text :campaign_name, :patient_diagnosis, :patient_story, :patient_state, :patient_city, :patient_first_name
-  end
+  # searchable do
+  #   text :campaign_name, :patient_diagnosis, :patient_story, :patient_state, :patient_city, :patient_first_name
+  # end
+
+  # pgsearch
+  include PgSearch
+  multisearchable :against => [:campaign_name, :patient_diagnosis, :patient_city, :patient_state, :patient_first_name, :patient_last_name]
 
   after_create :full_name
 

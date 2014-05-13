@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140512205441) do
+ActiveRecord::Schema.define(:version => 20140513172323) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -55,22 +55,6 @@ ActiveRecord::Schema.define(:version => 20140512205441) do
     t.string   "email"
   end
 
-  create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0, :null => false
-    t.integer  "attempts",   :default => 0, :null => false
-    t.text     "handler",                   :null => false
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
-
   create_table "patient_campaigns", :force => true do |t|
     t.string   "patient_city"
     t.string   "patient_state"
@@ -92,6 +76,14 @@ ActiveRecord::Schema.define(:version => 20140512205441) do
     t.string   "patient_zip_code"
     t.string   "patient_phone_number"
     t.integer  "artist_percentage"
+  end
+
+  create_table "pg_search_documents", :force => true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "users", :force => true do |t|

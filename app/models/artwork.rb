@@ -11,9 +11,14 @@ class Artwork < ActiveRecord::Base
   before_save :normalize_category
 
   # sunspot
-  searchable do
-    text :title, :summary, :medium, :category
-  end
+  # searchable do
+  #   text :title, :summary, :medium, :category
+  # end
+
+  #pgsearch
+  include PgSearch
+  multisearchable :against => [:title, :summary, :category, :medium, :price]
+
 
   validates :title, :size, :medium, :price, :shipping_price, :summary, :category, presence: true
   validates :price, numericality: { greater_than: 99.99, less_than_or_equal_to: 25000.00 }

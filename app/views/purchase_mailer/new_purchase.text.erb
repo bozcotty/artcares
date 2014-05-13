@@ -2,13 +2,13 @@ Hello <%= @artwork.user.first_name %>,
 
     Congratulations!
 
-    <%= @buyer.name %> has just purchased <%= @artwork.name %>, here on ArtCaring.com, through your <%=@artwork.user.patient_campaign.campaign_name %> for <@artwork.user.patient_campaign.full_name %>!
+    <%= @buyer.name %> has just purchased <%= @artwork.title %>, here on ArtCaring.com, through your <%=@artwork.user.patient_campaign.campaign_name %> for <@artwork.user.patient_campaign.full_name %>!
     
 
     Please ship it to:
 
     <%= @buyer.shipping_name %>
-    <%= @buyer.shipping_address_line_1
+    <%= @buyer.shipping_address_line_1 %>
     <% if @buyer.shipping_address_apartment %>
       <%= @buyer.shipping_address_apartment %>
     <% end %>

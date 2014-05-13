@@ -44,8 +44,7 @@ gem 'omniauth-facebook'
 gem 'will_paginate', '~> 3.0'
 gem 'swiftype', '~> 1.1.0'
 gem 'delayed_job_active_record'
-
-gem 'textacular',  '~> 3.0'
+gem 'pg_search'
 
 
 # To use ActiveModel has_secure_password
