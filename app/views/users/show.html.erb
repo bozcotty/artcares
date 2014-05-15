@@ -25,18 +25,18 @@
 <!-- patient campaign info -->
   
     <div class="col-md-4">
-      <% if @patient_campaign %>
+      <% if @user.patient_campaign %>
       <br>
-        <h4 class="copy-heading">Artist's Patient: <%= @patient_campaign.full_name %></h4>
-        <p>(Artist's <%= @patient_campaign.artist_relationship_to_patient %>)</p>
+        <h4 class="copy-heading">Artist's Patient: <%= @user.patient_campaign.full_name %></h4>
+        <p>(Artist's <%= @user.patient_campaign.artist_relationship_to_patient %>)</p>
 
         <div class="row">
           <div class="col-md-4">
-            <%= link_to image_tag(@patient_campaign.patient_image_1.small.url), patient_campaign_path %>
+            <%= link_to image_tag(@user.patient_campaign.patient_image_1.small.url), patient_campaign_path(@user.patient_campaign) %>
           </div>
           <div class="col-md-8">
-            <h5 class="copy-heading"><%= @patient_campaign.campaign_name %></h5>
-            <p><%= @patient_campaign.patient_story %></p>
+            <h5 class="copy-heading"><%= @user.patient_campaign.campaign_name %></h5>
+            <p><%= @user.patient_campaign.patient_story %></p>
            
 
       <% else %>
@@ -55,11 +55,7 @@
     <ul class="bot-align">
       <% if @user.artworks %>
 
-        <% @user.artworks.each do |artwork| %>
-          
-          <%= link_to image_tag(artwork.art_image_1.medium.url), [artwork.patient_campaign, artwork] %>
-            
-        <% end %>
+        <%= render partial: 'artwork_view', collection: @user.artworks, as: :artwork %>
 
       <% end %>
 

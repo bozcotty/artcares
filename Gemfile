@@ -27,7 +27,6 @@ group :assets do
 end
 
 
-
 gem 'jquery-rails'
 gem 'faker'
 gem 'devise'
@@ -39,7 +38,7 @@ gem 'figaro'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'simple_form'
 gem 'haml', '~> 4.0.5'
-gem 'omniauth-facebook'
+# gem 'omniauth-facebook'
 gem 'will_paginate', '~> 3.0'
 gem 'pg_search'
 
