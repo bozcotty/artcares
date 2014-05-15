@@ -21,7 +21,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass', '~> 3.1.1.0'
-  gem 'sunspot_solr'
+  
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 end
@@ -39,11 +39,8 @@ gem 'figaro'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'simple_form'
 gem 'haml', '~> 4.0.5'
-gem 'sunspot_rails'
 gem 'omniauth-facebook'
 gem 'will_paginate', '~> 3.0'
-gem 'swiftype', '~> 1.1.0'
-gem 'delayed_job_active_record'
 gem 'pg_search'
 
 
