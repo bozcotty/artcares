@@ -17,8 +17,5 @@
 # Ignore application configuration
 /config/application.yml
 
-# Ignore solr data
-/solr/data
-
 # Carrierwave images
 public/uploads

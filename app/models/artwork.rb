@@ -10,11 +10,6 @@ class Artwork < ActiveRecord::Base
   after_create :stripe_amount
   before_save :normalize_category
 
-  # sunspot
-  # searchable do
-  #   text :title, :summary, :medium, :category
-  # end
-
   #pgsearch
   include PgSearch
   multisearchable :against => [:title, :summary, :category, :medium, :price]

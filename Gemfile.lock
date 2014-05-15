@@ -228,8 +228,5 @@ DEPENDENCIES
   sass-rails (>= 3.2)
   simple_form
   stripe!
-  sunspot_rails
-  sunspot_solr
-  swiftype (~> 1.1.0)
   uglifier (>= 1.0.3)
   will_paginate (~> 3.0)

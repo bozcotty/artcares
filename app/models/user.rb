@@ -14,11 +14,6 @@ class User < ActiveRecord::Base
 
   after_create :full_name
 
-  # sunspot
-  # searchable do
-  #   text :first_name, :last_name, :city, :state, :type_of_artist, :artist_statement 
-  # end
-
   # pgsearch
   include PgSearch
   multisearchable :against => [:first_name, :last_name, :type_of_artist, :city, :state]
