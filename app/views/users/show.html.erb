@@ -6,13 +6,7 @@
      
       <p class="text-right"><%= image_tag @user.headshot %></p>
       
-      <ul class="bot-align text-right">
-
-        <li><%= image_tag(@user.sample_work_1) %> </li>
-        <li><%= image_tag(@user.sample_work_2) %></li>
-        <li><%= image_tag(@user.sample_work_3) %></li>
-        
-      </ul>
+      
     </div>
     
 
@@ -56,7 +50,22 @@
   </div> 
   <hr class="style-two"> 
 
-  <!-- artist's sample images -->
+   <!-- artist's works section -->
+  <div class="center-div-artist">
+    <ul class="bot-align">
+      <% if @user.artworks %>
+
+        <% @user.artworks.each do |artwork| %>
+          
+          <%= link_to image_tag(artwork.art_image_1.medium.url), @artwork %>
+            
+        <% end %>
+
+      <% end %>
+
+  </div>
+
+ 
   
  
   </div>

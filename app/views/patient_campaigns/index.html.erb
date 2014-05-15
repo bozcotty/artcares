@@ -7,8 +7,8 @@
 
   <div class="center-div-patient">
 
-      <% @results.in_groups_of(2, false) do |row_tasks|%>
-        <div class='row'>
+      <% @patient_campaigns.in_groups_of(2, false) do |row_tasks|%>
+        
             <% for patient_campaign in row_tasks %>
               <div class="index-capsule-patient">
                 <%= link_to image_tag(patient_campaign.patient_image_1.capsule.url), patient_campaign %><br>
@@ -24,12 +24,12 @@
                              
               </div>
             <% end %>
-        </div>
+        
         
            
          
       <% end %>
-      <%= will_paginate @results %>
+      
   </div>
  
 </div>

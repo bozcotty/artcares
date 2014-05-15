@@ -1,10 +1,6 @@
 class PatientCampaignsController < ApplicationController
   def index
-    @search = PatientCampaign.search do
-      fulltext params[:search]
-      paginate(page: params[:page] || 1, per_page: 5)
-    end
-    @results = @search.results
+    @patient_campaigns= PatientCampaign.all
   end
 
   def show
