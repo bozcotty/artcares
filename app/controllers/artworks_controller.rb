@@ -56,9 +56,9 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.find(params[:id])
     @artwork.user = current_user
 
-    if current_user.role == 'admin'
-      @artwork.status = params[:artwork][:status]
-    end
+    # if current_user.role == 'admin'
+    #   @artwork.status = params[:artwork][:status]
+    # end
 
     authorize! :update, @artwork, message: "You need to own the artwork to update it."
     if @artwork.update_attributes(params[:artwork])
@@ -118,8 +118,8 @@ class ArtworksController < ApplicationController
     PurchaseMailer.new_purchase(@artwork, @buyer).deliver
 
 
-    @artwork.status = 'sold'
-    @artwork.save
+    # @artwork.status = 'sold'
+    # @artwork.save
   
     rescue Stripe::CardError => e
       flash[:error] = e.message
