@@ -8,6 +8,7 @@ class Artwork < ActiveRecord::Base
   # validates user.id == patient_campaign.user.id
 
   after_create :stripe_amount
+  before_create :set_status
   before_save :normalize_category
 
   #pgsearch
@@ -24,6 +25,7 @@ class Artwork < ActiveRecord::Base
   validates :user, presence: true
   validates :patient_campaign, presence: true
   validates :category, inclusion: {in: ['Painting', 'Sculpture', 'Jewelry', 'Photography', 'Fiber/Wearables', 'Mixed Media (2D or 3D)', 'Wood', 'Metal', 'Glass', 'Ceramics',  'Drawing', 'Printmaking']}
+  validates :status, inclusion: {in: %w(available sold finalized)}
 
 
   mount_uploader :art_image_1, ArtImageUploader
@@ -37,6 +39,10 @@ class Artwork < ActiveRecord::Base
 
   def normalize_category
     self.category.downcase!
+  end
+
+  def set_status
+    self.status = 'available'
   end
 
 end

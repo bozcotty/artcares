@@ -38,6 +38,12 @@
       <%= image_tag(@artwork.art_image_3.small.url) if @artwork.art_image_3?  %>
         <%= f.input :art_image_3, label: "Image 3" %> 
        <a href='#' class='cancel'>Cancel</a><br><br>
+
+
+      <% if current_user.role == 'admin' %>
+        <%= f.select :status, %w(available sold finalized) %>
+      <% end %>
+
       <%= f.button :submit, "List Artwork" %>
     <% end %>
   </div>
