@@ -41,6 +41,7 @@ gem 'haml', '~> 4.0.5'
 gem 'omniauth-facebook'
 gem 'will_paginate', '~> 3.0'
 gem 'pg_search'
+gem 'thin'
 
 
 # To use ActiveModel has_secure_password
