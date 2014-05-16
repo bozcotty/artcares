@@ -1,8 +1,11 @@
-<!-- artwork view partial to be used in artworks#index, user#show, pat_camp#show-->
+<!-- artwork view partial to be used in user#show, pat_camp#show -->
+
+
 
   <div class="center-div">
-     
-        <% @artworks.in_groups_of(3, false) do |row_tasks| %>
+    
+    
+        <% artworks.in_groups_of(3, false) do |row_tasks| %>
           
             <% for artwork in row_tasks %>
               <span class="img-margin">
@@ -12,6 +15,6 @@
             
          <br><br>
         <% end %>
-        <%= will_paginate @artworks %>
-        
+        <%= will_paginate artworks %>
   </div>
+

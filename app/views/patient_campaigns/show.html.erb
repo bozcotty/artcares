@@ -46,9 +46,17 @@
   </div>
     
 
-  <div>
-    Insert all of the artists artworks like index view here (via partial?)
+ <!-- sponsoring artist's works section -->
+  <div class="center-div-artist">
+    <ul class="bot-align">
+      <% if @patient_campaign.artworks %>
+
+        <%= render partial: 'artworks/artwork_tiles', object: @patient_campaign.artworks, as: :artworks %>
+
+      <% end %>
+
   </div>
+
 
   
 </div>

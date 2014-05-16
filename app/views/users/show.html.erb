@@ -55,7 +55,7 @@
     <ul class="bot-align">
       <% if @user.artworks %>
 
-        <%= render partial: 'artwork_view', collection: @user.artworks, as: :artwork %>
+        <%= render partial: 'artworks/artwork_tiles', object: @user.artworks, as: :artworks %>
 
       <% end %>
 

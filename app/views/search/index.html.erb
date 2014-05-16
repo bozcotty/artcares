@@ -1,10 +1,10 @@
-  <div class="col-md-12 col-md-offset-1 search-row">
+  <div class="col-md-10 col-md-offset-1 search-row">
     <h4 class="copy-heading">Search Results:</h4>
     <% @results.each do |result| %>
       <%= render result %>
       <hr style="hr-thin">
     <% end %>
-    <%= will_paginate @results %>
+    
 
   </div>
 

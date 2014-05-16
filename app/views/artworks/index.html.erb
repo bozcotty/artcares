@@ -1,6 +1,6 @@
 <%= params[:category] ? params[:category].capitalize : 'Artworks' %> index
 <div class="container-fluid">
 
-  <%= render partial: 'artwork_view', collection: @artworks, as: :artwork %>
+  <%= render partial: 'artwork_tiles', object: @artworks, as: :artworks %>
 
 </div>
