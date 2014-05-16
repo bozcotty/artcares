@@ -3,7 +3,7 @@
 <!-- patient image -->
   <div class="row">
     <div class="col-md-4">
-     
+     <br>
       <p class="text-right"><%= image_tag @patient_campaign.patient_image_1 %></p>
     </div>
 
@@ -54,6 +54,7 @@
         <%= render partial: 'artworks/artwork_tiles', object: @patient_campaign.artworks, as: :artworks %>
 
       <% end %>
+    </ul>
 
   </div>
 

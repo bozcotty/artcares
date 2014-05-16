@@ -5,7 +5,7 @@
   <div class="center-div">
     
     
-        <% artworks.in_groups_of(3, false) do |row_tasks| %>
+        <% artworks.paginate(page: params[:page], per_page: 6).in_groups_of(3, false) do |row_tasks| %>
           
             <% for artwork in row_tasks %>
               <span class="img-margin">
@@ -15,6 +15,6 @@
             
          <br><br>
         <% end %>
-        <%= will_paginate artworks %>
+         <!-- will_paginate artworks  -->
   </div>
 

@@ -3,7 +3,7 @@
 <!-- artist headshot -->
   <div class="row">
     <div class="col-md-4">
-     
+     <br>
       <p class="text-right"><%= image_tag @user.headshot %></p>
       
       
@@ -41,7 +41,7 @@
 
       <% else %>
       <br>
-          <p>This user does not have a patient campaign yet.</p> 
+          <p>This Artist has not set up a patient campaign yet.</p> 
       <% end %>
         </div>
       </div>
@@ -50,14 +50,27 @@
   </div> 
   <hr class="style-two"> 
 
+
    <!-- artist's works section -->
+
   <div class="center-div-artist">
     <ul class="bot-align">
       <% if @user.artworks %>
 
+        <div class="text-center">
+          <h3 class="copy-heading">Available Artworks from this Artist:</h3>
+        </div>
+
         <%= render partial: 'artworks/artwork_tiles', object: @user.artworks, as: :artworks %>
+      <% end %>
+
+      <% if not @user.artworks %>
+        <div class="text-center">
+          <h3 class="copy-heading">This Artist has not listed any Artworks yet.</h3>
+        </div>
 
       <% end %>
+    </ul>
 
   </div>
 

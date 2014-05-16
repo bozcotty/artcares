@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @patient_campaign = @user.patient_campaign
     
+    
   end
 
 end

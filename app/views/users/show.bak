@@ -3,3 +3,10 @@
           <%= link_to image_tag(artwork.art_image_1.medium.url), [artwork.patient_campaign, artwork] %>
             
         <% end %>
+
+
+
+        ______
+
+
+<%= render partial: 'artworks/artwork_tiles', object: @user.artworks, as: :artworks %>
