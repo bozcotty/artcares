@@ -11,41 +11,42 @@
     
 
 <!-- artist info -->
-    <div class="col-md-4">
+    <div class="col-md-3">
     
         <!-- change the link to an artist view page, (to be made) -->
-      <h2 class="copy-heading"><%= @user.full_name%></h2>
-      <h3 class="copy-heading"><%= @user.type_of_artist %></h3>
+      <h2 class="copy-heading blue"><%= @user.full_name%></h2>
+      <h3 class="copy-heading blue"><%= @user.type_of_artist %></h3>
       <h4 class="copy-heading"><%= @user.city %>, <%= @user.state %></h4>
       <hr>
       
-      <p><strong>Artist Statement:</strong> <%= @user.artist_statement %></p>  
+      <p class="font16"><strong>Artist Statement:</strong> <%= @user.artist_statement %></p>  
     </div>
 
 <!-- patient campaign info -->
   
-    <div class="col-md-4">
-      <% if @user.patient_campaign %>
-      <br>
-        <h4 class="copy-heading">Artist's Patient: <%= @user.patient_campaign.full_name %></h4>
-        <p>(Artist's <%= @user.patient_campaign.artist_relationship_to_patient %>)</p>
+    <div class="col-md-5">
+      <div class="show-capsule-story">
+        <% if @user.patient_campaign %>
+        
+          <h4 class="copy-heading orange">Artist's Patient: <%= @user.patient_campaign.full_name %>
+          <p class="font16">(Artist's <%= @user.patient_campaign.artist_relationship_to_patient %>)</p></h4>
 
-        <div class="row">
-          <div class="col-md-4">
-            <%= link_to image_tag(@user.patient_campaign.patient_image_1.small.url), patient_campaign_path(@user.patient_campaign) %>
+          <div class="row">
+            <div class="col-md-3">
+              <%= link_to image_tag(@user.patient_campaign.patient_image_1.small.url), patient_campaign_path(@user.patient_campaign) %>
+            </div>
+            <div class="col-md-9">
+              <h4 class="copy-heading orange"><%= @user.patient_campaign.campaign_name %></h4>
+              <p class="font16"><%= @user.patient_campaign.patient_story %></p>
+             
+
+        <% else %>
+       
+            <p class="font16">This Artist has not set up a patient campaign yet.</p> 
+        <% end %>
           </div>
-          <div class="col-md-8">
-            <h5 class="copy-heading"><%= @user.patient_campaign.campaign_name %></h5>
-            <p><%= @user.patient_campaign.patient_story %></p>
-           
-
-      <% else %>
-      <br>
-          <p>This Artist has not set up a patient campaign yet.</p> 
-      <% end %>
         </div>
       </div>
-
     </div>
   </div> 
   <hr class="style-two"> 
@@ -58,7 +59,7 @@
       <% if @user.artworks %>
 
         <div class="text-center">
-          <h3 class="copy-heading">Available Artworks from this Artist:</h3>
+          <h3 class="copy-heading green">Available Artworks from this Artist:</h3>
         </div>
 
         <%= render partial: 'artworks/artwork_tiles', object: @user.artworks, as: :artworks %>
@@ -66,7 +67,7 @@
 
       <% if not @user.artworks %>
         <div class="text-center">
-          <h3 class="copy-heading">This Artist has not listed any Artworks yet.</h3>
+          <h3 class="copy-heading orange">This Artist has not listed any Artworks yet.</h3>
         </div>
 
       <% end %>

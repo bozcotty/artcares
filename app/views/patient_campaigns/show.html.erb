@@ -10,21 +10,21 @@
 <!-- campaign info -->
     <div class="col-md-4">
 
-      <h2 class="copy-heading"><%= @patient_campaign.campaign_name %></h2>
-      <h3 class="copy-heading">The Campaign for <br>
+      <h2 class="copy-heading orange"><%= @patient_campaign.campaign_name %></h2>
+      <h3 class="copy-heading blue">The Campaign for <br>
         <%= @patient_campaign.full_name%></h3>
-      <h4 class="copy-heading"><%= @patient_campaign.patient_city %>, <%= @patient_campaign.patient_state  %><br>
+      <h4 class="copy-heading">From: &nbsp<%= @patient_campaign.patient_city %>, <%= @patient_campaign.patient_state  %><br>
       Event: <%= @patient_campaign.patient_diagnosis %>
       </h4>  
       <hr>
       <div class="row">
-        <div class="col-md-8">
-          <h5>by: <%= (@patient_campaign.user.full_name) %><br>
+        <div class="col-md-9 text-right">
+          <p class="font16">by: <%= (@patient_campaign.user.full_name) %><br>
           <%= @patient_campaign.user.type_of_artist %><br>
           <%= @patient_campaign.user.city %>, <%= @patient_campaign.user.state %>
-          </h5>
+          </p>
         </div>
-        <div class="col-md-4 text-right">
+        <div class="col-md-3 text-left">
           <%= image_tag(@patient_campaign.user.headshot.micro.url) %>
         </div>
       </div>
@@ -32,8 +32,10 @@
 
 <!-- campaign story details -->
     <div class="col-md-4">
-      <br>
-      <p><%= @patient_campaign.patient_story %></p>
+      <div class="show-capsule-story"
+      <p class="font16">The Story:<br>
+        <%= @patient_campaign.patient_story %></p>
+      </div>
     </div>
 
   </div>
@@ -41,15 +43,17 @@
   <hr class="style-two">
  
 
-  <div class="text-center">
-    <h3 class="copy-heading">Available Artworks in this Campaign:</h3>
-  </div>
+  
     
 
  <!-- sponsoring artist's works section -->
   <div class="center-div-artist">
     <ul class="bot-align">
       <% if @patient_campaign.artworks %>
+
+        <div class="text-center">
+          <h3 class="copy-heading blue">Available Artworks in this Campaign:</h3>
+        </div>
 
         <%= render partial: 'artworks/artwork_tiles', object: @patient_campaign.artworks, as: :artworks %>
 

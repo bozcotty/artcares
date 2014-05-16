@@ -23,31 +23,31 @@
       
         <br>
         <!-- change the link to an artist view page, (to be made) -->
-        <h4 class="copy-heading">"<%= @artwork.title %>"<small> by <%= link_to (@artwork.user.full_name), [@artwork.user], method: :get %></small></h4>
+        <h3 class="copy-heading">"<%= @artwork.title %>"<small> by </small><%= link_to (@artwork.user.full_name), [@artwork.user], method: :get %></h3>
           <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2 text-left">
               <% if @artwork.user.headshot? %>
               <%= link_to image_tag(@artwork.user.headshot.thumb.url), [@artwork.user] %>
               <% end %>
             </div>
-            <div class="col-md-5 text-right">
-              <h5 class="copy-heading"><small> for</small> <%= link_to (@artwork.user.patient_campaign.full_name), [@artwork.patient_campaign], method: :get %><br>
+            <div class="col-md-6 text-right">
+              <h4 class="copy-heading"><small> for</small> <%= link_to (@artwork.user.patient_campaign.full_name), [@artwork.patient_campaign], method: :get %> <small> > </small><br>
 
                 (<%= @artwork.user.patient_campaign.patient_diagnosis %>)
-              </h5>
+              </h4>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4 text-left">
               <%= link_to image_tag(@artwork.user.patient_campaign.patient_image_1.thumb.url), [@artwork.patient_campaign], method: :get %>
             </div>
           </div>
           <hr>
           <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-5 font16">
               <p>Size: <%= @artwork.size %></p>
               <p>Category: <%= @artwork.category.capitalize %></p>
               <p>Medium: <%= @artwork.medium %></p>  
-              <p>Price: <%= number_to_currency(@artwork.price) %></p>
-              <p>Shipping Cost (US): <%= number_to_currency(@artwork.shipping_price) %></p>
+              <p>Price (USD): <%= number_to_currency(@artwork.price) %></p>
+              <p>Shipping Price (USD): <%= number_to_currency(@artwork.shipping_price) %></p>
               <p>Description: <%=@artwork.summary%></p>
 
 <!-- owner's edit links               -->
@@ -62,7 +62,12 @@
             </div>
 
 <!-- for stripe checkout button -->
-            <div class="col-md-6 text-right">
+            <div class="col-md-6 text-right font16">
+              <p>Price: <%= number_to_currency(@artwork.price) %><br>
+              +Shipping/Handling: <%= number_to_currency(@artwork.shipping_price) %><br>
+              <strong>Total (USD): <%= number_to_currency(@artwork.stripe_amount/100) %></strong></p>
+
+              <br><br>
                 <%= form_tag [@patient_campaign, @artwork, :buy] do %>
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
