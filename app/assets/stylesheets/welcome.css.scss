@@ -22,7 +22,7 @@
 
 #hero {
   background-color: #edb78c;
-  padding-top: 70px;
+  padding-top: 50px;
   padding-bottom: 70px;
 }
 
@@ -37,6 +37,7 @@
 
 #hero #summary-story h3 {
   font-family: 'Fauna One', serif;
+  vertical-align: topl;
 }
 
 #big-buttons {
@@ -53,7 +54,7 @@ div .col-md-12 {
   background-color: #a7a7a7;
 }
 
-div.os-font {
+div.os-font, p.os-font {
   font-size: 18px;
 }
 

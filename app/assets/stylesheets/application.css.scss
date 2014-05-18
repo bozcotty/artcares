@@ -15,7 +15,12 @@ $grid-float-breakpoint: 940px;
  color: red;
 }
 
+
 @media (min-width: 200px) {  }
+
+#search {
+  width:150px;
+}
 
 body {
   padding-top: 120px;
@@ -23,6 +28,7 @@ body {
 
 .nav {
   font-family: "helvetica";
+  font-size: 15px;
 }
 
 .navbar-brand {
@@ -48,7 +54,11 @@ p.indent {
 }
 
 p.font16, div.font16 {
-  font-size :16px;
+  font-size:16px;
+}
+
+div.os-font, p.os-font {
+  font-size: 18px;
 }
 
 span.overline{
@@ -345,6 +355,10 @@ h3.orange, h2.orange, h4.orange{
 
 h3.blue, h2.blue, h4.blue{
   color: #4a9ed1;
+}
+
+h3.dk-blue, h2.dk-blue, h4.dk-blue {
+  color: #475156;
 }
 
 h3.green, h2.green, h4.green {

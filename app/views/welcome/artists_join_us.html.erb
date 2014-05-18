@@ -1,6 +1,6 @@
 <div class="container-fluid">
  
-<h2 class="copy-heading text-center">Artists join us! Here's how it works...</h2><br>
+<h2 class="copy-heading text-center orange">Artists join us! Here's how it works...</h2><br>
 
 <div class="row os-font">
   <div class="col-md-4 col-md-offset-2" align="right">
@@ -9,7 +9,8 @@
 
   <div class="col-md-4">
     <br>
-    <p>1. <strong>If you're a visual artist</strong> and know someone personally who could use some financial help during a health hardship - you're in! We'd love to have you <%= link_to "Sign Up", new_user_registration_path %>!</p>
+    <p>1. <strong>If you're a visual artist</strong> and know someone personally who could use some financial help during a health hardship - you're in! We'd love to have you <strong><%= link_to "Sign Up", new_user_registration_path %></strong>!
+    </p><p>You have the option to keep a percentage of your art sales. Keep reading!</p>
   </div>
 </div>
 <hr class="style-two">
@@ -38,7 +39,7 @@
   </div>
   <div class="col-md-4">
     <br>
-    <p>3. With a Patient Campaign set up, you'll be ready to <strong>start listing Artworks</strong>. Fill out the information about each Artwork, and make sure you upload great product photos! Next step...read through our details and conditions below!</p>
+    <p>3. With a Patient Campaign set up, you'll be ready to <strong>start listing Artworks</strong> associated with your Campaign. Fill out the information about each Artwork, and upload your artwork photos! </p>
   </div>
 
 
@@ -50,7 +51,7 @@
   <div class="col-md-4 col-md-offset-2">
     <br>
     <p>4. Once your Artworks are listed, you are ready to tell the world about your Patient Campaign. <strong>Send an email/online postcard announcing your Campaign to your mailing list. You'll probably find the most success with your existing buyers and collectors!</strong></p>
-    <p> People love hearing about good causes, and when they find out their favorite artist is involved, they will want to be involved too!
+    <p> People love hearing about good causes, and when they find out their favorite artist is involved, they'll want to be involved too!
   </div>
 
   <div class="col-md-4">
@@ -69,9 +70,9 @@
     <br>
     <p>5. When you set up your Patient Campaign:
       <ul>
-        <li>You will specify what percentage (between 0% and 30%) of artwork sales you'll want to keep.</li>
-        <li>Your Patient will receive between 62% and 92% of the proceeds of any Artwork sales.
-        <li>ArtCaring Fees are 5% + 2.9% to cover credit card fees/banking charges.</li>                    
+        <li>You'll specify what percentage of your art sales - between 0% and 30% - that you'll want to keep.</li>
+        <li>Your Patient will then be set up to receive between 61% and 91% of the proceeds of any Artwork sales.
+        <li>ArtCaring fees are 6%, + 3% to cover credit card charges (all charges and payments are handled through <a href=https://stripe.com/ target="_blank">Stripe</a>).</li>                    
       </ul>
     </p>
   </div>
@@ -80,14 +81,13 @@
 
 <div class="row os-font">
   <div class="col-md-4 col-md-offset-2">
+    <br>
     <p>6. Please also read: 
       <ul>
-        <li>Please read our <%=link_to "Terms of Use", welcome_terms_of_use_path %>.</li>
+        <li>Please read through our <%=link_to "Terms of Use", welcome_terms_of_use_path %>.</li>
         <li>Peruse our <%= link_to "Frequently Asked Questions (FAQ)", welcome_faq_path %> page.</li>
         <li><a href="#">Contact us</a> if you have any additional questions!
-        
-        
-        
+          
       </ul>
     </p>
   </div>
@@ -97,8 +97,9 @@
   </div>
 </div>
 
+<br>
 
-
-<h2 class="copy-heading text-center">Here, artists and art lovers come together for the benefit of others.</h2>
+<h2 class="copy-heading text-center">Here at ArtCaring, artists become heroes.</h2>
+<br>
 
 </div>

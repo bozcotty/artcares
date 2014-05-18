@@ -2,9 +2,9 @@ class ArtworksController < ApplicationController
 
   def index 
     if params[:category]
-      @artworks = Artwork.where(category: params[:category].downcase).paginate(page: params[:page], per_page: 3)
+      @artworks = Artwork.where(category: params[:category].downcase).paginate(page: params[:page], per_page: 9)
     else
-      @artworks = Artwork.all.paginate(page: params[:page], per_page: 6)
+      @artworks = Artwork.all.paginate(page: params[:page], per_page: 9)
     end
   end
 
