@@ -66,6 +66,8 @@ span.overline{
 }
 
 
+
+
 /* ----------- User login/dashboard line styles --------- */
 
 .users {
@@ -205,7 +207,12 @@ div ul.bot-align li {
   padding-right: 10px;
 }
 
-
+#about img {
+  border-radius: 10px;
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 5px;
+}
 
 
 /* Sticky footer styles
@@ -287,14 +294,19 @@ input.btn {
   border: 1px solid #428bca;
   }
 
-row #form {
-width:300px; 
-margin-top: 15px;
-margin-right:auto; 
-margin-left:auto; 
-border-radius: 15px;
-border: 1px solid #69abd3;
-}
+
+/*------Contact Us form-------*/
+
+.contact-capsule {
+  width: 500px;
+  height: 600px; 
+  padding: 10px 20px 20px 20px; 
+  margin: 15px auto; 
+  border-radius: 10px;
+  border: 1px solid #428bca;
+  }
+
+
 
 
 /* Center indexes

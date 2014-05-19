@@ -18,6 +18,8 @@ Artcares::Application.routes.draw do
 
   resources :charges
 
+  resources :messages, only: [:new, :create] #for contact us page
+
   get 'dashboard', to: 'welcome#dashboard', as: 'dashboard'
   
   get "welcome/index"
@@ -28,6 +30,7 @@ Artcares::Application.routes.draw do
   get "welcome/terms_of_use"
   get "welcome/faq"
   get "welcome/fees"
+  get "welcome/contact"
 
   get 'search', to: 'search#index'
 
