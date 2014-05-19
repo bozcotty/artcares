@@ -20,7 +20,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-5 col-md-offset-1">
+    <div class="col-md-4 col-md-offset-2">
    
     <%= simple_form_for @user do |f| %>
       <%= devise_error_messages! %>
@@ -38,30 +38,21 @@
 
       <%= f.input :last_name, label: "Last Name", :input_html => {:maxlength => 40, :size => 30}%>
       <br>
-
+      <br>
       <p>Upload an image of yourself (jpg or jpeg file):</p>
 
       <%= image_tag(@user.headshot.small.url) if @user.headshot?  %>
         <%= f.input :headshot, label: "Artist Image/Headshot" %> 
-      <hr>
+    
 
-      <p>Upload 3 art images that best represent your work (jpg or jpeg file):</p>
-
-      <%= image_tag(@user.sample_work_1.small.url) if @user.sample_work_1?  %>
-        <%= f.input :sample_work_1,  label: "Sample Image 1" %> 
-      <hr>
-      <%= image_tag(@user.sample_work_2.small.url) if @user.sample_work_2?  %>
-        <%= f.input :sample_work_2,  label: "Sample Image 2" %> 
-      <hr>
-      <%= image_tag(@user.sample_work_3.small.url) if @user.sample_work_3?  %>
-        <%= f.input :sample_work_3,  label: "Sample Image 3" %> 
-      <hr>
+      
+      
       
       <br>
 
     </div>
 
-    <div class="row col-md-5">
+    <div class="row col-md-4">
 
       <%= f.input :street_address, label: "Street Address", :input_html => {:maxlength => 45, :size => 45} %>
     

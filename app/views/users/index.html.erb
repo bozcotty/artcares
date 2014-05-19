@@ -26,16 +26,12 @@
               <hr class="style-two">
 
               <div class="three-images">
-                <% if user.sample_work_1 %>
-                <%= link_to image_tag(user.sample_work_1.capsule.url), user %>
-                <% end %>
+                <% if user.artworks %>
+                  
+                  <% user.artworks.limit(3).each do |artwork| %>
+                    <%= link_to image_tag(artwork.art_image_1.capsule.url), [artwork.patient_campaign, artwork] %>
+                  <% end %>
 
-                <% if user.sample_work_2 %>
-                <%= link_to image_tag(user.sample_work_2.capsule.url), user %>
-                <% end %>
-
-                <% if user.sample_work_3 %>
-                <%= link_to image_tag(user.sample_work_3.capsule.url), user %>
                 <% end %>
               </div>
 

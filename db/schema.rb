@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140516215301) do
+ActiveRecord::Schema.define(:version => 20140519203242) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -117,9 +117,6 @@ ActiveRecord::Schema.define(:version => 20140516215301) do
     t.string   "unit_number"
     t.string   "phone_number"
     t.string   "zip_code"
-    t.string   "sample_work_1"
-    t.string   "sample_work_2"
-    t.string   "sample_work_3"
     t.string   "provider"
     t.string   "uid"
   end
