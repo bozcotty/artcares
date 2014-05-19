@@ -9,7 +9,7 @@
 
       <%= f.input :title, :input_html => {:maxlength => 45, :size => 45}, label: "Title of Artwork" %>
       <%= f.input :size, :input_html => {:maxlength => 20, :size => 45}, label: "Dimensions/Size" %><br>
-      <strong>This is an original piece of art - not a print or giclee?</strong><br>
+      <strong>This is a one-of-a-kind original piece of art (please verify)?</strong><br>
       <%= f.collection_radio_buttons(:original_work, [[true, 'Yes'] ,[false, 'No']], :first, :last) do |b|
           b.label {b.radio_button + b.text}
           end %>
@@ -18,6 +18,7 @@
       <br>
       <%= f.input :medium, :input_html => {:maxlength => 40, :size => 45}, label: "Medium (i.e. oil, acrylic, watercolor. etc.)" %>
       <%= f.input :summary, :input_html => { :rows => 5 }, label: "Description of Work (Limit: 200 characters)" %>
+      <br>
       <%= f.input :price, label: "Price (US $)" %>
       <%= f.input :shipping_price, label: "Shipping & Handling Cost (US $)" %>
       <br>

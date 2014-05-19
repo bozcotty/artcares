@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :city, :state, :art_website, 
                   :type_of_artist, :artist_statement, :email, :password, :password_confirmation, :remember_me,
                   :provider, :uid, :headshot, :street_address, :unit_number, :zip_code, :phone_number,
-                  :sample_work_1, :sample_work_2, :sample_work_3, :provider, :uid
+                  :provider, :uid
 
 
   after_create :full_name
@@ -24,14 +24,10 @@ class User < ActiveRecord::Base
   validates :type_of_artist, presence: true, length: {maximum: 40}
   validates :artist_statement, length: { maximum: 500 }, presence: true
   validates :first_name, :last_name, :headshot, :street_address, :city, :state, :zip_code, :art_website, :phone_number, presence: true
-  validates :sample_work_1, :sample_work_2, :sample_work_3, presence: true
-
-  mount_uploader :headshot, HeadshotUploader
-  mount_uploader :sample_work_1, SampleWorkUploader
-  mount_uploader :sample_work_2, SampleWorkUploader
-  mount_uploader :sample_work_3, SampleWorkUploader
   
 
+  mount_uploader :headshot, HeadshotUploader
+  
   has_one :patient_campaign, dependent: :destroy
   has_many :artworks
 
