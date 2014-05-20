@@ -6,7 +6,7 @@
   <body>
     <%= link_to (image_tag ('/assets/artcaring.png')), root_path, class: "navbar-brand" %>
     <br>
-    Hello <%= @artwork.user.first_name %>,
+    Hello <%= @artwork.user.first_name %>,<br>
 
     Congratulations!<br>
 
@@ -35,14 +35,14 @@
 
     <hr>
 
-    <p><strong>*It is your responsibility to professionally <br>
-        crate/package this Artwork for shipment, and to make <br>
-        sure it has insurance in transit to the buyer.</strong>
+    <p><strong>*You are responsible for professionally <br>
+        crating/packaging this Artwork for shipment, and to make <br>
+        sure it pay for insurance in transit to the buyer.</strong>
 
     <hr>
 
     <p>After the buyer has received and unpacked this purchase, <br>
-        they have 5 business days to either finalize their purchase <br>
+        they have 7 business days to either finalize their purchase <br>
         by keeping the shipment, return it for a refund, or notify <br>
         us in the case of any damage claims. Buyers are responsible <br>
         for the cost of any return shipment to you, the artist, and <br>
@@ -54,5 +54,7 @@
         and to your account if you opted to keep a portion of your <br>Campaign's sales.</p>
 
     <strong>Thank you, again, for being a part of ArtCaring!</strong>
+
+    <p>Please reply to this email if you have any questions for us!</p>
   </body>
 </html>

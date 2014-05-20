@@ -3,6 +3,6 @@ class MessageMailer < ActionMailer::Base
 
   def new_message(message)
     @message=message
-    mail(from: message.email, subject:"#{message.content}")
+    mail(from: message.email, subject:"#{message.subject}")
   end
 end

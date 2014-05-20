@@ -34,6 +34,10 @@ Artcares::Application.routes.draw do
 
   get 'search', to: 'search#index'
 
+  # match "facebook" => "http://www.facebook.com"
+  match "/facebook" => redirect("http://facebook.com"), :as => :facebook
+  match "/twitter" => redirect("http://twitter.com"), :as => :twitter
+    
   root :to => 'welcome#index'
 
   # Shop By Routes:

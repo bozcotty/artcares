@@ -94,6 +94,7 @@ class ArtworksController < ApplicationController
       :currency    => 'usd'
             )
     
+    @user = @artwork.user
 
     @buyer = Buyer.where(name: params[:stripeBillingName],
       email: params[:stripeEmail], 
@@ -116,7 +117,7 @@ class ArtworksController < ApplicationController
 
 
     PurchaseMailer.new_purchase(@artwork, @buyer).deliver
-
+    PurchaseThanksMailer.new_purchase_thanks(@artwork, @buyer, @user).deliver
 
     # @artwork.status = 'sold'
     # @artwork.save

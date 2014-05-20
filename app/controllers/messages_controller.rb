@@ -10,7 +10,8 @@ class MessagesController < ApplicationController
       MessageMailer.new_message(@message).deliver
       redirect_to root_url, notice: "Your message has been sent. Thank you for contacting us."
     else
-      render "new"
+      render "new", error: "Please try the message again."
+
     end
   end
 

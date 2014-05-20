@@ -28,7 +28,7 @@ body {
 
 .nav {
   font-family: "helvetica";
-  font-size: 16px;
+  font-size: 15px;
   
 }
 
@@ -217,7 +217,7 @@ div ul.bot-align li {
 }
 
 
-/* Sticky footer styles
+/* Sticky footer & footer styles
 -------------------------------------------------- */
 
 html,
@@ -254,6 +254,17 @@ body {
   color: #4a9ed1;
   
 }
+
+.soc-icons {
+  
+  width: 180px;
+  margin: 15px 0 0 0;
+  }
+
+.soc-icons img {
+  float: left;
+  margin: 0 9px 0 0;
+  }
 
 /* Forms styles
 -------------------------------------------------- */
