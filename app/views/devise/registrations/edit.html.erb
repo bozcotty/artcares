@@ -45,20 +45,7 @@
       <%= image_tag(@user.headshot.small.url) if @user.headshot?  %>
         <%= f.input :headshot,  label: "Artist Image/Headshot" %> 
 
-      <hr>
-
-      <p>Upload 4 art images that best represent your work (jpg or jpeg file):</p>
-
-      <%= image_tag(@user.sample_work_1.small.url) if @user.sample_work_1?  %>
-        <%= f.input :sample_work_1,  label: "Sample Image 1" %> 
-      <hr>
-      <%= image_tag(@user.sample_work_2.small.url) if @user.sample_work_2?  %>
-        <%= f.input :sample_work_2,  label: "Sample Image 2" %> 
-      <hr>
-      <%= image_tag(@user.sample_work_3.small.url) if @user.sample_work_3?  %>
-        <%= f.input :sample_work_3,  label: "Sample Image 3" %> 
-       
-      <hr>
+      
       <br>
       
       

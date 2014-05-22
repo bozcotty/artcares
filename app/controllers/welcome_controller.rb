@@ -17,7 +17,9 @@ class WelcomeController < ApplicationController
   end
 
   def dashboard
-    @artworks = current_user.artworks
+    
+      @artworks = current_user.artworks
+    
   end
 
   def faq
