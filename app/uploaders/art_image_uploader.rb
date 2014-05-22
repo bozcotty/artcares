@@ -50,7 +50,7 @@ class ArtImageUploader < CarrierWave::Uploader::Base
   end
 
   version :micro do
-    process :resize_to_fill => [40, 40]
+    process :resize_to_fill => [60, 60]
   end
   
 
