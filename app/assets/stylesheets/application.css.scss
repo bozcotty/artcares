@@ -15,6 +15,29 @@ $grid-float-breakpoint: 1000px;
  color: red;
 }
 
+img {
+  border-radius: 5px;
+}
+
+div p h2 h3 h4 {
+  color: #4f5559;
+}
+
+p.font16, div.font16 {
+  font-size:16px;
+  color: #4f5559;
+}
+
+p.font16b {
+  font-size:16px;
+  color: #4a9ed1;
+}
+
+div.os-font, p.os-font {
+  font-size: 18px;
+  color: #4f5559;
+}
+
 
 @media (min-width: 200px) {  }
 
@@ -29,7 +52,6 @@ body {
 .nav {
   font-family: "helvetica";
   font-size: 15px;
-  
 }
 
 
@@ -55,19 +77,9 @@ p.indent {
   font-size: 16px;
 }
 
-p.font16, div.font16 {
-  font-size:16px;
-}
-
-div.os-font, p.os-font {
-  font-size: 18px;
-}
-
 span.overline{
   text-decoration:overline;
 }
-
-
 
 
 /* ----------- User login/dashboard line styles --------- */
@@ -98,7 +110,7 @@ div#dash-button {
   margin-top: 15px;
   margin-bottom: 15px;
   margin-right: 15px;
-  border-radius: 15px;
+  border-radius: 10px;
   border: 0px dashed black;
   background-color: #eee9e5;
   vertical-align: top;
@@ -112,20 +124,24 @@ div#dash-button {
   margin-top: 15px;
   margin-bottom: 15px;
   margin-right: 15px;
-  border-radius: 15px;
+  border-radius: 10px;
   border: 0px dashed black;
   background-color: #eee9e5;
   vertical-align: top;
   }
 
 .show-capsule-story {
-  padding: 15px 15px 15px 15px; 
-  margin-top: 15px;
+  padding: 10px 20px 15px 15px; 
+  margin-top: 20px;
   margin-bottom: 15px;
   margin-right: 15px;
-  border-radius: 15px;
+  border-radius: 10px;
   border: 0px dashed black;
   background-color: #eee9e5;
+}
+
+.show-capsule-story p.font16 {
+  padding: 0 15px 0 15px;
 }
 
 .three-images {
@@ -150,6 +166,7 @@ div#dash-button {
 
 h2.copy-heading, h3.copy-heading, h4.copy-heading, h5.copy-heading, p.copy-heading, span.copy-heading {
   font-family: 'Nunito', sans-serif;
+  color: #4f5559;
 }
 
 span.copy-heading-18{
@@ -159,7 +176,6 @@ span.copy-heading-18{
 
 ul #pad-left {
   margin-left: 10px;
-
 }
 
 
@@ -199,7 +215,6 @@ hr.style-six {
 -------------------------------------------------- */
 
 span.img-margin {
-  
   margin-top: 15px;
   margin-right: 15px;
   margin-bottom: 15px;
@@ -215,6 +230,10 @@ div ul.bot-align li {
   padding-right: 10px;
 }
 
+
+/* Image float w/text
+-------------------------------------------------- */
+
 #about img {
   border-radius: 10px;
   float: left;
@@ -222,14 +241,14 @@ div ul.bot-align li {
   margin-bottom: 5px;
 }
 
-#upperleft img{
+#artists-patient img{
   border-radius: 10px;
   float: left;
-  margin: 0 15px 5px 10px;
+  margin: 0 15px 0px 15px;
  }
 
- #upperleft p, h3, h4 {
-  margin: 0 10px 10px 10px;
+ .rounded img {
+  border-radius: 10px;
  }
 
 
@@ -260,7 +279,7 @@ body {
 }
 
 
-/* more footer styles */
+/* ------more footer styles------- */
 
 #footer .list-unstyled {
   margin-top: 15px;
@@ -268,11 +287,9 @@ body {
 
 #footer .list-unstyled a {
   color: #4a9ed1;
-  
 }
 
 .soc-icons {
-  
   width: 180px;
   margin: 15px 0 0 0;
   }
@@ -313,6 +330,7 @@ input.btn {
   background-color: #69abd3;
 }
 
+
 /*------Sign-in form-------*/
 
 .form-capsule {
@@ -334,8 +352,6 @@ input.btn {
   border-radius: 10px;
   border: 1px solid #428bca;
   }
-
-
 
 
 /* Center indexes
@@ -388,7 +404,7 @@ div.search-row span, span a {
 }
 
 
-/*-------Font Color-------------------------------*/
+/*------- Color Scheme Font Colors-------------------------------*/
 
 h3.orange, h2.orange, h4.orange{
   color: #c96c21;
