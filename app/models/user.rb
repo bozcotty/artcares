@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   validates :artist_statement, length: { maximum: 500 }, presence: true
   validates :first_name, :last_name, :headshot, :street_address, :city, :state, :zip_code, :art_website, :phone_number, presence: true
   
+  before_create :set_member
 
   mount_uploader :headshot, HeadshotUploader
   
@@ -57,13 +58,14 @@ class User < ActiveRecord::Base
     self.role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(self.role)
   end 
 
-  before_create :set_member
-  def set_member
-    self.role ||= 'member'
-  end
-
   def full_name
     first_name + " " + last_name
+  end
+
+  private
+  
+  def set_member
+    self.role ||= 'member'
   end
 
 end

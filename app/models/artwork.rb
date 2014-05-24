@@ -1,14 +1,19 @@
 class Artwork < ActiveRecord::Base
 
-  attr_accessible :title, :size, :medium, :price, :shipping_price, :summary,
-                  :art_image_1, :art_image_2, :art_image_3, :category, :original_work
+  attr_accessible :title, :size, :medium, :price, :shipping_price, :summary, :art_image_1, :art_image_2, :art_image_3, :category, :original_work, :quantity
 
   belongs_to :user
   belongs_to :patient_campaign
   # validates user.id == patient_campaign.user.id
 
-  after_create :stripe_amount
+    
+
   # before_create :set_status
+
+  after_create :stripe_amount
+  after_create :set_artwork_quantity
+  # set each artwork quantity to 1, decrements to 0 upon sale in artworks-buy controller
+  
   before_save :normalize_category
 
   #pgsearch
@@ -32,6 +37,8 @@ class Artwork < ActiveRecord::Base
   mount_uploader :art_image_2, ArtImageUploader
   mount_uploader :art_image_3, ArtImageUploader
 
+
+
   def stripe_amount
     # converted to cents!
     ((price*100) + (shipping_price*100)).to_i
@@ -40,6 +47,12 @@ class Artwork < ActiveRecord::Base
   def normalize_category
     self.category.downcase!
   end
+
+  def set_artwork_quantity
+    self.quantity == 1
+    
+  end
+
 
   # def set_status
   #   self.status = 'available'

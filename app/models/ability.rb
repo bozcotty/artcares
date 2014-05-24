@@ -4,7 +4,9 @@ class Ability
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
-    user ||= User.new # guest user (not logged in)
+    user ||= User.new # right now, a 'user' is an artist. in future make it so all
+    # site visitors can be 'users' and artists will become a step above member ie
+    #ROLES = %w[member artist moderator admin] line (in User model)
     
     # if user.admin? 
     #     can :manage, :all? 
@@ -17,6 +19,9 @@ class Ability
         can :manage, Artwork, :user_id => user.id
     end
 
+    if user.role? :admin
+        can :manage, :all
+    end
     
     
 
@@ -31,11 +36,6 @@ class Ability
     #     can :read, :all
     #     can :manage, Artist :user_id => user.id
     # end
-
-    # if user.role? :admin
-    #     can :manage, :all
-    # end
-    #
 
     #   if user.admin?
     #     can :manage, :all

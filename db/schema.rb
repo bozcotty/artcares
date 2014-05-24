@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140519203242) do
+ActiveRecord::Schema.define(:version => 20140524010845) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20140519203242) do
     t.boolean  "original_work"
     t.string   "category"
     t.string   "status"
+    t.integer  "quantity"
   end
 
   add_index "artworks", ["patient_campaign_id"], :name => "index_artworks_on_patient_campaign_id"

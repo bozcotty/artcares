@@ -1,10 +1,10 @@
 <div class="container-fluid">
-<br> 
+
 <!-- patient image -->
   <div class="row">
     <div class="col-md-4">
      <br>
-      <p class="text-right"><%= image_tag @patient_campaign.patient_image_1 %></p>
+      <p class="text-right rounded"><%= image_tag @patient_campaign.patient_image_1 %></p>
     </div>
 
 <!-- campaign info -->
@@ -25,7 +25,7 @@
           </p>
         </div>
         <div class="col-md-3 text-left">
-          <%= image_tag(@patient_campaign.user.headshot.micro.url) %>
+          <%= link_to image_tag(@patient_campaign.user.headshot.micro.url), user_path(@patient_campaign.user) %>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
     <div class="col-md-4">
       <div class="show-capsule-story"
       <p class="font16">The Story:<br>
-        <%= @patient_campaign.patient_story %></p>
+        <%= markdown @patient_campaign.patient_story %></p>
       </div>
     </div>
 
