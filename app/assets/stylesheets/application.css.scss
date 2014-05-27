@@ -100,7 +100,7 @@ div#dash-button {
   padding-top: 5px;
 }
 
-/* ------- user and pat_campaign index pages ------- */
+/* ------- user and pat_campaign index / show pages ------- */
 
 .index-capsule-patient {
   display: inline-block;
@@ -140,9 +140,10 @@ div#dash-button {
   background-color: #eee9e5;
 }
 
-.show-capsule-story p.font16 {
-  padding: 0 15px 0 15px;
-}
+  .patient-story {
+    font-size: 16px;
+    padding: 0 15px 0 15px;
+  }
 
 .three-images {
   width: 270px;

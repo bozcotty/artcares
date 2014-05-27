@@ -7,11 +7,12 @@ class Artwork < ActiveRecord::Base
   # validates user.id == patient_campaign.user.id
 
   # before_create :set_status
+  
+  before_create :set_artwork_quantity
+  # set each artwork quantity to 1, decrements to 0 upon sale in artworks-buy controller
 
   after_create :stripe_amount
-  after_create :set_artwork_quantity
-  # set each artwork quantity to 1, decrements to 0 upon sale in artworks-buy controller
-  
+    
   before_save :normalize_category
 
   #pgsearch

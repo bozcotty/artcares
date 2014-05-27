@@ -59,13 +59,15 @@
 
             </div>
 
-<!-- for stripe checkout button -->
+<!-- for stripe checkout button or "SOLD" notice-->
             <div class="col-md-6 text-right font16">
+
               <p>Price: <%= number_to_currency(@artwork.price) %><br>
               +Shipping/Handling: <%= number_to_currency(@artwork.shipping_price) %><br>
               <strong>Total (USD): <%= number_to_currency(@artwork.stripe_amount/100) %></strong></p>
 
               <br><br>
+              <% if @artwork.quantity == 1 %>
                 <%= form_tag [@patient_campaign, @artwork, :buy] do %>
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -74,10 +76,11 @@
                     data-image="<%= @artwork.art_image_1.thumb.url.html_safe %>",
                     data-label="Buy Now"
                     data-shipping-address=true>,
-                    
-
                 </script>
                 <% end %>
+              <% else %>
+                <h3 class="copy-heading orange">This Artwork has been sold.</h3>
+              <% end %>
             </div>
             </div>
           </div>
