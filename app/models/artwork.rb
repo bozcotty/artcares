@@ -6,8 +6,6 @@ class Artwork < ActiveRecord::Base
   belongs_to :patient_campaign
   # validates user.id == patient_campaign.user.id
 
-    
-
   # before_create :set_status
 
   after_create :stripe_amount
@@ -49,8 +47,7 @@ class Artwork < ActiveRecord::Base
   end
 
   def set_artwork_quantity
-    self.quantity == 1
-    
+    self.quantity = 1
   end
 
 

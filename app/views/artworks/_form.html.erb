@@ -13,6 +13,8 @@
       <%= f.collection_radio_buttons(:original_work, [[true, 'Yes'] ,[false, 'No']], :first, :last) do |b|
           b.label {b.radio_button + b.text}
           end %>
+
+ 
       <br><br>
       <%= f.input :category, :label => "Art Category", :collection => ['Painting', 'Sculpture', 'Jewelry', 'Photography', 'Fiber/Wearables', 'Mixed Media (2D or 3D)', 'Wood', 'Metal', 'Glass', 'Ceramics',  'Drawing', 'Printmaking']%>
       <br>
