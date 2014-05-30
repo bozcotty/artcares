@@ -1,8 +1,10 @@
 class ArtworksController < ApplicationController
 
-  def index 
+   def index 
     if params[:category]
       @artworks = Artwork.where(category: params[:category].downcase).paginate(page: params[:page], per_page: 9)
+    elsif params[:min_price] || params[:max_price]
+      @artworks = Artwork.where(price: price_range).paginate(page: params[:page], per_page: 9)
     else
       @artworks = Artwork.all.paginate(page: params[:page], per_page: 9)
     end
@@ -76,7 +78,7 @@ class ArtworksController < ApplicationController
     authorize! :destroy, @artwork, message: "You need to own the artwork to delete it."
     if @artwork.destroy
       flash[:notice] = "\"#{title}\" was deleted successfully."
-      redirect_to @patient_campaign
+      redirect_to welcome_dashboard_path
     else
       flash[:error] = "There was an error deleting the artwork."
       render :show
@@ -119,7 +121,7 @@ class ArtworksController < ApplicationController
     PurchaseMailer.new_purchase(@artwork, @buyer).deliver
     PurchaseThanksMailer.new_purchase_thanks(@artwork, @buyer).deliver
 
-    
+    #decrement artwork quantity to 0, triggers "Sold" message in show view
     @artwork.update_attribute(:quantity, @artwork.quantity - 1)
 
     # @artwork.status = 'sold'
@@ -131,7 +133,9 @@ class ArtworksController < ApplicationController
   end
   
 
-
+def price_range
+ (params[:min_price].to_i || 0)..(params[:max_price].to_i || 1_000_000_000)
+end
 
  
   

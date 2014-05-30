@@ -22,13 +22,15 @@ class Artwork < ActiveRecord::Base
 
   validates :title, :size, :medium, :price, :shipping_price, :summary, :category, presence: true
   validates :price, numericality: { greater_than: 99.99, less_than_or_equal_to: 25000.00 }
-  validates :original_work, presence: true
+  validates_presence_of :original_work, :message => " &nbspAll Artworks must be original to be listed on ArtCaring."
+  validates_presence_of :category, :message => ": Please select an artwork category from the list."
   validates :shipping_price, presence: true
   validates :summary, length: { maximum: 300, too_long: "%{count} characters is the maximum allowed."}
   validates :art_image_1, presence: true
   validates :user, presence: true
   validates :patient_campaign, presence: true
   validates :category, inclusion: {in: ['Painting', 'Sculpture', 'Jewelry', 'Photography', 'Fiber/Wearables', 'Mixed Media (2D or 3D)', 'Wood', 'Metal', 'Glass', 'Ceramics',  'Drawing', 'Printmaking']}
+  
   # validates :status, inclusion: {in: %w(available sold finalized)}
 
 
@@ -50,6 +52,8 @@ class Artwork < ActiveRecord::Base
   def set_artwork_quantity
     self.quantity = 1
   end
+
+  
 
 
   # def set_status

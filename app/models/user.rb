@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
   include PgSearch
   multisearchable :against => [:first_name, :last_name, :type_of_artist, :city, :state]
   
-  # validates :art_website,'url is valid', presence: true,
-  # validates :email, :password, confirmation: true, presence: true
+  #validates :art_website,'url is valid', presence: true,
+  validates :email, confirmation: true
   validates :type_of_artist, presence: true, length: {maximum: 40}
   validates :artist_statement, length: { maximum: 500 }, presence: true
   validates :first_name, :last_name, :headshot, :street_address, :city, :state, :zip_code, :art_website, :phone_number, presence: true

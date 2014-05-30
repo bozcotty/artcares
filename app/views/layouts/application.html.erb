@@ -58,12 +58,13 @@
                         </ul>
                         <ul class="list-unstyled col-md-5">
                             <li><strong>By Price Range</strong></li>
-                            <li><a href="#">$100 - $500</a></li>
-                            <li><a href="#">$501 - $1,000</a></li>
-                            <li><a href="#">$1,001 - $2,000</a></li>
-                            <li><a href="#">$2,001 - $3,000</a></li>
-                            <li><a href="#">$3,001 - $5,000</a></li>
-                            <li><a href="#">$Over $,5000</a></li>
+                            <li><%= link_to "$100 - $500", artworks_path(min_price: 100, max_price: 500) %></li>
+                            <li><%= link_to "$501 - $1000", artworks_path(min_price: 501, max_price: 1000) %></li>
+                            <li><%= link_to "$1001 - $2000", artworks_path(min_price: 1001, max_price: 2000) %></li>
+                            <li><%= link_to "$2001 - $3000", artworks_path(min_price: 2001, max_price: 3000) %></li>
+                            <li><%= link_to "$3001 - $5000", artworks_path(min_price: 3001, max_price: 5000) %></li>
+                            <li><%= link_to "Over $5000", artworks_path(min_price: 5001, max_price: 50000) %></li>
+
                         </ul>
                         
                     </div>

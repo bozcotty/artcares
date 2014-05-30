@@ -1,8 +1,11 @@
 <div class="container-fluid">
   <div class="row">
 
+<h3 class="copy-heading text-center orange">
+      <%= params[:category] ? params[:category].capitalize : 'All Art' %> Index
+</h3>
 
-    <h3 class="copy-heading text-center orange"><%= params[:category] ? params[:category].capitalize : 'All Art' %> Index</h3>
+    
 
   </div>
   <%= render partial: 'artwork_tiles', object: @artworks, as: :artworks %>
