@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   mount_uploader :headshot, HeadshotUploader
   
   has_one :patient_campaign, dependent: :destroy
-  has_many :artworks
+  has_many :artworks, dependent: :destroy
 
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
