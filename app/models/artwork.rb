@@ -21,7 +21,7 @@ class Artwork < ActiveRecord::Base
 
 
   validates :title, :size, :medium, :price, :shipping_price, :summary, :category, presence: true
-  validates :price, numericality: { greater_than: 99.99, less_than_or_equal_to: 25000.00 }
+  validates :price, numericality: { greater_than: 199.99, less_than_or_equal_to: 100000.00 }
   validates_presence_of :original_work, :message => " &nbspAll Artworks must be original to be listed on ArtCaring."
   validates_presence_of :category, :message => ": Please select an artwork category from the list."
   validates :shipping_price, presence: true
