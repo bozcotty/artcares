@@ -45,6 +45,7 @@ class User < ActiveRecord::Base
                        email: auth.info.email,
                        password: pass,
                        password_confirmation: pass
+
                       )
       user.skip_confirmation!
       user.save
