@@ -49,6 +49,7 @@ class PatientCampaignsController < ApplicationController
   end
 
   def destroy
+    #add logic for not being able to destroy if there are outstanding artworks sold but not 'complete'
     @patient_campaign = PatientCampaign.find(params[:id])
     campaign_name = @patient_campaign.campaign_name
     authorize! :destroy, @patient_campaign, message: "You need to own the Patient Campaign to delete it."

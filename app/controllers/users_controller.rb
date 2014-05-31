@@ -10,8 +10,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @patient_campaign = @user.patient_campaign
-    
-    
+  end
+
+  def destroy
+    #add logic for not being able to destroy user account if there are outstanding sold, but not 'complete' artworks
   end
 
 end

@@ -24,4 +24,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render "devise/registrations/edit"
     end
   end
+
+  def destroy
+    #add logic for not being able to destroy user account if there are outstanding sold, but not 'complete' artworks
+  end
 end
