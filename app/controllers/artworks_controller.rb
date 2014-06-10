@@ -51,17 +51,17 @@ class ArtworksController < ApplicationController
       params[:artwork].delete("category")
     end
 
-    if params[:artwork][:art_image_1].blank?
-      params[:artwork].delete("art_image_1")
-    end
+    # if params[:artwork][:art_image_1].blank?
+    #   params[:artwork].delete("art_image_1")
+    # end
 
-    if params[:artwork][:art_image_2].blank?
-      params[:artwork].delete("art_image_1")
-    end
+    # if params[:artwork][:art_image_2].blank?
+    #   params[:artwork].delete("art_image_1")
+    # end
 
-    if params[:artwork][:art_image_3].blank?
-      params[:artwork].delete("art_image_1")
-    end
+    # if params[:artwork][:art_image_3].blank?
+    #   params[:artwork].delete("art_image_1")
+    # end
 
 
     @patient_campaign = PatientCampaign.find(params[:patient_campaign_id])

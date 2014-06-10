@@ -5,7 +5,7 @@
 
   <div class="row col-md-5 col-md-offset-1">
 
-    <%= simple_form_for [@patient_campaign, @artwork] do |f| %>
+    <%= simple_form_for [@patient_campaign, @artwork], :html => {:multipart =>true} do |f| %>
 
       <%= f.input :title, :input_html => {:maxlength => 45, :size => 45}, label: "Title of Artwork" %>
       <%= f.input :size, :input_html => {:maxlength => 20, :size => 45}, label: "Dimensions/Size" %><br>
