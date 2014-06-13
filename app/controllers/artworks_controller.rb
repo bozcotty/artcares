@@ -127,12 +127,11 @@ class ArtworksController < ApplicationController
       shipping_address_country_code: params[:stripeShippingAddressCountryCode]).first_or_create
       
 
-
     PurchaseMailer.new_purchase(@artwork, @buyer).deliver
     PurchaseThanksMailer.new_purchase_thanks(@artwork, @buyer).deliver
 
     #decrement artwork quantity to 0, triggers "Sold" message in show view
-    @artwork.update_attribute(:quantity, @artwork.quantity - 1)
+    @artwork.update_attribute(:quantity, @artwork.quantity -= 1)
 
     # @artwork.status = 'sold'
     @artwork.save

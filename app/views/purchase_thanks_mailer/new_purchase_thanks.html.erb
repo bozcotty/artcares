@@ -1,42 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+    div { width: 500px; }
+    .right { float: right;}
+    </style>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <%= link_to (image_tag ('/assets/artcaring.png')), root_path, class: "navbar-brand" %>
-    <br>
-    Hello <%= @buyer.name %>,<br>
+    <div>
+        <span class="right"><%= link_to (image_tag ('/assets/artcaring.png')), root_url %></span>
+    </div>
+    <div>
+        <br>
+        <br>
+        Hello <%= @buyer.name %>,<br>
 
-    Congratulations!<br>
+        <p>Congratulations on your newest art purchase!</p>
 
-    <p>Thank you for your support of <%= @artwork.user.patient_campaign.full_name %>. Through purchasing <%= @artwork.title %>, <br>
-    here on ArtCaring.com, you are easing someone's burden. Every time you look at <%= @artwork.title %>, you'll be rewarded as you both enjoy the work and remember what this has done for someone else!</p>
-    <br> 
-
-    <p>The artist, <%= @artwork.user.full_name %>, has been notified of <br>your purchase and we will be coordinating with them to get your <br>shipment sent off soon.</p>
-
-    To confirm, this is where the shipment will be sent, as you specified at checkout:
-
-    <%= @buyer.shipping_name %><br>
-    <%= @buyer.shipping_address_line_1 %><br>
-    <% if @buyer.shipping_address_apartment %>
-      <%= @buyer.shipping_address_apartment %><br>
-    <% end %>
-    <%= @buyer.shipping_address_city %>, <%= @buyer.shipping_address_state %><br>
-    <%= @buyer.shipping_address_zip %><br>
-    <%= @buyer.shipping_address_country_code %><br>
+        <p>Thank you for your support of <%= @artwork.user.patient_campaign.full_name %>. Through purchasing <%= @artwork.title %>, here on ArtCaring.com, you are easing   someone's burden. May this work always remind you of what you've done for someone else.</p>
         
-    <p><strong>If this is not the right shipping address, please notify us immediately by responding to this email, so we can correct it right away.</strong>
-    <hr>
-    
-    <p>After you have received <% @artwork.title %>, <br>
-        you have 7 business days to finalize your decision. If you decide to return it for a refund please notify us and we will help you through the process.</p>
-     <p>In the case of any damage claims. While the artwork price may be refunded, you are responsible for the cost of any return shipment to the artist, and will need to insure the return shipment while in transit.</p> 
-    <hr>
 
-    <strong>Thank you, again, for being a part of ArtCaring!</strong>
+        <p>The artist, <%= @artwork.user.full_name %>, has been notified of your purchase and we will be coordinating with them to get your shipment sent off soon.</p>
 
-    <p>Please reply to this email if you have any questions for us!</p>
+        <p>To confirm, this is where the shipment will be sent, as you specified at checkout:</p>
+
+        <%= @buyer.shipping_name %><br>
+        <%= @buyer.shipping_address_line_1 %><br>
+        <% if @buyer.shipping_address_apartment %>
+          <%= @buyer.shipping_address_apartment %><br>
+        <% end %>
+        <%= @buyer.shipping_address_city %>, <%= @buyer.shipping_address_state %><br>
+        <%= @buyer.shipping_address_zip %><br>
+        <%= @buyer.shipping_address_country_code %><br>
+            
+        <p><strong>If this is not the right shipping address, please notify us immediately by responding to this email, so we can correct it right away.</strong>
+        <hr>
+        
+        <p>After you have received <% @artwork.title %>, 
+            you have 7 business days to finalize your decision. If you decide you need to return it for a refund, please notify us and we will help you through the process.</p>
+
+        <hr>    
+
+        <p><strong>Please keep the original packaging.</strong>Should you need to return the art to the artist, re-using the original packaging is the easiest and most affordable way to do this.</p>
+
+         <p>While the artwork price may be refunded, you are responsible for the cost of any return shipment to the artist, and will need to insure the return shipment while in transit.</p> 
+        <hr>
+
+        <h4>Please unpackage the artwork immediately to make sure no damage has occurred during shipment. Please <%= link_to "Contact Us", new_message_url %> immediately, if there is any damage to the artwork. We will need to know right away, so that we can help the artist make their damage claim with the shipper.</h4>
+
+        <hr>
+
+        <strong>Thank you, again, for being a part of ArtCaring!</strong>
+
+        <p>Please reply to this email if you have any questions for us!</p>
+    </div>
   </body>
 </html>

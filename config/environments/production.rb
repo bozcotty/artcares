@@ -23,8 +23,8 @@ Artcares::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  config.action_mailer.default_url_options = { :host => 'artcaring.herokuapp.com' }
-
+  config.action_mailer.default_url_options = { :host => 'artcaring.com' }
+  config.action_mailer.asset_host = 'http://artcaring.com'
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 

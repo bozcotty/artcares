@@ -1,60 +1,68 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+    div { width: 500px; }
+    .right {float: right;}
+    </style>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <%= link_to (image_tag ('/assets/artcaring.png')), root_path, class: "navbar-brand" %>
-    <br>
-    Hello <%= @artwork.user.first_name %>,<br>
+    <div>
+        <span class="right"><%= link_to (image_tag ('/assets/artcaring.png')), root_path, class: "navbar-brand" %></span>
+    </div>
+    <div>
+        <br>
+        Hello <%= @artwork.user.first_name %>,<br>
 
-    Congratulations!<br>
+        Congratulations!<br>
 
-    <p><%= @buyer.name %> has just purchased <%= @artwork.title %>, <br>
-    here on ArtCaring.com, through your Patient Campaign for <br>
-    <%= @artwork.user.patient_campaign.full_name %>!</p>
-    <br> 
+        <p><%= @buyer.name %> from <%= @buyer.address_city %>, <%= @buyer.address_state %>as just purchased "<%= @artwork.title %>", <br>
+        at ArtCaring.com, through your Patient Campaign for: <br>
+        <%= @artwork.user.patient_campaign.full_name %>!</p>
+        <br> 
 
-    Please ship it to:<br>
+        The buyer has specified the shipping address as:<br>
 
-    <%= @buyer.shipping_name %><br>
-    <%= @buyer.shipping_address_line_1 %><br>
-    <% if @buyer.shipping_address_apartment %>
-      <%= @buyer.shipping_address_apartment %><br>
-    <% end %>
-    <%= @buyer.shipping_address_city %>, <%= @buyer.shipping_address_state %><br>
-    <%= @buyer.shipping_address_zip %><br>
-    <%= @buyer.shipping_address_country_code %><br>
-    <br>
-    <br>
-    Buyer's email: <%=@buyer.email %><br>
+        <%= @buyer.shipping_name %><br>
+        <%= @buyer.shipping_address_line_1 %><br>
+        <% if @buyer.shipping_address_apartment %>
+          <%= @buyer.shipping_address_apartment %><br>
+        <% end %>
+        <%= @buyer.shipping_address_city %>, <%= @buyer.shipping_address_state %><br>
+        <%= @buyer.shipping_address_zip %><br>
+        <%= @buyer.shipping_address_country_code %><br>
+        <br>
+        <i>Please ship this artwork to the above address/addressee.</i>
+        <br>
+        Buyer's email: <%=@buyer.email %><br>
 
-    <p>Please contact the buyer through this email address <br>
-        to notify them that their purchase has shipped, and <br>
-        provide tracking information to them.</p>
+        <p><strong>Please contact the buyer through this email address <br>
+            to notify them that their purchase has shipped, and <br>
+            provide tracking information to them.</strong></p>
 
-    <hr>
+        <hr>
 
-    <p><strong>*You are responsible for professionally <br>
-        crating/packaging this Artwork for shipment, and to make <br>
-        sure it pay for insurance in transit to the buyer.</strong>
+        <p><strong>*You are responsible for professionally <br>
+            crating/packaging this Artwork for shipment, and purchasing insurance on the shipment in transit to the buyer.</strong>
 
-    <hr>
+        <hr>
 
-    <p>After the buyer has received and unpacked this purchase, <br>
-        they have 7 business days to either finalize their purchase <br>
-        by keeping the shipment, return it for a refund, or notify <br>
-        us in the case of any damage claims. Buyers are responsible <br>
-        for the cost of any return shipment to you, the artist, and <br>
-        are required to insure the return shipment while in transit.</p> 
-    <hr>
+        <p>After the buyer has received and unpacked this purchase, <br>
+            they have 7 business days to either finalize their purchase <br>
+            by keeping the shipment, return it for a refund, or notify <br>
+            us in the case of any damage claims. Buyers are responsible <br>
+            for the cost of any return shipment to you, the artist, and <br>
+            are required to insure the return shipment while in transit.</p> 
+        <hr>
 
-    <p>Once the buyer has finalized their purchase, distributions <br>
-        of the appropriate funds will be sent to your Patient's account <br>
-        and to your account if you opted to keep a portion of your <br>Campaign's sales.</p>
+        <p>Once the buyer has finalized their purchase, distributions <br>
+            of the appropriate funds will be sent to your Patient's account <br>
+            and to your account if you opted to keep a portion of your <br>Campaign's sales.</p>
 
-    <strong>Thank you, again, for being a part of ArtCaring!</strong>
+        <strong>Thank you, again, for being a part of ArtCaring!</strong>
 
-    <p>Please reply to this email if you have any questions for us!</p>
+        <p>Please reply to this email if you have any questions for us!</p>
+    </div>
   </body>
 </html>

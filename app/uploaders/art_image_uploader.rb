@@ -32,6 +32,9 @@ class ArtImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  
+  
+    # Create different versions of your uploaded files:
   version :medium do 
     process :resize_to_fill => [260, 260]
   end
@@ -43,8 +46,7 @@ class ArtImageUploader < CarrierWave::Uploader::Base
   version :capsule do
     process :resize_to_fill => [75, 75]
   end
-  
-    # Create different versions of your uploaded files:
+
   version :thumb do
     process :resize_to_fill => [45, 45]
   end
