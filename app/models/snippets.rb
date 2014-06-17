@@ -1,4 +1,4 @@
-# class UserObserver < ActiveRecord::Observer
+# UserObserver < ActiveRecord::Observer
 
 #   def after_save(user)
 #     # Notifications.user("support@artcaring.com", "New Artist signed up", user.email).deliver
