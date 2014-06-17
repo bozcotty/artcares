@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    div { width: 500px; }
+    .logo {margin-left: 260px;}
+    </style>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    
+    <div>
+        <p><strong>New User:</strong></p>
+        First Name: <%= @user.first_name %><br>
+        Last Name: <%= @user.last_name %><br>
+        Email: <%= @user.email %><br>
+        Artist Type: <%= @user.type_of_artist %><br>
+        From: <%= @user.city %>, <%= @user.state %><br>
+        Website: <%= @user.art_website %>
+        
+    </div>
+  </body>
+</html>
