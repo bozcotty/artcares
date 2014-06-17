@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    
   end
 
   def show
@@ -12,8 +11,8 @@ class UsersController < ApplicationController
     @patient_campaign = @user.patient_campaign
   end
 
-  def destroy
-    #add logic for not being able to destroy user account if there are outstanding sold, but not 'complete' artworks
-  end
+  # def destroy
+  #   #add logic for not being able to destroy user account if there are outstanding sold, but not 'complete' artworks
+  # end
 
 end

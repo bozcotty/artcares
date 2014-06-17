@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    div { width: 500px; }
+    .logo {margin-left: 260px;}
+    </style>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <div>
+        <span class="logo"><%= link_to (image_tag ('/assets/artcaring.png')), root_path %></span>
+    </div>
+    <div>
+        <br>
+        Hello <%= @user.first_name %>,<br>
+
+        Welcome to ArtCaring!<br>
+
+        <p>Thank you again for joining our cause. Here's a few quick pointers to get you started. </p>
+        <br> 
+
+        <p><h3>1.</h3> When you sign in, you will be directed to your Artist's Dashboard. You can access your dashboard any time you are logged in through the blue "Your Dashboard" button in the upper right of the screen.</p>
+
+        <p><h3>2.</h3> From your dashboard you will have the opportunity to start your Patient Campaign. Hit the big green "Start a Campaign" button on your Dashboard to get going, and follow the instructions you'll see thereafter.</p>
+
+        <p><h3>3.</h3> Pay careful attention to the story you tell about your Patient. Write a thoughtful, compelling narrative about your Patient's situation and your Patient's importance in your life. Be descriptive but not too detailed. Be persuasive, but not overbearing! Briefly explain to art shoppers how buying your art will benefit this Patient's life.</p>
+
+        <p><h3>4.</h3> Think carefully about what percentage of your sales you'd like to keep (it's the last question on the form). <strong>This percentage can be changed once,</strong> but you will need to do it by <%= link_to "contacting us", new_message_url %> to change it on our end for you.
+
+        <p><h3>5.</h3> After submitting your Patient Campaign, you will then be able to start adding Artworks to your it. That is also done from your Dashboard.</p>
+
+        <p><h3>6.</h3> Once you've got your Artworks listed, it's time to tell the world about your Campaign. Post it on Facebook, Tweet about it, create a Pinterest board. <strong>Most importantly, send out a little article or notice to your mailing list with a link to your Patient Campaign, or include it in your next newsletter.</strong></p>
+
+        <p><h3>7.</h3> Have fun and <%= link_to "contact us", new_message_url %> if you have any questions!</p>
+        
+    </div>
+  </body>
+</html>

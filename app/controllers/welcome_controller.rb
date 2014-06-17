@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
+    redirect_to welcome_dashboard_path if current_user
   end
 
   # def index
