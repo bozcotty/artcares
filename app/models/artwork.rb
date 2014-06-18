@@ -6,10 +6,10 @@ class Artwork < ActiveRecord::Base
   belongs_to :patient_campaign
   # validates user.id == patient_campaign.user.id
 
-  # before_create :set_status
+  before_create :set_status
   
-  before_create :set_artwork_quantity
   # set each artwork quantity to 1, decrements to 0 upon sale in artworks-buy controller
+  before_create :set_artwork_quantity
 
   after_create :stripe_amount
     
@@ -31,7 +31,7 @@ class Artwork < ActiveRecord::Base
   validates :patient_campaign, presence: true
   validates :category, inclusion: {in: ['Painting', 'Sculpture', 'Jewelry', 'Photography', 'Fiber/Wearables', 'Mixed Media (2D or 3D)', 'Wood', 'Metal', 'Glass', 'Ceramics',  'Drawing', 'Printmaking']}
   
-  # validates :status, inclusion: {in: %w(available sold finalized)}
+  validates :status, inclusion: {in: %w(available sold complete)}
 
 
   mount_uploader :art_image_1, ArtImageUploader
@@ -53,11 +53,8 @@ class Artwork < ActiveRecord::Base
     self.quantity = 1
   end
 
-  
-
-
-  # def set_status
-  #   self.status = 'available'
-  # end
+  def set_status
+    self.status = 'available'
+  end
 
 end

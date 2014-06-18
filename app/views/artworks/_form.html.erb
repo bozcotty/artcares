@@ -43,9 +43,9 @@
        <a href='#' class='cancel'>Cancel</a><br><br>
 
 
-      <%# if current_user.role == 'admin' %>
-        <%#= f.select :status, %w(available sold finalized) %>
-      <%# end %>
+      <% if current_user.role == 'admin' %>
+        <%= f.select :status, %w(available sold complete) %>
+      <% end %>
 
       <%= f.button :submit, "List Artwork" %>
     <% end %>

@@ -2,11 +2,11 @@ class ArtworksController < ApplicationController
 
    def index 
     if params[:category]
-      @artworks = Artwork.where(category: params[:category].downcase).paginate(page: params[:page], per_page: 9)
+      @artworks = Artwork.where(category: params[:category].downcase).paginate(page: params[:page], per_page: 30)
     elsif params[:min_price] || params[:max_price]
-      @artworks = Artwork.where(price: price_range).paginate(page: params[:page], per_page: 9)
+      @artworks = Artwork.where(price: price_range).paginate(page: params[:page], per_page: 30)
     else
-      @artworks = Artwork.all.paginate(page: params[:page], per_page: 9)
+      @artworks = Artwork.all.paginate(page: params[:page], per_page: 30)
     end
   end
 
@@ -68,9 +68,9 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.find(params[:id])
     @artwork.user = current_user
 
-    # if current_user.role == 'admin'
-    #   @artwork.status = params[:artwork][:status]
-    # end
+    if current_user.role == 'admin'
+      @artwork.status = params[:artwork][:status]
+    end
 
     authorize! :update, @artwork, message: "You need to own the artwork to update it."
     if @artwork.update_attributes(params[:artwork])
@@ -133,7 +133,7 @@ class ArtworksController < ApplicationController
     #decrement artwork quantity to 0, triggers "Sold" message in show view
     @artwork.update_attribute(:quantity, @artwork.quantity -= 1)
 
-    # @artwork.status = 'sold'
+    @artwork.status = 'sold'
     @artwork.save
   
     rescue Stripe::CardError => e
