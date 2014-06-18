@@ -68,8 +68,10 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.find(params[:id])
     @artwork.user = current_user
 
+    status = params[:artwork].delete(:status)
+
     if current_user.role == 'admin'
-      @artwork.status = params[:artwork][:status]
+      @artwork.status = status
     end
 
     authorize! :update, @artwork, message: "You need to own the artwork to update it."

@@ -1,12 +1,12 @@
 class Artwork < ActiveRecord::Base
 
-  attr_accessible :title, :size, :medium, :price, :shipping_price, :summary, :art_image_1, :art_image_2, :art_image_3, :category, :original_work, :quantity
+  attr_accessible :title, :size, :medium, :price, :shipping_price, :summary, :art_image_1, :art_image_2, :art_image_3, :category, :original_work 
 
   belongs_to :user
   belongs_to :patient_campaign
   # validates user.id == patient_campaign.user.id
 
-  before_create :set_status
+  before_validation :set_status, on: :create
   
   # set each artwork quantity to 1, decrements to 0 upon sale in artworks-buy controller
   before_create :set_artwork_quantity
@@ -54,7 +54,7 @@ class Artwork < ActiveRecord::Base
   end
 
   def set_status
-    self.status = 'available'
+    self.status ||= 'available'
   end
 
 end
