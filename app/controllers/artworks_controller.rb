@@ -137,6 +137,11 @@ class ArtworksController < ApplicationController
 
     @artwork.status = 'sold'
     @artwork.save
+    if @artwork.save
+      render 'buy'
+    else
+      redirect_to :back, error: 'There was an error processing your purchase.'
+    end
   
     rescue Stripe::CardError => e
       flash[:error] = e.message

@@ -16,7 +16,7 @@
 
  
       
-      <%= f.input :category, :label => "Art Category", :collection => ['Painting', 'Sculpture', 'Jewelry', 'Photography', 'Fiber/Wearables', 'Mixed Media (2D or 3D)', 'Wood', 'Metal', 'Glass', 'Ceramics',  'Drawing', 'Printmaking']%>
+      <%= f.input :category, :label => "Art Category", :collection => ['painting', 'sculpture', 'jewelry', 'photography', 'fiber/wearables', 'mixed media (2d or 3d)', 'wood', 'metal', 'glass', 'ceramics',  'drawing', 'printmaking']%>
       <br>
       <%= f.input :medium, :input_html => {:maxlength => 40, :size => 45}, label: "Medium (i.e. oil, acrylic, watercolor. etc.)" %>
       <%= f.input :summary, :input_html => { :rows => 5 }, label: "Description of Work (Limit: 200 characters)" %>

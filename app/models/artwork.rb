@@ -13,7 +13,7 @@ class Artwork < ActiveRecord::Base
 
   after_create :stripe_amount
     
-  before_save :normalize_category
+  # before_save :normalize_category
 
   #pgsearch
   include PgSearch
@@ -29,7 +29,7 @@ class Artwork < ActiveRecord::Base
   validates :art_image_1, presence: true
   validates :user, presence: true
   validates :patient_campaign, presence: true
-  validates :category, inclusion: {in: ['Painting', 'Sculpture', 'Jewelry', 'Photography', 'Fiber/Wearables', 'Mixed Media (2D or 3D)', 'Wood', 'Metal', 'Glass', 'Ceramics',  'Drawing', 'Printmaking']}
+  validates :category, inclusion: {in: ['painting', 'sculpture', 'jewelry', 'photography', 'fiber/wearables', 'mixed media (2d or 3d)', 'wood', 'metal', 'glass', 'ceramics',  'drawing', 'printmaking']}
   
   validates :status, inclusion: {in: %w(available sold complete)}
 
@@ -45,9 +45,9 @@ class Artwork < ActiveRecord::Base
     ((price*100) + (shipping_price*100)).to_i
   end
 
-  def normalize_category
-    self.category.downcase!
-  end
+  # def normalize_category
+  #   self.category.downcase!
+  # end
 
   def set_artwork_quantity
     self.quantity = 1
