@@ -9,7 +9,7 @@
 
   <div class="col-md-4">
     <br>
-    <p>1. <strong>If you're a visual artist</strong> and know someone personally who could use some financial help during a health hardship - you're in! We'd love to have you <strong><%= link_to "Sign Up", new_user_registration_path %></strong>!
+    <p>1. <strong>If you're a visual artist</strong> and know someone personally who could use some financial help during a health hardship - you're in! We'd love to have you <strong><%= link_to "Sign Up", new_user_registration_path %></strong> and list your work for sale!
     </p><p>You have the option to keep a percentage of your art sales. Keep reading!</p>
   </div>
 </div>
@@ -18,7 +18,7 @@
 <div class="row os-font">
   <div class="col-md-4 col-md-offset-2">
     <br>
-    <p>2. Once you've signed-up and we've confirmed your account, you're ready to <strong>create a Patient Campaign</strong>. This is where you'll tell us about the person who will benefit from your art sales on ArtCaring.</p>
+    <p>2. Once you've signed-up you'll receive an email to confirm your account. After you've confirmed, you're ready to <strong>create a Patient Campaign</strong>. This is where you'll tell us about the person who will benefit from your art sales on ArtCaring.</p>
 
     <% if current_user and not current_user.patient_campaign %> 
       <p>Looks like you're signed-up and signed-in! <%= link_to "
@@ -39,7 +39,7 @@
   </div>
   <div class="col-md-4">
     <br>
-    <p>3. With a Patient Campaign set up, you'll be ready to <strong>start listing Artworks</strong> associated with your Campaign. Fill out the information about each Artwork, and upload your artwork photos! </p>
+    <p>3. With a Patient Campaign set up, you'll be ready to <strong>start listing Artworks</strong> associated with your Campaign. Fill out the information about each Artwork, and upload your artwork photos. </p>
   </div>
 
 
@@ -50,8 +50,8 @@
 <div class="row os-font">
   <div class="col-md-4 col-md-offset-2">
     <br>
-    <p>4. Once your Artworks are listed, you are ready to tell the world about your Patient Campaign. <strong>Send an email/online postcard announcing your Campaign to your mailing list. You'll probably find a great deal of your success coming from your existing buyers and collectors!</strong></p>
-    <p> People love hearing about good causes, and when they find out their favorite artist is involved, they'll want to be involved too!
+    <p>4. Once your Artworks are listed, you are ready to tell the world about your Patient Campaign. <strong>Send an email  announcing your Campaign to your mailing list. Announce it on Facebook and Twitter. You'll probably find a great deal of your success coming from your existing buyers and collectors!</strong></p>
+    <p> People love hearing about good causes, and when they find out you, their favorite artist, are involved - they'll want to be involved too!
   </div>
 
   <div class="col-md-4">
@@ -68,11 +68,11 @@
 
   <div class="col-md-4">
     <br>
-    <p>5. When you set up your Patient Campaign:
+    <p>5. Here's how sale proceeds work on ArtCaring:
       <ul>
-        <li>You'll specify what percentage of your art sales - between 0% and 30% - that you'll want to keep.</li>
+        <li>You'll specify what percentage of your art sales - between 0% and 30% - that you'll want to keep, when you set up your Campaign.</li>
         <li>Your Patient will then be set up to receive between 61% and 91% of the proceeds of any Artwork sales.
-        <li>ArtCaring fees are 6%, + 2.9% to cover credit card charges (all charges and payments are handled through <a href=https://stripe.com/ target="_blank">Stripe</a>).</li>                    
+        <li>ArtCaring fees are 6%, + 2.9% to cover credit card processing (all purchases and payments are handled through <a href=https://stripe.com/ target="_blank">Stripe</a>).</li>                    
       </ul>
     </p>
   </div>
@@ -84,7 +84,7 @@
     <br>
     <p>6. Please also read: 
       <ul>
-        <li>Please read through our <%=link_to "Terms of Use", welcome_terms_of_use_path %>.</li>
+        <li>Please read through our <%=link_to "Terms of Use", welcome_terms_of_use_path %> (they basically require you to be an upstanding citizen if you're going to participate).</li>
         <li>Peruse our <%= link_to "Frequently Asked Questions (FAQ)", welcome_faq_path %> page.</li>
         <li><%= link_to "Contact Us", new_message_path %> if you have any additional questions!
           
