@@ -58,23 +58,23 @@
     
     <% if current_user.patient_campaign && current_user.patient_campaign.artworks.count == 0 %>
 
-    <div class ="col-md-6" id="dim_unavailable">
-      <h4 class="copy-heading">Your Artworks:</h4>
-      <p>(You have no current artworks.)</p>
-      <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
-    </div>  
+      <div class ="col-md-6" id="dim_unavailable">
+        <h4 class="copy-heading">Your Artworks:</h4>
+        <p>(You have no current artworks.)</p>
+        <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
+      </div>  
      
-    <% elsif current_user.patient_campaign && current_user.patient_campaign.artworks.count >= 1 %>
+    <% else %>
 
-    <div class ="col-md-6" id="dim_unavailable">
-      <h4 class="copy-heading">Your Artworks:</h4>
-    </div>
-    <div class = "col-md-2">     
-        <%= link_to (image_tag ('/assets/btn-sm-list-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
-          </div>
+      <div class ="col-md-6" id="dim_unavailable">
+        <h4 class="copy-heading">Your Artworks:</h4>
+      </div>
+      <div class = "col-md-2">     
+          <%= link_to (image_tag ('/assets/btn-sm-list-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
+      </div>
   </div>
 
-        <table>
+      <table>
         <% current_user.patient_campaign.artworks.each do |artwork| %>
           
           <tr class="<%= cycle("odd", "even") -%>">
@@ -85,13 +85,16 @@
             <td class = "col-md-3">
               <%= link_to (artwork.title), patient_campaign_artwork_path(artwork.patient_campaign, artwork) %>
             </td>
-            <td class = "col-md-2">
-              <%= artwork.category.capitalize %>: <%= artwork.medium %>
+            <td class = "col-md-3">
+              <%= artwork.category.capitalize %>: <%= artwork.medium %>, 
             </td>
-            <td class = "col-md-2">
+            <td class= "col-md-2">
+              Status: <%= artwork.status.capitalize %>
+            </td>
+            <td class = "col-md-1">
               <%= artwork.size %>
             </td>
-            <td class = "col-md-2" style="text-align:right">
+            <td class = "col-md-1" style="text-align:right">
               <%= number_to_currency(artwork.price) %>
             </td> 
             <td class = "col-md-1" style="text-align:right">
