@@ -2,6 +2,10 @@ class Artwork < ActiveRecord::Base
 
   attr_accessible :title, :size, :medium, :price, :shipping_price, :summary, :art_image_1, :art_image_2, :art_image_3, :category, :original_work 
 
+
+  # because created a category model (took category out of artwork model):
+  has_one :category
+
   belongs_to :user
   belongs_to :patient_campaign
   # validates user.id == patient_campaign.user.id
@@ -29,7 +33,6 @@ class Artwork < ActiveRecord::Base
   validates :art_image_1, presence: true
   validates :user, presence: true
   validates :patient_campaign, presence: true
-  validates :category, inclusion: {in: ['painting', 'sculpture', 'jewelry', 'photography', 'fiber/wearables', 'mixed media (2d or 3d)', 'wood', 'metal', 'glass', 'ceramics',  'drawing', 'printmaking']}
   
   validates :status, inclusion: {in: %w(available sold complete)}
 
