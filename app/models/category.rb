@@ -5,6 +5,6 @@ class Category < ActiveRecord::Base
 
   belongs_to :artwork
 
-  validates :category, inclusion: {in: ['painting', 'sculpture', 'jewelry', 'photography', 'fiber/wearables', 'mixed media (2d or 3d)', 'wood', 'metal', 'glass', 'ceramics',  'drawing', 'printmaking']}
+  validates :category, inclusion: {in: ['painting', 'sculpture', 'jewelry', 'photography', 'fiber/wearables', 'mixed media (2d or 3d)', 'wood', 'metal', 'glass', 'ceramics', 'drawing', 'printmaking']}
 
 end

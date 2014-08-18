@@ -14,9 +14,9 @@
             f.check_box :original_work, {}, "true", "false"
             end %>
 
- 
+  #category was here, check snippets file
       
-      <%= f.input :category, :label => "Art Category", :collection => ['painting', 'sculpture', 'jewelry', 'photography', 'fiber/wearables', 'mixed media (2d or 3d)', 'wood', 'metal', 'glass', 'ceramics',  'drawing', 'printmaking']%>
+      
       <br>
       <%= f.input :medium, :input_html => {:maxlength => 40, :size => 45}, label: "Medium (i.e. oil, acrylic, watercolor. etc.)" %>
       <%= f.input :summary, :input_html => { :rows => 5 }, label: "Description of Work (Limit: 200 characters)" %>

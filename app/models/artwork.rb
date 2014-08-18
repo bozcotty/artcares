@@ -1,10 +1,10 @@
 class Artwork < ActiveRecord::Base
 
-  attr_accessible :title, :size, :medium, :price, :shipping_price, :summary, :art_image_1, :art_image_2, :art_image_3, :category, :original_work 
+  attr_accessible :title, :size, :medium, :price, :shipping_price, :summary, :art_image_1, :art_image_2, :art_image_3, :original_work
 
 
   # because created a category model (took category out of artwork model):
-  has_one :category
+  has_one :category, dependent: :destroy
 
   belongs_to :user
   belongs_to :patient_campaign
