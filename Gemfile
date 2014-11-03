@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
+gem 'rails', '4.2.0.beta2'
+# gem 'railties', '4.2.0.beta2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -13,18 +14,10 @@ gem 'rails', '3.2.14'
 #   gem 'sqlite3'
 # end
 
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '>= 3.2'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass', '~> 3.1.1.0'
-  
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-end
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
+gem 'bootstrap-sass'
 
 
 gem 'jquery-rails'
@@ -37,13 +30,16 @@ gem 'fog'
 gem 'figaro'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'simple_form'
-gem 'haml', '~> 4.0.5'
+gem 'haml'
 gem 'omniauth-facebook'
-gem 'will_paginate', '~> 3.0'
+gem 'will_paginate'
 gem 'pg_search'
 gem 'thin'
-gem 'active_attr', '~> 0.8.3'
+gem 'active_attr'
 gem 'redcarpet'
+gem 'rails_12factor'
+
+ruby '2.1.2'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
