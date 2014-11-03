@@ -1,6 +1,6 @@
 class ArtworksController < ApplicationController
 
-   def index 
+   def index
     if params[:category]
       @artworks = Artwork.where(category: params[:category].downcase).paginate(page: params[:page], per_page: 30)
     elsif params[:min_price] || params[:max_price]
@@ -11,9 +11,9 @@ class ArtworksController < ApplicationController
   end
 
   def new
-    @patient_campaign = PatientCampaign.find(params[:patient_campaign_id])
+    @patient_campaign
     @artwork = Artwork.new
-    authorize! :create, Artwork, message: "You need to own the Patient Campaign to add an artwork to it." 
+    authorize! :create, Artwork, message: "You need to own the Patient Campaign to add an artwork to it."
   end
 
   def create
@@ -23,7 +23,7 @@ class ArtworksController < ApplicationController
     @artwork = current_user.artworks.build(params[:artwork])
     @artwork.patient_campaign = @patient_campaign
       authorize! :create, Artwork, message: "You need to be signed up as an artist to list artworks."
-   
+
     if @artwork.save
       flash[:notice] = "Your artwork listing was saved successfully."
       redirect_to [@patient_campaign, @artwork]
@@ -46,7 +46,7 @@ class ArtworksController < ApplicationController
 
   def update
 
-  #avoid reloading art images, category choice 
+  #avoid reloading art images, category choice
     if params[:artwork][:category].blank?
       params[:artwork].delete("category")
     end
@@ -96,7 +96,7 @@ class ArtworksController < ApplicationController
       render :show
     end
   end
-  
+
   def buy
     @artwork = Artwork.find(params[:artwork_id])
 
@@ -107,27 +107,27 @@ class ArtworksController < ApplicationController
       :description => "#{params[:stripeEmail]} purchased #{@artwork.title}",
       :currency    => 'usd'
             )
-    
+
     @user = @artwork.user
 
     @buyer = Buyer.where(name: params[:stripeBillingName],
-      email: params[:stripeEmail], 
-      address_line_1: params[:stripeBillingAddressLine1], 
-      address_apartment: params[:stripeBillingAddressApt], 
-      address_zip: params[:stripeBillingAddressZip], 
-      address_city: params[:stripeBillingAddressCity], 
-      address_state: params[:stripeBillingAddressState], 
-      address_country: params[:stripeBillingAddressCountry], 
+      email: params[:stripeEmail],
+      address_line_1: params[:stripeBillingAddressLine1],
+      address_apartment: params[:stripeBillingAddressApt],
+      address_zip: params[:stripeBillingAddressZip],
+      address_city: params[:stripeBillingAddressCity],
+      address_state: params[:stripeBillingAddressState],
+      address_country: params[:stripeBillingAddressCountry],
       address_country_code: params[:stripeBillingAddressCountryCode],
-      shipping_name: params[:stripeShippingName], 
-      shipping_address_line_1: params[:stripeShippingAddressLine1], 
-      shipping_address_apartment: params[:stripeShippingAddressApt], 
-      shipping_address_zip: params[:stripeShippingAddressZip], 
-      shipping_address_city: params[:stripeShippingAddressCity], 
-      shipping_address_state: params[:stripeShippingAddressState], 
-      shipping_address_country: params[:stripeShippingAddressCountry], 
+      shipping_name: params[:stripeShippingName],
+      shipping_address_line_1: params[:stripeShippingAddressLine1],
+      shipping_address_apartment: params[:stripeShippingAddressApt],
+      shipping_address_zip: params[:stripeShippingAddressZip],
+      shipping_address_city: params[:stripeShippingAddressCity],
+      shipping_address_state: params[:stripeShippingAddressState],
+      shipping_address_country: params[:stripeShippingAddressCountry],
       shipping_address_country_code: params[:stripeShippingAddressCountryCode]).first_or_create
-      
+
 
     PurchaseMailer.new_purchase(@artwork, @buyer).deliver
     PurchaseThanksMailer.new_purchase_thanks(@artwork, @buyer).deliver
@@ -142,18 +142,18 @@ class ArtworksController < ApplicationController
     else
       redirect_to :back, error: 'There was an error processing your purchase.'
     end
-  
+
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to charges_path
   end
-  
+
 
 def price_range
  (params[:min_price].to_i || 0)..(params[:max_price].to_i || 1_000_000_000)
 end
 
- 
-  
+
+
 
 end
