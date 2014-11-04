@@ -1,9 +1,8 @@
-# ENV['RAILS_ENV'] ||= 'test'
-Rails.env = 'test'
-puts "Current environment: #{Rails.env}"
+ENV['RAILS_ENV'] = 'test'
 
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require 'minitest/rails'
 require 'minitest/rails/capybara'
 require 'capybara/poltergeist'
 # require 'pry-rescue/minitest'

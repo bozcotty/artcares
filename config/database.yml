@@ -3,14 +3,14 @@ development:
   encoding: unicode
   database: artcares_development
   pool: 5
-  username: Scott
+  username:
   password:
 test:
   adapter: postgresql
   encoding: unicode
   database: artcares_test
   pool: 5
-  username: Scott
+  username:
   password:
 production:
   adapter: postgresql
