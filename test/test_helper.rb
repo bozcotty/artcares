@@ -7,7 +7,7 @@ require 'minitest/rails/capybara'
 require 'capybara/poltergeist'
 # require 'pry-rescue/minitest'
 
-class ActiveSupport::TestCase
-  fixtures :all
-  Capybara.javascript_driver = :poltergeist
-end
+# class ActiveSupport::TestCase
+#   fixtures :all
+#   Capybara.javascript_driver = :poltergeist
+# end
