@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear!('rails')
+
 ENV['RAILS_ENV'] = 'test'
 
 require File.expand_path('../../config/environment', __FILE__)
@@ -6,9 +9,6 @@ require 'minitest/rails'
 require 'minitest/rails/capybara'
 require 'capybara/poltergeist'
 # require 'pry-rescue/minitest'
-
-require 'coveralls'
-Coveralls.wear!('rails')
 
 # class ActiveSupport::TestCase
 #   fixtures :all
