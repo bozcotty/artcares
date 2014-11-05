@@ -1,11 +1,16 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+# a user that just signed up, without campaign nor artworks
+pepe:
+  email: 'pepe@hola.com'
+  encrypted_password: <%= User.new.send(:password_digest, '12345678') %>
+  first_name: 'Pepe'
+  last_name: 'Smith'
+  street_address: '132 jsdhkahsd'
+  unit_number: '8'
+  city: 'Seattle'
+  state: 'WA'
+  zip_code: '98102'
+  phone_number: '2066542377'
+  art_website: 'www.pepe.com'
+  type_of_artist: 'Painter'
+  artist_statement: 'xxx'
+  confirmed_at: <%= Time.now %>

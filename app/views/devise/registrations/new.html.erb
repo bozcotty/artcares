@@ -5,7 +5,7 @@
        <p><%=(image_tag ('/assets/artcaring-signup-small.png'))%></p>
     </div>
     <div class="col-md-6">
-      
+
       <br>
       <h2 class="copy-heading text-center">Sign Up Here!</h2>
 
@@ -20,65 +20,39 @@
   </div>
 
   <div class="row">
-    <div class="col-md-4 col-md-offset-2">
-   
     <%= simple_form_for @user do |f| %>
       <%= devise_error_messages! %>
+      <div class="col-md-4 col-md-offset-2">
+        <%= f.input :email, label: "Email", :input_html => {:maxlength => 45, :size => 45} %>
+        <%= f.input :password, label: "Password", :input_html => {:maxlength => 25, :size => 25} %>
+        <%= f.input :password_confirmation, label: "Password Confirmation", :input_html => {:maxlength => 25, :size => 25} %>
+        <p>Please fill out the rest of the form below.</p>
+        <br />
+        <%= f.input :first_name, label: "First Name", :input_html => {:maxlength => 40, :size => 30} %>
+        <%= f.input :last_name, label: "Last Name", :input_html => {:maxlength => 40, :size => 30}%>
+        <br>
+        <br>
+        <p>Upload an image of yourself (jpg or jpeg file):</p>
+        <%= image_tag(@user.headshot.small.url) if @user.headshot?  %>
+        <%= f.input :headshot, label: "Artist Image/Headshot" %>
+        <br>
+      </div>
 
-      <%= f.input :email, label: "Email", :input_html => {:maxlength => 45, :size => 45} %>
-      
-      <%= f.input :password, label: "Password", :input_html => {:maxlength => 25, :size => 25} %>
-      <%= f.input :password_confirmation, label: "Password Confirmation", :input_html => {:maxlength => 25, :size => 25} %>
-      
-      <p>Please fill out the rest of the form below.</p>
-      <br />
-
-      <%= f.input :first_name, label: "First Name", :input_html => {:maxlength => 40, :size => 30} %>
-
-
-      <%= f.input :last_name, label: "Last Name", :input_html => {:maxlength => 40, :size => 30}%>
-      <br>
-      <br>
-      <p>Upload an image of yourself (jpg or jpeg file):</p>
-
-      <%= image_tag(@user.headshot.small.url) if @user.headshot?  %>
-        <%= f.input :headshot, label: "Artist Image/Headshot" %> 
-    
-
-      
-      
-      
-      <br>
-
-    </div>
-
-    <div class="row col-md-4">
-
-      <%= f.input :street_address, label: "Street Address", :input_html => {:maxlength => 45, :size => 45} %>
-    
-      
-      <%= f.input :unit_number, label: "Apt/Unit #", :input_html => {:maxlength => 15, :size => 15} %>
-      
-      <%= f.input :city, label: "City", :input_html => {:maxlength => 30, :size => 30} %>
-          
-      <%= f.input :state, label: "State", :input_html => {:maxlength => 20, :size => 20} %>
-
-      
-      <%= f.input :zip_code, label: "Zip Code", :input_html => {:maxlength => 15, :size => 15} %>
-     
-      <%= f.input :phone_number, label: "Phone Number", :input_html => {:maxlength => 20, :size => 20} %>
-      
-      <%= f.input :art_website, label: "Your Art Website URL", :input_html => {:maxlength => 55, :size => 45} %><br>
-      
-      <%= f.input :type_of_artist, :label => "Type of Artist", :collection => ['Painter', 'Sculptor', 'Jeweler', 'Photographer', 'Fiber Artist', 'Mixed Media Artist', 'Woodworker', 'Metalsmith', 'Glass Artist', 'Ceramic Artist',  'Graphite/Ink Artist', 'Printmaker']%>
-      <br>
-
-      <%= f.input :artist_statement, :input_html => { :rows => 15 }, label: "Brief Artist Statement (800 characters or less)" %><br>
-
-      <%= f.button :submit, "Create Account" %>
-      <br><br>
-      <% end %>
-    </div>
+      <div class="row col-md-4">
+        <%= f.input :street_address, label: "Street Address", :input_html => {:maxlength => 45, :size => 45} %>
+        <%= f.input :unit_number, label: "Apt/Unit #", :input_html => {:maxlength => 15, :size => 15} %>
+        <%= f.input :city, label: "City", :input_html => {:maxlength => 30, :size => 30} %>
+        <%= f.input :state, label: "State", :input_html => {:maxlength => 20, :size => 20} %>
+        <%= f.input :zip_code, label: "Zip Code", :input_html => {:maxlength => 15, :size => 15} %>
+        <%= f.input :phone_number, label: "Phone Number", :input_html => {:maxlength => 20, :size => 20} %>
+        <%= f.input :art_website, label: "Your Art Website URL", :input_html => {:maxlength => 55, :size => 45} %><br>
+        <%= f.input :type_of_artist, :label => "Type of Artist", :collection => ['Painter', 'Sculptor', 'Jeweler', 'Photographer', 'Fiber Artist', 'Mixed Media Artist', 'Woodworker', 'Metalsmith', 'Glass Artist', 'Ceramic Artist',  'Graphite/Ink Artist', 'Printmaker']%>
+        <br>
+        <%= f.input :artist_statement, :input_html => { :rows => 15 }, label: "Brief Artist Narrative (800 characters or less)" %><br>
+        <%= f.button :submit, "Create Account" %>
+        <br><br>
+      </div>
+    <% end %>
   </div>
 </div>
 

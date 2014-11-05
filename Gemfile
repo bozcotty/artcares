@@ -4,6 +4,7 @@ gem 'rails', '3.2.14'
 gem 'pg'
 
 group :development, :test do
+  gem 'launchy'
   gem 'poltergeist'
   gem 'pry-rails'
   gem 'pry-rescue'
@@ -23,7 +24,6 @@ end
 
 
 gem 'jquery-rails'
-gem 'faker'
 gem 'devise'
 gem 'cancan'
 gem 'carrierwave'
