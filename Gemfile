@@ -3,6 +3,23 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.14'
 gem 'pg'
 
+gem 'active_attr', '~> 0.8.3'
+gem 'cancan'
+gem 'carrierwave'
+gem 'coveralls', require: false
+gem 'devise'
+gem 'figaro'
+gem 'fog'
+# gem 'haml', '~> 4.0.5'
+gem 'jquery-rails'
+gem 'mini_magick'
+gem 'simple_form'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'pg_search'
+gem 'redcarpet'
+gem 'thin'
+gem 'will_paginate', '~> 3.0'
+
 group :development, :test do
   gem 'launchy'
   gem 'poltergeist'
@@ -21,22 +38,3 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass', '~> 3.1.1.0'
 end
-
-
-gem 'jquery-rails'
-gem 'devise'
-gem 'cancan'
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'fog'
-gem 'figaro'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-gem 'simple_form'
-gem 'haml', '~> 4.0.5'
-gem 'omniauth-facebook'
-gem 'will_paginate', '~> 3.0'
-gem 'pg_search'
-gem 'thin'
-gem 'active_attr', '~> 0.8.3'
-gem 'redcarpet'
-gem 'coveralls', require: false

@@ -1,11 +1,11 @@
 Artcares::Application.routes.draw do
-  
-  
-  
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
+
+
+
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
   # artists index would show a list of artists, show would show detail page of artists info for public view
-  
+
 
 
   resources :patient_campaigns do
@@ -13,7 +13,7 @@ Artcares::Application.routes.draw do
       post :buy
     end
   end
-  
+
   resources :users, only: [:index, :show] # for public view
 
   resources :charges
@@ -21,7 +21,7 @@ Artcares::Application.routes.draw do
   resources :messages, only: [:new, :create] #for contact us page
 
   get 'dashboard', to: 'welcome#dashboard', as: 'dashboard'
-  
+
   get "welcome/index"
   get "welcome/about"
   get "welcome/dashboard"
@@ -30,14 +30,14 @@ Artcares::Application.routes.draw do
   get "welcome/terms_of_use"
   get "welcome/faq"
   get "welcome/fees"
-  
+
 
   get 'search', to: 'search#index'
 
   # match "facebook" => "http://www.facebook.com"
   match "/facebook" => redirect("http://facebook.com/artcaring"), :as => :facebook
   match "/twitter" => redirect("http://twitter.com/artcaring1"), :as => :twitter
-    
+
   root :to => 'welcome#index'
 
   # Shop By Routes:
@@ -59,5 +59,5 @@ Artcares::Application.routes.draw do
 
   get "artworks/search"
 
-  
+
 end
