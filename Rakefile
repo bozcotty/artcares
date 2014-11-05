@@ -5,3 +5,8 @@
 require File.expand_path('../config/application', __FILE__)
 
 Artcares::Application.load_tasks
+
+Rake::TestTask.new do |t|
+  t.libs << 'test'
+  t.test_files = FileList['test/features/**/*_test.rb']
+end

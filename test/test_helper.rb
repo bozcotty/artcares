@@ -10,7 +10,15 @@ require 'minitest/rails/capybara'
 require 'capybara/poltergeist'
 # require 'pry-rescue/minitest'
 
-# class ActiveSupport::TestCase
-#   fixtures :all
-#   Capybara.javascript_driver = :poltergeist
-# end
+class ActiveSupport::TestCase
+  fixtures :all
+  Capybara.javascript_driver = :poltergeist
+end
+
+def sign_in(fixture_name)
+  visit new_user_session_path
+
+  fill_in 'Email', with: users(fixture_name).email
+  fill_in 'Password', with: '12345678'
+  click_on 'Sign in'
+end
