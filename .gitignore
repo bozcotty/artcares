@@ -19,3 +19,6 @@
 
 # Carrierwave images
 public/uploads
+
+# Ignore coveralls
+/coverage/

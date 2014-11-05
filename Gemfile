@@ -39,3 +39,4 @@ gem 'pg_search'
 gem 'thin'
 gem 'active_attr', '~> 0.8.3'
 gem 'redcarpet'
+gem 'coveralls', require: false
