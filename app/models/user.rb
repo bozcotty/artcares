@@ -3,11 +3,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
-         :omniauthable 
+         :omniauthable
          # :omniauth_providers => [:facebook]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :first_name, :last_name, :city, :state, :art_website, 
+  attr_accessible :first_name, :last_name, :city, :state, :art_website,
                   :type_of_artist, :artist_statement, :email, :password, :password_confirmation, :remember_me,
                   :provider, :uid, :headshot, :street_address, :unit_number, :zip_code, :phone_number,
                   :provider, :uid
@@ -18,17 +18,18 @@ class User < ActiveRecord::Base
   # pgsearch
   include PgSearch
   multisearchable :against => [:first_name, :last_name, :type_of_artist, :city, :state]
-  
+
   #validates :art_website,'url is valid', presence: true,
   validates :email, confirmation: true
   validates :type_of_artist, presence: true, length: {maximum: 40}
   validates :artist_statement, length: { maximum: 800, too_long: "%{count} characters is the maximum allowed."}, presence: true
-  validates :first_name, :last_name, :headshot, :street_address, :city, :state, :zip_code, :art_website, :phone_number, presence: true
-  
+  validates :first_name, :last_name, :street_address, :city, :state, :zip_code, :art_website, :phone_number, presence: true
+  # validates :headshot, presence: true
+
   before_create :set_member
 
   mount_uploader :headshot, HeadshotUploader
-  
+
   has_one :patient_campaign, dependent: :destroy
   has_many :artworks, dependent: :destroy
 
@@ -52,19 +53,19 @@ class User < ActiveRecord::Base
     end
     user
   end
-  
+
   ROLES = %w[member admin]
 
   def role?(base_role)
     self.role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(self.role)
-  end 
+  end
 
   def full_name
     first_name + " " + last_name
   end
 
   private
-  
+
   def set_member
     self.role ||= 'member'
   end
