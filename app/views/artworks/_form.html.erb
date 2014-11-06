@@ -3,10 +3,9 @@
     <br>
   </div>
 
-  <div class="row col-md-5 col-md-offset-1">
+  <%= simple_form_for [@campaign, @artwork], :html => {:multipart =>true} do |f| %>
 
-    <%= simple_form_for [@campaign, @artwork], :html => {:multipart =>true} do |f| %>
-
+    <div class="row col-md-5 col-md-offset-1">
       <%= f.input :title, :input_html => {:maxlength => 45, :size => 45}, label: "Title of Artwork" %>
       <%= f.input :size, :input_html => {:maxlength => 20, :size => 45}, label: "Dimensions/Size" %><br>
 
@@ -24,9 +23,9 @@
       <%= f.input :price, label: "Price (US $)" %>
       <%= f.input :shipping_price, label: "Shipping & Handling Cost (US $)" %>
       <br>
-  </div>
+    </div>
 
-  <div class="row col-md-5">
+    <div class="row col-md-5">
 
       <p><strong>Upload up to 3 images</strong> of this Artwork (.jpg/.jpeg format). <br>At least one image required.</p>
 
@@ -48,5 +47,5 @@
       <% end %>
 
       <%= f.button :submit, "List Artwork" %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>

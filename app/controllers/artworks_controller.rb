@@ -23,7 +23,7 @@ class ArtworksController < ApplicationController
     @artwork = current_user.artworks.build(params[:artwork])
     @artwork.campaign = @campaign
       authorize! :create, Artwork, message: "You need to be signed up as an artist to list artworks."
-
+      binding.pry
     if @artwork.save
       flash[:notice] = "Your artwork listing was saved successfully."
       redirect_to [@campaign, @artwork]

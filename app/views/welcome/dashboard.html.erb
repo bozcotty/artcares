@@ -61,7 +61,7 @@
     <div class ="col-md-6" id="dim_unavailable">
       <h4 class="copy-heading">Your Artworks:</h4>
       <p>(You have no current artworks.)</p>
-      <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_campaign_artwork_path(current_user.campaign) %>
+      <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_campaign_artwork_path(current_user.campaign), id: 'btn_new_artwk'%>
     </div>
 
     <% elsif current_user.campaign && current_user.campaign.artworks.count >= 1 %>

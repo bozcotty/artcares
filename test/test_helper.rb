@@ -45,15 +45,17 @@ def create_campaign
 end
 
 def create_artwork
-  visit new_campaign_artwork_path
+  find('#btn_new_artwk').click
 
-  fill_in 'Title of Artwork', with: artworks(:one).title
-  fill_in 'Dimensions/Size', with: artworks(:one).size
-  check('Verify this is an original Artwork by checking the box.')
-  select('sculpture', :from => 'Art Category')
-  fill_in 'Medium (i.e. oil, acrylic, watercolor. etc.)', with: artworks(:one).medium
-  fill_in 'Price (US $)', with: artworks(:one).price
-  fill_in 'Shipping & Handling Cost (US $)', with: artworks(:one).shipping_price
+  fill_in 'artwork_title', with: artworks(:one).title
+  fill_in 'artwork_size', with: artworks(:one).size
+  check('artwork_original_work')
+  select('sculpture', :from => 'artwork_category')
+  fill_in 'artwork_medium', with: artworks(:one).medium
+  fill_in 'artwork_price', with: artworks(:one).price
+  fill_in 'artwork_shipping_price', with: artworks(:one).shipping_price
+  fill_in 'artwork_summary', with: artworks(:one).summary
+  attach_file('artwork_art_image_1', 'app/assets/images/the-fork-by-scott-hale.jpg')
   click_on 'List Artwork'
 end
 

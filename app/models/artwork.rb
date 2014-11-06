@@ -19,25 +19,22 @@ class Artwork < ActiveRecord::Base
   include PgSearch
   multisearchable :against => [:title, :summary, :category, :medium, :price]
 
-
   validates :title, :size, :medium, :price, :shipping_price, :summary, :category, presence: true
   validates :price, numericality: { greater_than: 199.99, less_than_or_equal_to: 100000.00 }
   validates_presence_of :original_work, :message => " &nbspAll Artworks must be original to be listed on ArtCaring."
   validates_presence_of :category, :message => ": Please select an artwork category from the list."
   validates :shipping_price, presence: true
   validates :summary, length: { maximum: 300, too_long: "%{count} characters is the maximum allowed."}
-  validates :art_image_1, presence: true
+  # validates :art_image_1, presence: true
   validates :user, presence: true
   validates :campaign, presence: true
   validates :category, inclusion: {in: ['painting', 'sculpture', 'jewelry', 'photography', 'fiber/wearables', 'mixed media (2d or 3d)', 'wood', 'metal', 'glass', 'ceramics',  'drawing', 'printmaking']}
 
   validates :status, inclusion: {in: %w(available sold complete)}
 
-
   mount_uploader :art_image_1, ArtImageUploader
   mount_uploader :art_image_2, ArtImageUploader
   mount_uploader :art_image_3, ArtImageUploader
-
 
 
   def stripe_amount
