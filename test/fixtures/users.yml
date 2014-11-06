@@ -13,6 +13,7 @@ pepe:
   art_website: 'www.pepe.com'
   type_of_artist: 'Painter'
   artist_statement: 'xxx'
+  role: 'member'
   confirmed_at: <%= Time.now %>
 
 # pepcamp:
@@ -45,4 +46,5 @@ pepart:
   art_website: 'www.pepe.com'
   type_of_artist: 'Painter'
   artist_statement: 'xxx'
+  role: 'member'
   confirmed_at: <%= Time.now %>

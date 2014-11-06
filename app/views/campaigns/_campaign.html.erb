@@ -1,17 +1,8 @@
-<!-- partial used for search index -->
 <div class="container-fluid">
-
   <div class="row search-row">
       <span class="search-margin"><%= link_to image_tag(campaign.patient_image_1.micro.url), campaign  %></span>
       <span class="search-margin"><%= link_to campaign.full_name, campaign %>,</span>
       <span class="search-margin">Situation: <%= link_to campaign.patient_diagnosis, campaign %></span>
       <span class="search-margin">More: <%= link_to truncate((campaign.patient_story), length: 70), campaign %></span>
-
-
-
   </div>
 </div
-
-
-
-
