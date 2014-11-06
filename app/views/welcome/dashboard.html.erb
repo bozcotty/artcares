@@ -1,4 +1,4 @@
-<div class="container">   
+<div class="container">
   <div class= "row">
     <div class="col-md-6">
     <h3 class="copy-heading"><%= current_user.first_name %> <%= current_user.last_name %> - Artist's Dashboard</h3>
@@ -6,84 +6,84 @@
     <div class="col-md-6">
       <br>
       <%= link_to (image_tag ('/assets/btn-sm-edit-account.png')), edit_user_registration_path %>
-      
+
     </div>
   </div>
 
   <hr class="style-four">
 
-<!-- Patient Campaign Section -->
+<!-- Campaign Section -->
   <div class= "row">
 
-    <% if not current_user.patient_campaign %>
+    <% if not current_user.campaign %>
 
       <div class ="col-md-6">
-        <h4 class="copy-heading">Your Patient Campaign:</h4>
-        
-          <p>(You have no current Patient Campaign.)</p>
-          <p>Please start a Patient Campaign...after which you can start listing Artworks!) </p>
-          
-          <p><%= link_to (image_tag ('/assets/btn-start-campaign.png')), new_patient_campaign_path %></p>
-              
+        <h4 class="copy-heading">Your Campaign:</h4>
+
+          <p>(You have no current Campaign.)</p>
+          <p>Please start a Campaign...after which you can start listing Artworks!) </p>
+
+          <p><%= link_to (image_tag ('/assets/btn-start-campaign.png')), new_campaign_path, id:'btn_start_cmp' %></p>
+
       </div>
 
-    <% elsif current_user.patient_campaign %>
+    <% elsif current_user.campaign %>
 
       <div class ="col-md-6">
-        <h4 class="copy-heading">Your Patient Campaign:</h4>
+        <h4 class="copy-heading">Your Campaign:</h4>
       </div>
 
       <div class="col-md-2">
-        <%= link_to (image_tag ('/assets/btn-sm-edit-camp.png')), edit_patient_campaign_path(current_user.patient_campaign) %>
+        <%= link_to (image_tag ('/assets/btn-sm-edit-camp.png')), edit_campaign_path(current_user.campaign) %>
       </div>
 
   </div>
 
   <div class="row">
       <div class="col-md-6" style="display: inline-block">
-        <span style="float:left; padding-right: 15px"><%= image_tag(current_user.patient_campaign.patient_image_1.thumb.url) %></span>
-        <h4 class="copy-heading"><%= link_to current_user.patient_campaign.campaign_name, current_user.patient_campaign %></h4>
-            <%#= link_to campaign.campaign_name, "/patient_campaigns/#{campaign.id}" %>
-            <%#= link_to campaign.campaign_name, patient_campaign_path(campaign.id) %>
-            <%#= link_to campaign.campaign_name, patient_campaign_path(campaign) %>
+        <span style="float:left; padding-right: 15px"><%= image_tag(current_user.campaign.patient_image_1.thumb.url) %></span>
+        <h4 class="copy-heading"><%= link_to current_user.campaign.campaign_name, current_user.campaign %></h4>
+            <%#= link_to campaign.campaign_name, "/campaigns/#{campaign.id}" %>
+            <%#= link_to campaign.campaign_name, campaign_path(campaign.id) %>
+            <%#= link_to campaign.campaign_name, campaign_path(campaign) %>
       </div>
-      
+
     <% end %>
   </div>
-       
+
 <hr class="style-four">
 
 <!-- Artworks Section -->
   <div class= "row">
-    
-    <% if current_user.patient_campaign && current_user.patient_campaign.artworks.count == 0 %>
+
+    <% if current_user.campaign && current_user.campaign.artworks.count == 0 %>
 
     <div class ="col-md-6" id="dim_unavailable">
       <h4 class="copy-heading">Your Artworks:</h4>
       <p>(You have no current artworks.)</p>
-      <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
-    </div>  
-     
-    <% elsif current_user.patient_campaign && current_user.patient_campaign.artworks.count >= 1 %>
+      <%= link_to (image_tag ('/assets/btn-add-artwork.png')), new_campaign_artwork_path(current_user.campaign) %>
+    </div>
+
+    <% elsif current_user.campaign && current_user.campaign.artworks.count >= 1 %>
 
     <div class ="col-md-6" id="dim_unavailable">
       <h4 class="copy-heading">Your Artworks:</h4>
     </div>
-    <div class = "col-md-2">     
-        <%= link_to (image_tag ('/assets/btn-sm-list-artwork.png')), new_patient_campaign_artwork_path(current_user.patient_campaign) %>
+    <div class = "col-md-2">
+        <%= link_to (image_tag ('/assets/btn-sm-list-artwork.png')), new_campaign_artwork_path(current_user.campaign) %>
           </div>
   </div>
 
         <table>
-        <% current_user.patient_campaign.artworks.each do |artwork| %>
-          
+        <% current_user.campaign.artworks.each do |artwork| %>
+
           <tr class="<%= cycle("odd", "even") -%>">
             <td class ="col-md-1" >
               <span><%= image_tag(artwork.art_image_1.thumb.url) %></span>
 
             </td>
             <td class = "col-md-3">
-              <%= link_to (artwork.title), patient_campaign_artwork_path(artwork.patient_campaign, artwork) %>
+              <%= link_to (artwork.title), campaign_artwork_path(artwork.campaign, artwork) %>
             </td>
             <td class = "col-md-2">
               <%= artwork.category.capitalize %>: <%= artwork.medium %>
@@ -93,33 +93,33 @@
             </td>
             <td class = "col-md-2" style="text-align:right">
               <%= number_to_currency(artwork.price) %>
-            </td> 
+            </td>
             <td class = "col-md-1" style="text-align:right">
               <% if can? :edit, Artwork %>
-                  <%= link_to "Edit", edit_patient_campaign_artwork_path(artwork.patient_campaign, artwork)%>
+                  <%= link_to "Edit", edit_campaign_artwork_path(artwork.campaign, artwork)%>
                   <% end %>
-            </td>    
-            <td class = "col-md-1">     
+            </td>
+            <td class = "col-md-1">
               <% if can? :destroy, Artwork %>
-                  <%= link_to "Delete", patient_campaign_artwork_path(artwork.patient_campaign, artwork), method: :delete, confirm: 'Are you sure you want to delete this Artwork?' %>
+                  <%= link_to "Delete", campaign_artwork_path(artwork.campaign, artwork), method: :delete, confirm: 'Are you sure you want to delete this Artwork?' %>
                   <% end %>
-            </td>  
-                        
-            
+            </td>
+
+
           </tr>
           <!-- <hr> -->
         <% end %>
       </table>
 
-      
+
       <% end %>
     </div>
   </div>
 
-  
 
 
-  
+
+
 </div>
 
 

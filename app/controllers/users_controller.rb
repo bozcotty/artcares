@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @patient_campaign = @user.patient_campaign
+    @campaign = @user.campaign
   end
 
   # def destroy

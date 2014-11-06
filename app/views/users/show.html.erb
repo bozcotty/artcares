@@ -7,51 +7,51 @@
       <p class="text-right"><%= image_tag @user.headshot %></p>
 
       <h3 class="text-right copy-heading green"><span class="text-right glyphicon glyphicon-chevron-down"></span>&nbspScroll to view Artworks</h3>
-      
-      
+
+
     </div>
-    
+
 
 <!-- artist info -->
     <div class="col-md-3">
-    
+
         <!-- change the link to an artist view page, (to be made) -->
       <h2 class="copy-heading blue"><%= @user.full_name%></h2>
       <h3 class="copy-heading blue"><%= @user.type_of_artist %></h3>
       <h4 class="copy-heading"><%= @user.city %>, <%= @user.state %></h4>
       <hr>
-      
-      <div class="font16"><strong>Artist Statement:</strong> <%= markdown @user.artist_statement %></div>  
+
+      <div class="font16"><strong>Artist Statement:</strong> <%= markdown @user.artist_statement %></div>
     </div>
 
 <!-- patient campaign info -->
-  
+
     <div class="col-md-5">
       <div class="show-capsule-story">
-        <% if @user.patient_campaign %>
-        
-          <h4 class="copy-heading orange">Artist's Patient: <%= @user.patient_campaign.full_name %>
-          <p class="font16b">(Artist's <%= @user.patient_campaign.artist_relationship_to_patient %>)</p></h4>
+        <% if @user.campaign %>
+
+          <h4 class="copy-heading orange">Artist's Patient: <%= @user.campaign.full_name %>
+          <p class="font16b">(Artist's <%= @user.campaign.artist_relationship_to_patient %>)</p></h4>
 
           <div class="row" id="artists-patient">
-            
-              <%= link_to image_tag(@user.patient_campaign.patient_image_1.small.url), patient_campaign_path(@user.patient_campaign) %>
-            
-            <h4 class="copy-heading orange"><%= @user.patient_campaign.campaign_name %></h4>
-              <div class="patient-story"><%= markdown @user.patient_campaign.patient_story%></div>
-            
+
+              <%= link_to image_tag(@user.campaign.patient_image_1.small.url), campaign_path(@user.campaign) %>
+
+            <h4 class="copy-heading orange"><%= @user.campaign.campaign_name %></h4>
+              <div class="patient-story"><%= markdown @user.campaign.patient_story%></div>
+
           </div>
-        
+
 
         <% else %>
-       
-            <p class="font16">This Artist has not set up a patient campaign yet.</p> 
+
+            <p class="font16">This Artist has not set up a patient campaign yet.</p>
         <% end %>
       </div>
     </div>
   </div>
 
-  <hr class="style-two"> 
+  <hr class="style-two">
 
 
    <!-- artist's works section -->
@@ -74,8 +74,8 @@
 
   </div>
 
- 
-  
- 
+
+
+
   </div>
 </div>

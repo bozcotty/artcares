@@ -18,9 +18,9 @@
         Congratulations!<br>
 
         <p><%= @buyer.name %> from <%= @buyer.address_city %>, <%= @buyer.address_state %>as just purchased "<%= @artwork.title %>", <br>
-        at ArtCaring.com, through your Patient Campaign for: <br>
-        <%= @artwork.user.patient_campaign.full_name %>!</p>
-        <br> 
+        at ArtCaring.com, through your Campaign for: <br>
+        <%= @artwork.user.campaign.full_name %>!</p>
+        <br>
 
         The buyer has specified the shipping address as:<br>
 
@@ -53,7 +53,7 @@
             by keeping the shipment, return it for a refund, or notify <br>
             us in the case of any damage claims. Buyers are responsible <br>
             for the cost of any return shipment to you, the artist, and <br>
-            are required to insure the return shipment while in transit.</p> 
+            are required to insure the return shipment while in transit.</p>
         <hr>
 
         <p>Once the buyer has finalized their purchase, distributions <br>

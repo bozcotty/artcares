@@ -5,17 +5,17 @@
 
   <div class="row col-md-5 col-md-offset-1">
 
-    <%= simple_form_for [@patient_campaign, @artwork], :html => {:multipart =>true} do |f| %>
+    <%= simple_form_for [@campaign, @artwork], :html => {:multipart =>true} do |f| %>
 
       <%= f.input :title, :input_html => {:maxlength => 45, :size => 45}, label: "Title of Artwork" %>
       <%= f.input :size, :input_html => {:maxlength => 20, :size => 45}, label: "Dimensions/Size" %><br>
-      
-      <%= f.input :original_work, label: "Verify this is an original Artwork by checking the box.", as: :boolean do 
+
+      <%= f.input :original_work, label: "Verify this is an original Artwork by checking the box.", as: :boolean do
             f.check_box :original_work, {}, "true", "false"
             end %>
 
- 
-      
+
+
       <%= f.input :category, :label => "Art Category", :collection => ['painting', 'sculpture', 'jewelry', 'photography', 'fiber/wearables', 'mixed media (2d or 3d)', 'wood', 'metal', 'glass', 'ceramics',  'drawing', 'printmaking']%>
       <br>
       <%= f.input :medium, :input_html => {:maxlength => 40, :size => 45}, label: "Medium (i.e. oil, acrylic, watercolor. etc.)" %>
@@ -27,19 +27,19 @@
   </div>
 
   <div class="row col-md-5">
-    
+
       <p><strong>Upload up to 3 images</strong> of this Artwork (.jpg/.jpeg format). <br>At least one image required.</p>
 
       <%= image_tag(@artwork.art_image_1.small.url) if @artwork.art_image_1?  %>
-        <%= f.input :art_image_1, label: "Image 1" %> 
+        <%= f.input :art_image_1, label: "Image 1" %>
         <a href='#' class='cancel'>Cancel</a><br><br>
-        
+
       <%= image_tag(@artwork.art_image_2.small.url) if @artwork.art_image_2?  %>
-        <%= f.input :art_image_2, label: "Image 2" %> 
+        <%= f.input :art_image_2, label: "Image 2" %>
         <a href='#' class='cancel'>Cancel</a><br><br>
 
       <%= image_tag(@artwork.art_image_3.small.url) if @artwork.art_image_3?  %>
-        <%= f.input :art_image_3, label: "Image 3" %> 
+        <%= f.input :art_image_3, label: "Image 3" %>
        <a href='#' class='cancel'>Cancel</a><br><br>
 
 
