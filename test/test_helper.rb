@@ -23,11 +23,24 @@ def sign_in(fixture_name)
   click_on 'Sign in'
 end
 
+
 def create_campaign
-  visit welcome_dashboard
+  visit new_campaign_path
 
-  fill_in "Name your Patient Campaign, (i.e. 'Art for Mary\'s Cancer Fund'", with:
-
+  fill_in 'campaign_campaign_name', with: campaigns(:one).campaign_name
+  fill_in 'campaign_patient_first_name', with: campaigns(:one).patient_first_name
+  fill_in 'campaign_patient_last_name', with: campaigns(:one).patient_last_name
+  fill_in 'campaign_patient_street_address', with: campaigns(:one).patient_street_address
+  fill_in 'campaign_patient_unit_number', with: campaigns(:one).patient_unit_number
+  fill_in 'campaign_patient_city', with: campaigns(:one).patient_city
+  fill_in 'campaign_patient_state', with: campaigns(:one).patient_state
+  fill_in 'campaign_patient_zip_code', with: campaigns(:one).patient_zip_code
+  fill_in 'campaign_patient_phone_number', with: campaigns(:one).patient_phone_number
+  fill_in 'campaign_artist_relationship_to_patient', with: campaigns(:one).artist_relationship_to_patient
+  fill_in 'campaign_patient_diagnosis', with: campaigns(:one).patient_diagnosis
+  fill_in 'campaign_patient_story', with: campaigns(:one).patient_story
+  fill_in 'campaign_artist_percentage', with: campaigns(:one).artist_percentage
+  click_on 'Submit Campaign'
 end
 
 def create_artwork

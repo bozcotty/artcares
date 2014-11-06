@@ -1,7 +1,14 @@
 one:
-  campaign_name: Fixing Johnny's Chakra
+  campaign_name: Fixing Johnny Rotten's Stomach
   patient_first_name: Johnny
   patient_last_name: Rotten
   patient_street_address: 123 Pike
-
-
+  patient_unit_number: 11
+  patient_zip_code: 98109
+  patient_phone_number: 2068679305
+  artist_percentage: 15
+  patient_city: Seattle
+  patient_state: WA
+  artist_relationship_to_patient: Friend
+  patient_diagnosis: Gastritis el Chronicus
+  patient_story: Johnny is stinky. Let's get him a surgery quick-like!
