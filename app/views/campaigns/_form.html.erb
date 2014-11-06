@@ -1,38 +1,30 @@
-
-
   <div class="row">
     <h4 class="text-center">*Required fields</h4>
     <br>
   </div>
-
   <div class="row">
-    <div class="col-md-5 col-md-offset-1">
-        <%= simple_form_for @patient_campaign, :html => {:multipart =>true} do |f| %>
-
-        <%= f.input :campaign_name,label: "Name your Patient Campaign, (i.e. 'Art for Mary\'s Cancer Fund'" %>
-
-        <%= f.input :patient_first_name, :input_html => {:maxlength => 40, :size => 30}, label: "First Name of Patient" %>
-        <%= f.input :patient_last_name, :input_html => {:maxlength => 40, :size => 30}, label: "Last Name of Patient" %>
-        <%= f.input :patient_street_address, :input_html => {:maxlength => 45, :size => 45}, label: 'Street Address' %>
-        <%= f.input :patient_unit_number, :input_html => {:maxlength => 15, :size => 15}, label: 'Apt/Unit #' %>
-
-        <%= f.input :patient_city, :input_html => {:maxlength => 30, :size => 30}, label: 'City' %>
-        <%= f.input :patient_state,:input_html => {:maxlength => 20, :size => 20}, label:'State' %>
-        <%= f.input :patient_zip_code, :input_html => {:maxlength => 15, :size => 15},label:'Zip Code' %>
-        <%= f.input :patient_phone_number, :input_html => {:maxlength => 20, :size => 20},label:'Phone Number' %>
-        <%= f.input :artist_relationship_to_patient, :input_html => {:maxlength => 30, :size => 30}, label:'This person\'s relationship to you (friend, relative, neighbor, etc.)' %>
-    </div>
-
-    <div class="row col-md-5">
-
-        <%= f.input :patient_diagnosis, :input_html => {:maxlength => 40, :size => 30}, label: 'Name the Patient\'s condition, diagnosis, major injury, or illness' %>
-        <%= f.input :patient_story, :input_html => { :rows => 15 }, label: "Tell a brief, descriptive and compelling story about your Patient, their situation, and why you've decided to help them."  %>
-        <%= image_tag(@campaign.patient_image_1.small.url) if @campaign.patient_image_1? %>
-        <%= f.input :patient_image_1,label:'Upload a photo of your Patient (square format works best!)' %><span class="cancel">delete photo</span><br><br>
-        <%= f.input :artist_percentage, :input_html => {:maxlength => 2, :size => 2}, label:'What percentage (between 0% and 30%) of any art sales do you want to keep?' %>
-        <br>
-        <%= f.button :submit, "Submit Campaign" %>
-        <br><br>
-        <% end %>
-    </div>
+    <%= simple_form_for @campaign, :html => {:multipart =>true} do |f| %>
+      <div class="col-md-5 col-md-offset-1">
+          <%= f.input :campaign_name,label: "Name your Campaign, (i.e. 'Mary\'s Cancer Fund' or 'Support for Bill\'s Back Surgery')" %>
+          <%= f.input :patient_first_name, :input_html => {:maxlength => 40, :size => 30}, label: "First Name of Patient" %>
+          <%= f.input :patient_last_name, :input_html => {:maxlength => 40, :size => 30}, label: "Last Name of Patient" %>
+          <%= f.input :patient_street_address, :input_html => {:maxlength => 45, :size => 45}, label: 'Street Address' %>
+          <%= f.input :patient_unit_number, :input_html => {:maxlength => 15, :size => 15}, label: 'Apt/Unit #' %>
+          <%= f.input :patient_city, :input_html => {:maxlength => 30, :size => 30}, label: 'City' %>
+          <%= f.input :patient_state,:input_html => {:maxlength => 20, :size => 20}, label:'State' %>
+          <%= f.input :patient_zip_code, :input_html => {:maxlength => 15, :size => 15},label:'Zip Code' %>
+          <%= f.input :patient_phone_number, :input_html => {:maxlength => 20, :size => 20},label:'Phone Number' %>
+          <%= f.input :artist_relationship_to_patient, :input_html => {:maxlength => 30, :size => 30}, label:'This person\'s relationship to you (friend, relative, neighbor, etc.)' %>
+      </div>
+      <div class="row col-md-5">
+          <%= f.input :patient_diagnosis, :input_html => {:maxlength => 40, :size => 30}, label: 'Name the Patient\'s condition, diagnosis, major injury, or illness' %>
+          <%= f.input :patient_story, :input_html => { :rows => 15 }, label: "Tell a brief, descriptive and compelling story about your Patient, their situation, and why you've decided to help them."  %>
+          <%= image_tag(@campaign.patient_image_1.small.url) if @campaign.patient_image_1? %>
+          <%= f.input :patient_image_1,label:'Upload a photo of your Patient (square format works best!)' %><span class="cancel">delete photo</span><br><br>
+          <%= f.input :artist_percentage, :input_html => {:maxlength => 2, :size => 2}, label:'What percentage (between 0% and 30%) of any art sales do you want to keep?' %>
+          <br>
+          <%= f.button :submit, "Submit Campaign" %>
+          <br><br>
+      </div>
+    <% end %>
   </div>

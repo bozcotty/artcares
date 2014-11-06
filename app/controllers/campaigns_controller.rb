@@ -9,9 +9,7 @@ class CampaignsController < ApplicationController
 
   def new
     @campaign = Campaign.new
-    # @campaign = current_user.campaigns.new
     authorize! :create, Campaign, message: "You need to sign up to create a Campaign."
-    # authorize! :create, @campaign, message...
   end
 
   def create
