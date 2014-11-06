@@ -12,16 +12,16 @@
 
   <hr class="style-four">
 
-<!-- Patient Campaign Section -->
+<!-- Campaign Section -->
   <div class= "row">
 
     <% if not current_user.campaign %>
 
       <div class ="col-md-6">
-        <h4 class="copy-heading">Your Patient Campaign:</h4>
+        <h4 class="copy-heading">Your Campaign:</h4>
 
-          <p>(You have no current Patient Campaign.)</p>
-          <p>Please start a Patient Campaign...after which you can start listing Artworks!) </p>
+          <p>(You have no current Campaign.)</p>
+          <p>Please start a Campaign...after which you can start listing Artworks!) </p>
 
           <p><%= link_to (image_tag ('/assets/btn-start-campaign.png')), new_campaign_path %></p>
 
@@ -30,7 +30,7 @@
     <% elsif current_user.campaign %>
 
       <div class ="col-md-6">
-        <h4 class="copy-heading">Your Patient Campaign:</h4>
+        <h4 class="copy-heading">Your Campaign:</h4>
       </div>
 
       <div class="col-md-2">

@@ -10,18 +10,18 @@ class CampaignsController < ApplicationController
   def new
     @campaign = Campaign.new
     # @campaign = current_user.campaigns.new
-    authorize! :create, Campaign, message: "You need to sign up to create a Patient Campaign."
+    authorize! :create, Campaign, message: "You need to sign up to create a Campaign."
     # authorize! :create, @campaign, message...
   end
 
   def create
     @campaign = current_user.build_campaign(params[:campaign])
-    authorize! :create, Campaign, message: "You need to sign up to create a Patient Campaign."
+    authorize! :create, Campaign, message: "You need to sign up to create a Campaign."
     if @campaign.save
-      flash[:notice] = "Patient Campaign was saved successfully."
+      flash[:notice] = "Campaign was saved successfully."
       redirect_to @campaign
     else
-      flash[:error] = "Error saving Patient Campaign, please try again."
+      flash[:error] = "Error saving Campaign, please try again."
       render :new
     end
   end
@@ -29,7 +29,7 @@ class CampaignsController < ApplicationController
 
   def edit
     @campaign = Campaign.find(params[:id])
-    authorize! :edit, @campaign, message: "You need to own the Patient Campaign to edit it."
+    authorize! :edit, @campaign, message: "You need to own the Campaign to edit it."
   end
 
   def update
@@ -39,11 +39,11 @@ class CampaignsController < ApplicationController
     end
 
     @campaign = Campaign.find(params[:id])
-    authorize! :update, @campaign, message: "You need to own the Patient Campaign to edit it."
+    authorize! :update, @campaign, message: "You need to own the Campaign to edit it."
     if @campaign.update_attributes(params[:campaign])
       redirect_to @campaign, notice: "Your updates were saved successfully."
     else
-      flash[:error] = "Error saving Patient Campaign changes. Please try again."
+      flash[:error] = "Error saving Campaign changes. Please try again."
       render :edit
     end
   end
@@ -52,12 +52,12 @@ class CampaignsController < ApplicationController
     #add logic for not being able to destroy if there are outstanding artworks sold but not 'complete'
     @campaign = Campaign.find(params[:id])
     campaign_name = @campaign.campaign_name
-    authorize! :destroy, @campaign, message: "You need to own the Patient Campaign to delete it."
+    authorize! :destroy, @campaign, message: "You need to own the Campaign to delete it."
     if @campaign.destroy
       flash[:notice] = "\"#{campaign_name}\" was deleted successfully."
       redirect_to @campaign
     else
-      flash[:error] = "There was an error deleting the Patient Campaign."
+      flash[:error] = "There was an error deleting the Campaign."
       render :show
     end
   end

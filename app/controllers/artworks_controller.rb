@@ -13,7 +13,7 @@ class ArtworksController < ApplicationController
   def new
     @campaign = Campaign.find(params[:campaign_id])
     @artwork = Artwork.new
-    authorize! :create, Artwork, message: "You need to own the Patient Campaign to add an artwork to it."
+    authorize! :create, Artwork, message: "You need to own the Campaign to add an artwork to it."
   end
 
   def create

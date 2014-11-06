@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20141106011057) do
     t.integer  "quantity"
   end
 
-  add_index "artworks", ["campaign_id"], :name => "index_artworks_on_patient_campaign_id"
+  add_index "artworks", ["campaign_id"], :name => "index_artworks_on_campaign_id"
 
   create_table "buyers", :force => true do |t|
     t.string   "name"

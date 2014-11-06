@@ -9,7 +9,7 @@
     <div class="col-md-5 col-md-offset-1">
         <%= simple_form_for @campaign, :html => {:multipart =>true} do |f| %>
 
-        <%= f.input :campaign_name,label: "Name your Patient Campaign, (i.e. 'Mary\'s Cancer Fund' or 'Support for Bill\'s Back Surgery')" %>
+        <%= f.input :campaign_name,label: "Name your Campaign, (i.e. 'Mary\'s Cancer Fund' or 'Support for Bill\'s Back Surgery')" %>
         <%= f.input :patient_first_name, :input_html => {:maxlength => 40, :size => 30}, label: "First Name of Patient" %>
         <%= f.input :patient_last_name, :input_html => {:maxlength => 40, :size => 30}, label: "Last Name of Patient" %>
         <%= f.input :patient_street_address, :input_html => {:maxlength => 45, :size => 45}, label: 'Street Address' %>
@@ -37,7 +37,7 @@
             <br> only be changed once during the campaign.
         </p>
         <br>
-        <%= f.button :submit, "Submit Patient Campaign" %>
+        <%= f.button :submit, "Submit Campaign" %>
         <br><br>
         <% end %>
     </div>
