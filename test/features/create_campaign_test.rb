@@ -43,5 +43,3 @@ feature 'create a new campaign' do
   #   User.order(:created_at).last.email.wont_equal 'jaime@hola.com'
   # end
 end
-
-end
