@@ -1,7 +1,15 @@
-one:
-  campaign_name: Fixing Johnny's Chakra
-  patient_first_name: Johnny
-  patient_last_name: Rotten
-  patient_street_address: 123 Pike
-
-
+campy_pep:
+  campaign_name: 'Pepito under the weather'
+  user: pepart
+  patient_first_name: 'Pepito'
+  patient_last_name: 'Colageno'
+  artist_relationship_to_patient: 'Someone I met once'
+  patient_diagnosis: 'looks pretty disheveled'
+  patient_story: 'you know, ehhh... like that, but worse'
+  patient_street_address: '656 Yale Ave WW'
+  patient_unit_number: '876'
+  patient_city: 'Burien'
+  patient_state: 'WA'
+  patient_zip_code: '87654'
+  patient_phone_number: '2069990088'
+  artist_percentage: '30'

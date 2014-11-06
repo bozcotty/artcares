@@ -59,11 +59,11 @@ feature 'login and out users' do
     page.text.must_include 'Please start a Campaign'
   end
 
-  # scenario 'sign in a user with a campaign but no artworks' do
-  #   sign_in(:pepcamp)
-  #   page.text.must_include 'Pepe Smith - Artist\'s Dashboard'
-  #   page.text.must_include 'Please start a Campaign'
-  # end
+  scenario 'sign in a user with a campaign but no artworks' do
+    sign_in(:pepart)
+    page.must_have_content 'Pepito under the weather'
+    page.must_have_content 'You have no current artworks'
+  end
 
   # scenario 'sign in a user with a campaign and artworks' do
   #   sign_in(:pepart)
@@ -76,4 +76,5 @@ feature 'login and out users' do
     click_on 'Log out'
     page.must_have_content 'Signed out successfully.'
   end
+end
 end
