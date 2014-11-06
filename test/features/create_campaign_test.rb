@@ -22,23 +22,15 @@ feature 'create a new campaign' do
 
     click_on 'Submit Campaign'
 
-    # Then I become a registered user and are logged in
     page.must_have_content 'The Campaign for Mary'
     page.must_have_content 'Campaign was saved successfully.'
   end
 
-  # scenario 'fail to create an invalid user' do
-  #   visit root_path
-  #   click_on 'Sign In'
-  #   click_on '... or Sign up'
-
-  #   fill_in 'Email', with: 'jaime@hola.com'
-  #   fill_in 'Password', with: '12345678'
-  #   fill_in 'Password Confirmation', with: '12345678'
-  #   click_on 'Create Account'
-
-  #   page.wont_have_content 'A message with a confirmation link has been sent to your email address.'
-  #   page.wont_have_content 'Please open the link to activate your account.'
-  #   User.order(:created_at).last.email.wont_equal 'jaime@hola.com'
-  # end
+  scenario 'fail to create a campaign' do
+    sign_in(:pepe)
+    visit new_campaign_path
+    click_on 'Submit Campaign'
+    page.wont_have_content 'The Campaign for Mary'
+    page.wont_have_content 'Campaign was saved successfully.'
+  end
 end
