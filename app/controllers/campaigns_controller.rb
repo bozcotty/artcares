@@ -43,18 +43,4 @@ class CampaignsController < ApplicationController
       render :edit
     end
   end
-
-  def destroy
-    #add logic for not being able to destroy if there are outstanding artworks sold but not 'complete'
-    @campaign = Campaign.find(params[:id])
-    campaign_name = @campaign.campaign_name
-    authorize! :destroy, @campaign, message: "You need to own the Campaign to delete it."
-    if @campaign.destroy
-      flash[:notice] = "\"#{campaign_name}\" was deleted successfully."
-      redirect_to @campaign
-    else
-      flash[:error] = "There was an error deleting the Campaign."
-      render :show
-    end
-  end
 end
