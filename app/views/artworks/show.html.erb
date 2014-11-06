@@ -20,7 +20,7 @@
 
 <!-- artwork info section -->
     <div class="col-md-5">
-      
+
         <br>
         <!-- change the link to an artist view page, (to be made) -->
         <h3 class="copy-heading">"<%= @artwork.title %>"<small> by </small><%= link_to (@artwork.user.full_name), [@artwork.user], method: :get %></h3>
@@ -31,13 +31,13 @@
               <% end %>
             </div>
             <div class="col-md-6 text-right">
-              <h4 class="copy-heading"><small> for</small> <%= link_to (@artwork.user.patient_campaign.full_name), [@artwork.patient_campaign], method: :get %> <small> > </small><br>
+              <h4 class="copy-heading"><small> for</small> <%= link_to (@artwork.user.campaign.full_name), [@artwork.campaign], method: :get %> <small> > </small><br>
 
-                (<%= @artwork.user.patient_campaign.patient_diagnosis %>)
+                (<%= @artwork.user.campaign.patient_diagnosis %>)
               </h4>
             </div>
             <div class="col-md-4 text-left">
-              <%= link_to image_tag(@artwork.user.patient_campaign.patient_image_1.thumb.url), [@artwork.patient_campaign], method: :get %>
+              <%= link_to image_tag(@artwork.user.campaign.patient_image_1.thumb.url), [@artwork.campaign], method: :get %>
             </div>
           </div>
           <hr>
@@ -45,16 +45,16 @@
             <div class="col-md-5 font16">
               <p>Size: <%= @artwork.size %></p>
               <p>Category: <%= @artwork.category.capitalize %></p>
-              <p>Medium: <%= @artwork.medium.capitalize %></p>  
+              <p>Medium: <%= @artwork.medium.capitalize %></p>
               <p>Description: <%=@artwork.summary%></p>
 
 <!-- owner's edit links               -->
               <% if can? :update, @artwork %>
-                <%= link_to "Edit Artwork", edit_patient_campaign_artwork_path %>
+                <%= link_to "Edit Artwork", edit_campaign_artwork_path %>
                 <% end %><br>
 
-              <% if can? :destroy, @patient_campaign, @artwork %>
-                <%= link_to "Delete Artwork", [@patient_campaign, @artwork,] , method: :delete, confirm: 'Are you sure you want to delete this Artwork?' %>
+              <% if can? :destroy, @campaign, @artwork %>
+                <%= link_to "Delete Artwork", [@campaign, @artwork,] , method: :delete, confirm: 'Are you sure you want to delete this Artwork?' %>
               <% end %>
 
             </div>
@@ -68,11 +68,11 @@
 
               <br><br>
               <% if @artwork.quantity == 1 %>
-                <%= form_tag [@patient_campaign, @artwork, :buy] do %>
+                <%= form_tag [@campaign, @artwork, :buy] do %>
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                     data-description="<%= @artwork.title %>",
-                    data-amount="<%= @artwork.stripe_amount %>", 
+                    data-amount="<%= @artwork.stripe_amount %>",
                     data-image="<%= @artwork.art_image_1.thumb.url.html_safe %>",
                     data-label="Buy Now"
                     data-shipping-address=true>,
@@ -85,7 +85,7 @@
             </div>
           </div>
 
-      
+
 
     </div>
 

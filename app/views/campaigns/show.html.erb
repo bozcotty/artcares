@@ -4,33 +4,33 @@
   <div class="row">
     <div class="col-md-4">
       <br>
-        <p class="text-right rounded"><%= image_tag @patient_campaign.patient_image_1 %></p>
-      
+        <p class="text-right rounded"><%= image_tag @campaign.patient_image_1 %></p>
+
         <h3 class="text-right copy-heading green"><span class="text-right glyphicon glyphicon-chevron-down"></span>&nbspScroll to view Artworks</h3>
-     
-       
+
+
 
     </div>
 
 <!-- campaign info -->
     <div class="col-md-4">
 
-      <h2 class="copy-heading orange"><%= @patient_campaign.campaign_name %></h2>
+      <h2 class="copy-heading orange"><%= @campaign.campaign_name %></h2>
       <h3 class="copy-heading blue">The Campaign for <br>
-        <%= @patient_campaign.full_name%></h3>
-      <h4 class="copy-heading">From: &nbsp<%= @patient_campaign.patient_city %>, <%= @patient_campaign.patient_state  %><br>
-      Event: <%= @patient_campaign.patient_diagnosis %>
-      </h4>  
+        <%= @campaign.full_name%></h3>
+      <h4 class="copy-heading">From: &nbsp<%= @campaign.patient_city %>, <%= @campaign.patient_state  %><br>
+      Event: <%= @campaign.patient_diagnosis %>
+      </h4>
       <hr>
       <div class="row">
         <div class="col-md-9 text-right">
-          <p class="font16">by: <%= (@patient_campaign.user.full_name) %><br>
-          <%= @patient_campaign.user.type_of_artist %><br>
-          <%= @patient_campaign.user.city %>, <%= @patient_campaign.user.state %>
+          <p class="font16">by: <%= (@campaign.user.full_name) %><br>
+          <%= @campaign.user.type_of_artist %><br>
+          <%= @campaign.user.city %>, <%= @campaign.user.state %>
           </p>
         </div>
         <div class="col-md-3 text-left">
-          <%= link_to image_tag(@patient_campaign.user.headshot.micro.url), user_path(@patient_campaign.user) %>
+          <%= link_to image_tag(@campaign.user.headshot.micro.url), user_path(@campaign.user) %>
         </div>
       </div>
     </div>
@@ -39,28 +39,28 @@
     <div class="col-md-4">
       <div class="show-capsule-story"
       <p class="font16">The Story:<br>
-        <%= markdown @patient_campaign.patient_story %></p>
+        <%= markdown @campaign.patient_story %></p>
       </div>
     </div>
 
   </div>
 
   <hr class="style-two">
- 
 
-  
-    
+
+
+
 
  <!-- sponsoring artist's works section -->
   <div class="center-div-artist">
     <ul class="bot-align">
-      <% if @patient_campaign.artworks %>
+      <% if @campaign.artworks %>
 
         <div class="text-center">
           <h3 class="copy-heading blue">Available Artworks in this Campaign:</h3>
         </div>
 
-        <%= render partial: 'artworks/artwork_tiles', object: @patient_campaign.artworks, as: :artworks %>
+        <%= render partial: 'artworks/artwork_tiles', object: @campaign.artworks, as: :artworks %>
 
       <% end %>
     </ul>
@@ -68,7 +68,7 @@
   </div>
 
 
-  
+
 </div>
 
 

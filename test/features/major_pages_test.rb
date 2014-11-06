@@ -25,9 +25,9 @@ feature 'Visit major site pages and view/welcome folder' do
     page.text.must_include 'come together for the benefit of others'
   end
 
-  scenario 'visit "Patient Campaigns index" page' do
-    visit patient_campaigns_path
-    page.text.must_include 'Patient Campaigns: Meet the People We\'re Helping...'
+  scenario 'visit "Campaigns index" page' do
+    visit campaigns_path
+    page.text.must_include 'Campaigns: Meet the People We\'re Helping...'
   end
 
   scenario 'visit "Artist index" page' do

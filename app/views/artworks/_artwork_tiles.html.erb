@@ -3,16 +3,16 @@
 
 
   <div class="center-div">
-    
-    
+
+
         <% artworks.in_groups_of(3, false) do |row_tasks| %>
-          
+
             <% for artwork in row_tasks %>
               <span class="img-margin">
-                <%= link_to image_tag(artwork.art_image_1.medium.url), [artwork.patient_campaign, artwork] %>
+                <%= link_to image_tag(artwork.art_image_1.medium.url), [artwork.campaign, artwork] %>
               </span>
             <% end %>
-            
+
          <br><br>
         <% end %>
   </div>

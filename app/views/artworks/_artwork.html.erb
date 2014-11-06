@@ -1,25 +1,25 @@
 <!-- partial used for search index -->
 <div class="container-fluid">
-  
+
   <div class="row search-row">
-    
-      <span class="search-margin"><%= link_to image_tag(artwork.art_image_1.micro.url), [artwork.patient_campaign, artwork] %></span>
-      <span class="search-margin">"<%= link_to (artwork.title), [artwork.patient_campaign, artwork]  %>",</span>
-      <span class="search-margin"><%= link_to (artwork.category), [artwork.patient_campaign, artwork]  %>:<%= link_to (artwork.medium), [artwork.patient_campaign, artwork]  %></span>
-      
+
+      <span class="search-margin"><%= link_to image_tag(artwork.art_image_1.micro.url), [artwork.campaign, artwork] %></span>
+      <span class="search-margin">"<%= link_to (artwork.title), [artwork.campaign, artwork]  %>",</span>
+      <span class="search-margin"><%= link_to (artwork.category), [artwork.campaign, artwork]  %>:<%= link_to (artwork.medium), [artwork.campaign, artwork]  %></span>
+
       <span class="search-margin">
         <% if artwork.art_image_2? %>
-          <%= link_to image_tag(artwork.art_image_2.micro.url), [artwork.patient_campaign, artwork] %>
+          <%= link_to image_tag(artwork.art_image_2.micro.url), [artwork.campaign, artwork] %>
         <% end %>
       </span>
 
       <span class="search-margin">
         <% if artwork.art_image_3? %>
-          <%= link_to image_tag(artwork.art_image_3.micro.url), [artwork.patient_campaign, artwork] %>
+          <%= link_to image_tag(artwork.art_image_3.micro.url), [artwork.campaign, artwork] %>
         <% end %>
       </span>
 
-        
+
   </div>
 </div>
 
