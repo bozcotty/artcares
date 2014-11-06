@@ -4,9 +4,10 @@ feature 'create a new campaign' do
   scenario 'create successfully' do
     sign_in(:pepe)
     page.must_have_content 'You have no current Campaign'
+    visit new_campaign_path
+    # find('#btn_start_cmp').click
 
-    click_on 'Start a Campaign'
-
+    binding.pry
     fill_in 'Name your Campaign', with: 'Mary\'s Health Fund'
     fill_in 'First Name of Patient', with: 'Mary'
     fill_in 'Last Name of Patient', with: 'Stuart'
