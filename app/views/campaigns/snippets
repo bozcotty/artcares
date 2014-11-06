@@ -1,0 +1,14 @@
+from show.html.erb...edit and end campaign links
+
+<div>
+    <% if can? :edit, @campaign %>
+    <%= link_to "Edit This Campaign", edit_campaign_path(@campaign), class: 'btn btn-large btn-block btn-warning', confirm: 'Are you sure you want to edit this campaign?' %>
+      or, 2nd argument for link_to above could be [:edit, @campaign]
+    <% end %>
+    <% if can? :destroy, @campaign %>
+    <%= link_to "End This Campaign", @campaign, method: :delete, class: 'btn btn-large btn-block btn-danger', confirm: 'Are you sure you want to delete this Patient Campaign?' %>
+
+    <% end %>
+  </div>
+
+

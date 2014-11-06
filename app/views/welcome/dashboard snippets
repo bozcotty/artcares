@@ -4,31 +4,31 @@
 
     <div class ="col-md-6">
       <h4 class="copy-heading">Your Patient Campaign:</h4>
-      <% if not current_user.patient_campaign %>
+      <% if not current_user.campaign %>
         <p>(You have no current Patient Campaign.)</p>
         <p>Please start a Patient Campaign...after which you can start listing Artworks!) </p>
-        
-        <p><%= link_to (image_tag ('/assets/btn-start-campaign.png')), new_patient_campaign_path %></p>
-      
+
+        <p><%= link_to (image_tag ('/assets/btn-start-campaign.png')), new_campaign_path %></p>
+
       <% else %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-1">
-      <%= image_tag(current_user.patient_campaign.patient_image_1.thumb.url) %>
+      <%= image_tag(current_user.campaign.patient_image_1.thumb.url) %>
     </div>
     <div class="col-md-5">
 
-        <strong><%= link_to current_user.patient_campaign.campaign_name, current_user.patient_campaign %></strong>
-          <%#= link_to campaign.campaign_name, "/patient_campaigns/#{campaign.id}" %>
-          <%#= link_to campaign.campaign_name, patient_campaign_path(campaign.id) %>
-          <%#= link_to campaign.campaign_name, patient_campaign_path(campaign) %>
+        <strong><%= link_to current_user.campaign.campaign_name, current_user.campaign %></strong>
+          <%#= link_to campaign.campaign_name, "/campaigns/#{campaign.id}" %>
+          <%#= link_to campaign.campaign_name, campaign_path(campaign.id) %>
+          <%#= link_to campaign.campaign_name, campaign_path(campaign) %>
       <% end %>
     </div>
     <div class="col-md-2">
 
-        <%= link_to (image_tag ('/assets/btn-sm-edit-camp.png')), edit_patient_campaign_path(current_user.patient_campaign) %>
-      
+        <%= link_to (image_tag ('/assets/btn-sm-edit-camp.png')), edit_campaign_path(current_user.campaign) %>
+
     </div>
   </div>
 

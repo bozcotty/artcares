@@ -26,7 +26,7 @@ feature 'Visit major site pages and view/welcome folder' do
   end
 
   scenario 'visit "Patient Campaigns index" page' do
-    visit patient_campaigns_path
+    visit campaigns_path
     page.text.must_include 'Patient Campaigns: Meet the People We\'re Helping...'
   end
 

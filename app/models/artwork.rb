@@ -1,18 +1,18 @@
 class Artwork < ActiveRecord::Base
 
-  attr_accessible :title, :size, :medium, :price, :shipping_price, :summary, :art_image_1, :art_image_2, :art_image_3, :category, :original_work 
+  attr_accessible :title, :size, :medium, :price, :shipping_price, :summary, :art_image_1, :art_image_2, :art_image_3, :category, :original_work
 
   belongs_to :user
-  belongs_to :patient_campaign
-  # validates user.id == patient_campaign.user.id
+  belongs_to :campaign
+  # validates user.id == campaign.user.id
 
   before_validation :set_status, on: :create
-  
+
   # set each artwork quantity to 1, decrements to 0 upon sale in artworks-buy controller
   before_create :set_artwork_quantity
 
   after_create :stripe_amount
-    
+
   # before_save :normalize_category
 
   #pgsearch
@@ -28,9 +28,9 @@ class Artwork < ActiveRecord::Base
   validates :summary, length: { maximum: 300, too_long: "%{count} characters is the maximum allowed."}
   validates :art_image_1, presence: true
   validates :user, presence: true
-  validates :patient_campaign, presence: true
+  validates :campaign, presence: true
   validates :category, inclusion: {in: ['painting', 'sculpture', 'jewelry', 'photography', 'fiber/wearables', 'mixed media (2d or 3d)', 'wood', 'metal', 'glass', 'ceramics',  'drawing', 'printmaking']}
-  
+
   validates :status, inclusion: {in: %w(available sold complete)}
 
 

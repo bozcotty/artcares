@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140524010845) do
+ActiveRecord::Schema.define(:version => 20141106011057) do
 
   create_table "artworks", :force => true do |t|
     t.string   "title"
@@ -20,20 +20,20 @@ ActiveRecord::Schema.define(:version => 20140524010845) do
     t.float    "price"
     t.float    "shipping_price"
     t.text     "summary"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "art_image_1"
     t.string   "art_image_2"
     t.string   "art_image_3"
     t.integer  "user_id"
-    t.integer  "patient_campaign_id"
+    t.integer  "campaign_id"
     t.boolean  "original_work"
     t.string   "category"
     t.string   "status"
     t.integer  "quantity"
   end
 
-  add_index "artworks", ["patient_campaign_id"], :name => "index_artworks_on_patient_campaign_id"
+  add_index "artworks", ["campaign_id"], :name => "index_artworks_on_patient_campaign_id"
 
   create_table "buyers", :force => true do |t|
     t.string   "name"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(:version => 20140524010845) do
     t.string   "email"
   end
 
-  create_table "patient_campaigns", :force => true do |t|
+  create_table "campaigns", :force => true do |t|
     t.string   "patient_city"
     t.string   "patient_state"
     t.string   "artist_relationship_to_patient"
@@ -70,9 +70,6 @@ ActiveRecord::Schema.define(:version => 20140524010845) do
     t.string   "patient_first_name"
     t.string   "patient_last_name"
     t.string   "campaign_name"
-    t.string   "physician_first_name"
-    t.string   "physician_last_name"
-    t.string   "physician_office_phone"
     t.string   "patient_street_address"
     t.string   "patient_unit_number"
     t.string   "patient_zip_code"

@@ -1,5 +1,5 @@
-class PatientCampaign < ActiveRecord::Base
-  attr_accessible :campaign_name, :artist_relationship_to_patient, :patient_city, :patient_diagnosis, :patient_first_name, :patient_last_name, :patient_state, 
+class Campaign < ActiveRecord::Base
+  attr_accessible :campaign_name, :artist_relationship_to_patient, :patient_city, :patient_diagnosis, :patient_first_name, :patient_last_name, :patient_state,
                   :patient_story, :patient_image_1, :patient_street_address, :patient_unit_number, :patient_zip_code, :patient_phone_number, :artist_percentage
 
 
@@ -28,5 +28,5 @@ class PatientCampaign < ActiveRecord::Base
   def full_name
     patient_first_name + " " + patient_last_name
   end
-  
+
 end

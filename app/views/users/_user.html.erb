@@ -1,25 +1,25 @@
 <!-- partial used for search index -->
 <div class="container-fluid">
-  
+
   <div class="row search-row">
-    
+
       <span class="search-margin"><%= link_to image_tag(user.headshot.micro.url), user %></span>
       <span class="search-margin"><%= link_to (user.full_name), user %>, <%= link_to (user.type_of_artist), user %>:</span>
-     
-      
-      
+
+
+
       <span class="three-images-baseline">
         <% if user.artworks %>
-          
+
           <% user.artworks.limit(3).each do |artwork| %>
-            <%= link_to image_tag(artwork.art_image_1.micro.url), [artwork.patient_campaign, artwork] %>
+            <%= link_to image_tag(artwork.art_image_1.micro.url), [artwork.campaign, artwork] %>
           <% end %>
 
         <% end %>
       </span>
-      
 
-     
-    
+
+
+
   </div>
 </div>
