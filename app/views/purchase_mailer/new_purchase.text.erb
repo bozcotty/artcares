@@ -2,8 +2,8 @@ Hello <%= @artwork.user.first_name %>,
 
     Congratulations!
 
-    <%= @buyer.name %> has just purchased <%= @artwork.title %>, at ArtCaring.com, through your <%=@artwork.user.patient_campaign.campaign_name %> for <@artwork.user.patient_campaign.full_name %>!
-    
+    <%= @buyer.name %> has just purchased <%= @artwork.title %>, at ArtCaring.com, through your <%=@artwork.user.campaign.campaign_name %> for <@artwork.user.campaign.full_name %>!
+
 
     Please ship it to:
 
@@ -15,12 +15,12 @@ Hello <%= @artwork.user.first_name %>,
     <%= @buyer.shipping_address_city %>, <%= @buyer.shipping_address_state %>
     <%= @buyer.shipping_address_zip %>
     <%= @buyer.shipping_address_country_code %>
-    
+
     Buyer's email: <%=@buyer.email %>
 
     Please contact the buyer through this email address to notify them that their purchase has shipped, and provide tracking information to them.
     __________
-    
+
     *It is your responsibility to professionally crate/package this Artwork for shipment, and to make sure it has insurance in transit to the buyer.
     __________
 

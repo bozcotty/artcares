@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :headshot, HeadshotUploader
 
-  has_one :patient_campaign, dependent: :destroy
+  has_one :campaign, dependent: :destroy
   has_many :artworks, dependent: :destroy
 
 

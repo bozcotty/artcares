@@ -10,6 +10,7 @@
         <%= simple_form_for @patient_campaign, :html => {:multipart =>true} do |f| %>
 
         <%= f.input :campaign_name,label: "Name your Patient Campaign, (i.e. 'Art for Mary\'s Cancer Fund'" %>
+
         <%= f.input :patient_first_name, :input_html => {:maxlength => 40, :size => 30}, label: "First Name of Patient" %>
         <%= f.input :patient_last_name, :input_html => {:maxlength => 40, :size => 30}, label: "Last Name of Patient" %>
         <%= f.input :patient_street_address, :input_html => {:maxlength => 45, :size => 45}, label: 'Street Address' %>
@@ -26,11 +27,11 @@
 
         <%= f.input :patient_diagnosis, :input_html => {:maxlength => 40, :size => 30}, label: 'Name the Patient\'s condition, diagnosis, major injury, or illness' %>
         <%= f.input :patient_story, :input_html => { :rows => 15 }, label: "Tell a brief, descriptive and compelling story about your Patient, their situation, and why you've decided to help them."  %>
-        <%= image_tag(@patient_campaign.patient_image_1.small.url) if @patient_campaign.patient_image_1? %>
+        <%= image_tag(@campaign.patient_image_1.small.url) if @campaign.patient_image_1? %>
         <%= f.input :patient_image_1,label:'Upload a photo of your Patient (square format works best!)' %><span class="cancel">delete photo</span><br><br>
         <%= f.input :artist_percentage, :input_html => {:maxlength => 2, :size => 2}, label:'What percentage (between 0% and 30%) of any art sales do you want to keep?' %>
         <br>
-        <%= f.button :submit, "Submit Patient Campaign" %>
+        <%= f.button :submit, "Submit Campaign" %>
         <br><br>
         <% end %>
     </div>

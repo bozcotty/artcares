@@ -7,26 +7,26 @@ class Ability
     user ||= User.new # right now, a 'user' is an artist. in future make it so all
     # site visitors can be 'users' and artists will become a step above member ie
     #ROLES = %w[member artist moderator admin] line (in User model)
-    
-    # if user.admin? 
-    #     can :manage, :all? 
+
+    # if user.admin?
+    #     can :manage, :all?
     # else
     #     can :read, :all
     # end
 
     if user.role? :member
-        can :manage, PatientCampaign, :user_id => user.id
+        can :manage, Campaign, :user_id => user.id
         can :manage, Artwork, :user_id => user.id
     end
 
     if user.role? :admin
         can :manage, :all
     end
-    
-    
 
 
-    #Future User role, for patients hoping to team up with artist 
+
+
+    #Future User role, for patients hoping to team up with artist
     # if user.role? :patient
     #     can :read, :all
     #     can :manage, Patient_Application :user_id => user.id
@@ -41,15 +41,15 @@ class Ability
     #     can :manage, :all
     #   else
     #     can :read, :all
-    
+
     #   end
     #
-    # The first argument to `can` is the action you are giving the user 
+    # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
     # here are :read, :create, :update and :destroy.
     #
-    # The second argument is the resource the user can perform the action on. 
+    # The second argument is the resource the user can perform the action on.
     # If you pass :all it will apply to every resource. Otherwise pass a Ruby
     # class of the resource.
     #

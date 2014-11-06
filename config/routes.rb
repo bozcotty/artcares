@@ -8,7 +8,7 @@ Artcares::Application.routes.draw do
 
 
 
-  resources :patient_campaigns do
+  resources :campaigns do
     resources :artworks do
       post :buy
     end
