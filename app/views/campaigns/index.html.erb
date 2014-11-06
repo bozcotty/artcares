@@ -1,35 +1,23 @@
 <div class="container-fluid">
   <div class="row" id="blue-bg">
-
-    <h2 class="copy-heading text-center dk-blue" id="blue-bg">Campaigns: Meet the People We're Helping...</h2>
-
+    <h2 class="copy-heading text-center dk-blue" id="blue-bg">
+      Campaigns: Meet the People We're Helping...
+    </h2>
   </div>
-
   <div class="center-div-patient">
-
-      <% @campaigns.in_groups_of(3, false) do |row_tasks|%>
-
-            <% for campaign in row_tasks %>
-              <div class="index-capsule-patient">
-                <%= link_to image_tag(campaign.patient_image_1.capsule.url), campaign %><br>
-                <span class="copy-heading">
-                  <h4><%= link_to (campaign.full_name), campaign %></h4>
-                </span>
-
-                  <%= (campaign.patient_city) %>,
-                  <%= (campaign.patient_state)%> <br>
-
-                  <hr class="style-two">
-                  <%= (campaign.campaign_name) %>
-
-              </div>
-            <% end %>
-
-
-
-
+    <% @campaigns.in_groups_of(3, false) do |row_tasks|%>
+      <% for campaign in row_tasks %>
+        <div class="index-capsule-patient">
+          <%= link_to image_tag(campaign.patient_image_1.capsule.url), campaign %><br>
+          <span class="copy-heading">
+            <h4><%= link_to (campaign.full_name), campaign %></h4>
+          </span>
+          <%= (campaign.patient_city) %>,
+          <%= (campaign.patient_state)%> <br>
+          <hr class="style-two">
+          <%= (campaign.campaign_name) %>
+        </div>
       <% end %>
-
+    <% end %>
   </div>
-
 </div>

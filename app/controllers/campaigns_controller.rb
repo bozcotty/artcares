@@ -24,20 +24,18 @@ class CampaignsController < ApplicationController
     end
   end
 
-
   def edit
     @campaign = Campaign.find(params[:id])
     authorize! :edit, @campaign, message: "You need to own the Campaign to edit it."
   end
 
   def update
-
     if params[:campaign][:patient_image_1].blank?
       params[:campaign].delete("patient_image_1")
     end
-
     @campaign = Campaign.find(params[:id])
     authorize! :update, @campaign, message: "You need to own the Campaign to edit it."
+
     if @campaign.update_attributes(params[:campaign])
       redirect_to @campaign, notice: "Your updates were saved successfully."
     else
@@ -59,5 +57,4 @@ class CampaignsController < ApplicationController
       render :show
     end
   end
-
 end
