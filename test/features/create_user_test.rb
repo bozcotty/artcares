@@ -60,13 +60,13 @@ feature 'login and out users' do
   end
 
   # scenario 'sign in a user with a campaign but no artworks' do
-  #   sign_in(:pepe)
+  #   sign_in(:pepcamp)
   #   page.text.must_include 'Pepe Smith - Artist\'s Dashboard'
   #   page.text.must_include 'Please start a Patient Campaign'
   # end
 
   # scenario 'sign in a user with a campaign and artworks' do
-  #   sign_in(:pepe)
+  #   sign_in(:pepart)
   #   page.text.must_include 'Pepe Smith - Artist\'s Dashboard'
   #   page.text.must_include 'Please start a Patient Campaign'
   # end
