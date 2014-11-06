@@ -77,3 +77,4 @@ feature 'login and out users' do
     page.must_have_content 'Signed out successfully.'
   end
 end
+end

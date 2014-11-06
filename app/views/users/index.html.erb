@@ -1,45 +1,30 @@
 <div class="container-fluid">
   <div class="row" id="green-bg">
-
-    <h2 class="copy-heading text-center dk-blue" id="green-bg">Our Artists: the Heroes of ArtCaring.</h2>
-
+    <h2 class="copy-heading text-center dk-blue" id="green-bg">
+      Our Artists: the Heroes of ArtCaring.
+    </h2>
   </div>
-
   <div class="center-div-artist">
-
-
-      <% @users.in_groups_of(3, false) do |row_tasks|%>
-
-        <% for user in row_tasks %>
-
-            <div class="index-capsule-user">
-
-              <%= link_to image_tag(user.headshot.capsule.url), user %>
-              <br>
-              <span class="copy-heading">
-                <h4><%= link_to (user.full_name), user %></h4>
-                <%= link_to (user.type_of_artist), user %><br>
-              </span>
-
-                <%= (user.city) %>, <%= (user.state) %>
-
-              <hr class="style-two">
-
-              <div class="three-images">
-                <% if user.artworks %>
-
-                  <% user.artworks.limit(3).each do |artwork| %>
-                    <%= link_to image_tag(artwork.art_image_1.capsule.url), [artwork.campaign, artwork] %>
-                  <% end %>
-
-                <% end %>
-              </div>
-
+    <% @users.in_groups_of(3, false) do |row_tasks|%>
+      <% for user in row_tasks %>
+        <div class="index-capsule-user">
+          <%= link_to image_tag(user.headshot.capsule.url), user %>
+          <br>
+          <span class="copy-heading">
+            <h4><%= link_to (user.full_name), user %></h4>
+            <%= link_to (user.type_of_artist), user %><br>
+          </span>
+          <%= (user.city) %>, <%= (user.state) %>
+          <hr class="style-two">
+          <div class="three-images">
+            <% if user.artworks %>
+              <% user.artworks.limit(3).each do |artwork| %>
+                <%= link_to image_tag(artwork.art_image_1.capsule.url), [artwork.campaign, artwork] %>
+              <% end %>
+            <% end %>
           </div>
-        <% end %>
-
+        </div>
       <% end %>
-
+    <% end %>
   </div>
-
 </div>
