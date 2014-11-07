@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 class SampleWorkUploader < CarrierWave::Uploader::Base
-
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
@@ -26,8 +25,8 @@ class SampleWorkUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-    # Process files as they are uploaded:
-  process :resize_to_fill=> [200, 200]
+  # Process files as they are uploaded:
+  process resize_to_fill: [200, 200]
   # process :scale => [200, 200]
   #
   # def scale(width, height)
@@ -35,22 +34,21 @@ class SampleWorkUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  
 
   version :small do
-    process :resize_to_fill => [110, 110]
+    process resize_to_fill: [110, 110]
   end
 
   version :thumb do
-    process :resize_to_fill => [80, 80]
+    process resize_to_fill: [80, 80]
   end
 
   version :capsule do
-    process :resize_to_fill => [75, 75]
+    process resize_to_fill: [75, 75]
   end
 
   version :micro do
-    process :resize_to_fill => [40, 40]
+    process resize_to_fill: [40, 40]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -64,5 +62,4 @@ class SampleWorkUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end

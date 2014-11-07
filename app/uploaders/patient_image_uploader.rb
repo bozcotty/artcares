@@ -1,8 +1,7 @@
 # encoding: utf-8
 
 class PatientImageUploader < CarrierWave::Uploader::Base
-
- # Include RMagick or MiniMagick support:
+  # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
@@ -25,9 +24,9 @@ class PatientImageUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
- 
+
   # Process files as they are uploaded:
-  process :resize_to_fill => [300, 300]
+  process resize_to_fill: [300, 300]
   # process :scale => [200, 200]
   #
   # def scale(width, height)
@@ -36,23 +35,23 @@ class PatientImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :medium do
-    process :resize_to_fill => [230, 230]
+    process resize_to_fill: [230, 230]
   end
 
-    version :small do
-    process :resize_to_fill => [110, 110]
+  version :small do
+    process resize_to_fill: [110, 110]
   end
 
   version :capsule do
-    process :resize_to_fill => [75, 75]
+    process resize_to_fill: [75, 75]
   end
 
   version :thumb do
-    process :resize_to_fill => [80, 80]
+    process resize_to_fill: [80, 80]
   end
 
   version :micro do
-    process :resize_to_fill => [40, 40]
+    process resize_to_fill: [40, 40]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -66,5 +65,4 @@ class PatientImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end

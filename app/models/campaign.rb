@@ -1,4 +1,5 @@
 class Campaign < ActiveRecord::Base
+  include PgSearch
   attr_accessible :campaign_name, :artist_relationship_to_patient, :patient_city,
                   :patient_diagnosis, :patient_first_name, :patient_last_name,
                   :patient_state, :patient_story, :patient_image_1,
@@ -10,14 +11,13 @@ class Campaign < ActiveRecord::Base
 
   after_create :full_name
 
-  include PgSearch
-  multisearchable :against => [:campaign_name, :patient_diagnosis, :patient_city,
-                               :patient_state, :patient_first_name, :patient_last_name]
+  multisearchable against: [:campaign_name, :patient_diagnosis, :patient_city,
+                            :patient_state, :patient_first_name, :patient_last_name]
 
   mount_uploader :patient_image_1, PatientImageUploader
 
-  validates :artist_relationship_to_patient, presence: true, length: {maximum: 30}
-  validates :campaign_name, presence: true, length: {maximum: 60}
+  validates :artist_relationship_to_patient, presence: true, length: { maximum: 30 }
+  validates :campaign_name, presence: true, length: { maximum: 60 }
   validates :user, :patient_city, :patient_state, :patient_story, :patient_diagnosis,
             :patient_zip_code, :patient_phone_number, presence: true
   # validates :patient_image_1, presence: true
@@ -30,6 +30,6 @@ class Campaign < ActiveRecord::Base
     less_than_or_equal_to: 30 }
 
   def full_name
-    patient_first_name + " " + patient_last_name
+    patient_first_name + ' ' + patient_last_name
   end
 end

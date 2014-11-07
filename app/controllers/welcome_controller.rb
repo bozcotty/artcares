@@ -1,5 +1,4 @@
 class WelcomeController < ApplicationController
-
   def index
     redirect_to welcome_dashboard_path if current_user
   end
@@ -18,9 +17,7 @@ class WelcomeController < ApplicationController
   end
 
   def dashboard
-    
-      @artworks = current_user.artworks
-    
+    @artworks = current_user.artworks
   end
 
   def faq
@@ -31,8 +28,4 @@ class WelcomeController < ApplicationController
 
   def terms_of_use
   end
-
-
-
-  
 end

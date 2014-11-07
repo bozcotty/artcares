@@ -1,10 +1,9 @@
 <div class="container-fluid">
-
-  <h2 class="copy-heading text-center">Thank You for your purchase of:
-  <br>
-  "<%= @artwork.title %>" by <%=@artwork.user.full_name%></h2>
-
-
+  <h2 class="copy-heading text-center">
+    Thank You for your purchase of:
+    <br>
+    "<%= @artwork.title %>" by <%=@artwork.user.full_name%>
+  </h2>
   <div class="row text-center">
     <%= image_tag(@artwork.art_image_1.small.url) %>
   </div>
@@ -18,7 +17,6 @@
           Medium: <%=@artwork.medium %><br>
           Price (incl. shipping): <%= number_to_currency(@artwork.price + @artwork.shipping_price) %><br>
         </div>
-
       </div>
     </div>
     <div class="col-md-4">
@@ -36,16 +34,10 @@
       </div>
     </div>
   </div>
-
   <hr class="style-two">
-
   <div class="row copy-heading text-center">
-  <h3> You just made someone's day! </h3>
-
-  <%= link_to image_tag(@artwork.user.campaign.patient_image_1.thumb.url), [@artwork.campaign], method: :get %><br>
-  <%=link_to @artwork.user.campaign.full_name, [@artwork.campaign], method: :get %>
-</div>
-
-
-
+    <h3> You just made someone's day! </h3>
+    <%= link_to image_tag(@artwork.user.campaign.patient_image_1.thumb.url), [@artwork.campaign], method: :get %><br>
+    <%=link_to @artwork.user.campaign.full_name, [@artwork.campaign], method: :get %>
+  </div>
 </div>

@@ -17,4 +17,4 @@ u = User.new(
 u.skip_confirmation!
 u.save
 
-puts "#{User.count} users created"
+logger.info "#{User.count} users created"

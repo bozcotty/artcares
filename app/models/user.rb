@@ -17,26 +17,26 @@ class User < ActiveRecord::Base
   after_create :full_name
 
   validates :email, confirmation: true
-  validates :type_of_artist, presence: true, length: {maximum: 40}
-  validates :artist_statement, length: { maximum: 800, too_long: "%{count} characters is the maximum allowed."}, presence: true
+  validates :type_of_artist, presence: true, length: { maximum: 40 }
+  validates :artist_statement, length: { maximum: 800, too_long: '%{count} characters is the maximum allowed.' }, presence: true
   validates :first_name, :last_name, :street_address, :city, :state, :zip_code, :art_website, :phone_number, presence: true
   # validates :headshot, presence: true
 
-  multisearchable :against => [:first_name, :last_name, :type_of_artist, :city, :state]
+  multisearchable against: [:first_name, :last_name, :type_of_artist, :city, :state]
 
   mount_uploader :headshot, HeadshotUploader
 
-  has_one  :campaign, dependent: :destroy
+  has_one :campaign, dependent: :destroy
   has_many :artworks, dependent: :destroy
 
-  ROLES = %w[member admin]
+  ROLES = %w(member admin)
 
   def role?(base_role)
-    self.role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(self.role)
+    role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
   end
 
   def full_name
-    first_name + " " + last_name
+    first_name + ' ' + last_name
   end
 
   private

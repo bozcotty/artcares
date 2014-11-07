@@ -4,19 +4,19 @@ feature 'Visit major site pages and view/welcome folder' do
   scenario 'go to Welcome Index at root' do
     visit root_path
     page.text.must_include 'Art discovered and purchased here'
-    page.must_have_link(:"Contact Us", :href => '/messages/new')
+    page.must_have_link(:"Contact Us", href: '/messages/new')
   end
 
   scenario 'visit "About Us" page' do
     visit welcome_about_path
     page.text.must_include 'So, how did this all begin?'
-    page.must_have_link(:"Contact Us", :href => '/messages/new')
+    page.must_have_link(:"Contact Us", href: '/messages/new')
   end
 
   scenario 'visit "Artists Join Us" page' do
     visit welcome_artists_join_us_path
     page.text.must_include 'Here\'s how sale proceeds work on ArtCaring'
-    page.must_have_link(:"Frequently Asked Questions", :href => '/welcome/faq')
+    page.must_have_link(:"Frequently Asked Questions", href: '/welcome/faq')
   end
 
   scenario 'visit "Learn" page' do
