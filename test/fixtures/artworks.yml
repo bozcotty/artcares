@@ -6,3 +6,12 @@ one:
   shipping_price: 200
   summary: Iss so coool
   category: sculpture
+
+two:
+  title: 'Hay Tamales!'
+  size: 200" x 2"
+  medium: Tin Foil
+  price: 9000
+  shipping_price: 300
+  summary: I am already hungry
+  category: sculpture
