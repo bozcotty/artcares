@@ -27,7 +27,7 @@ Here's a narrative of lessons learned:
 - Throughout the week we learned that while it's good to be optimistic about how far we would get on our user stories, it's even better not to try to rush through things, burn ourselves out, and feel bad about lack of progress and unreached goals. Besides not getting to the 4.2 upgrade, we didn't get to performance optimize like we wanted, nor did we extend Omniauth as originally planned. We didn't get to some of the Ajax-ifying and Angular-izing we were considering.
 - We learned that an 8-week accelerator has the potential to reduce mental efficiency to (what seemed like) about half, at times, during Week 8.
 
-### For the Developer(s):
+### For the Developer(s), Next Steps:
 
 - The app is passing its current tests.
 - Stripe integration is functional.
@@ -37,5 +37,4 @@ Here's a narrative of lessons learned:
 - Now that testing is in place, it makes sense to move this to 4.2.
 - The biggest changes required, in moving to 4.2, involve consideration of strong parameters in the Artwork and Campaign models, and being mindful of not breaking the nested Artwork resource in the process.
 - Omniauth was taken out because I found the User model had way too many attributes that I had tacked onto it outside of Devise. It would be nice to put it back in, but an Artist's Profile model of some sort should be built first, to handle the other attributes outside of the User model. Artists can then add the additional necessary information about themselves there, so that those attributes are not involved with initial sign up/sign in.
-
-
+- Destroy campaigns remains to be built. There is a caveat that an artist cannot destroy a campaign/or their account if there are outstanding art transactions with buyers (ie art hasn't been shipped to the buyer, etc).
