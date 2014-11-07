@@ -55,7 +55,7 @@ def create_artwork
   fill_in 'artwork_price', with: artworks(:one).price
   fill_in 'artwork_shipping_price', with: artworks(:one).shipping_price
   fill_in 'artwork_summary', with: artworks(:one).summary
-  attach_file('artwork_art_image_1', 'app/assets/images/the-fork-by-scott-hale.jpg')
+  # attach_file('artwork_art_image_1', 'app/assets/images/the-fork-by-scott-hale.jpg')
   click_on 'List Artwork'
 end
 
