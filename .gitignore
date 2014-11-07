@@ -22,5 +22,6 @@ public/uploads
 
 # Ignore coveralls
 /coverage/
+.coveralls.yml
 
 
