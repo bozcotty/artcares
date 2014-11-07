@@ -1,12 +1,12 @@
 class ArtworksController < ApplicationController
   def index
-    @artworks = Artwork.all
     if params[:category]
-      @artworks = @artworks.where(category: params[:category].downcase)
+      @artworks = Artwork.where(category: params[:category].downcase).paginate(page: params[:page], per_page: 30)
     elsif params[:min_price] || params[:max_price]
-      @artworks = @artworks.where(price: price_range)
+      @artworks = Artwork.where(price: price_range).paginate(page: params[:page], per_page: 30)
+    else
+      @artworks = Artwork.all.paginate(page: params[:page], per_page: 30)
     end
-    @artworks = @artworks.paginate(page: params[:page], per_page: 30)
   end
 
   def new
