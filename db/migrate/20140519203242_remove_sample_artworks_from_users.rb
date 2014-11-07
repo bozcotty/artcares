@@ -4,5 +4,4 @@ class RemoveSampleArtworksFromUsers < ActiveRecord::Migration
     remove_column :users, :sample_work_2
     remove_column :users, :sample_work_3
   end
-
 end

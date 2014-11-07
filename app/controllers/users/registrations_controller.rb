@@ -1,33 +1,20 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-
-
   def update
-
-    # required for settings form to submit when password is left blank
     if params[:user][:password].blank?
-      params[:user].delete("password")
-      params[:user].delete("password_confirmation")
+      params[:user].delete('password')
+      params[:user].delete('password_confirmation')
     end
 
-    if params[:user][:headshot].blank?
-      params[:user].delete("headshot")
-    end
+    params[:user].delete('headshot') if params[:user][:headshot].blank?
 
-    
     @user = User.find(current_user.id)
     if @user.update_attributes(params[:user])
       set_flash_message :notice, :updated
       # sign in the user bypassing validation in the case his password changed
-      sign_in @user, :bypass => true
+      sign_in @user, bypass: true
       redirect_to after_update_path_for(@user)
     else
-      render "devise/registrations/edit"
+      render 'devise/registrations/edit'
     end
   end
-
-  # def destroy
-  #   #add logic for not being able to destroy user account if there are outstanding sold, but not 'complete' artworks
-  # note - just this much code uncommented out causes a devise error so be mindful of how
-  # to make this work.
-  # end
 end

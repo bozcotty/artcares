@@ -1,5 +1,4 @@
 <div class="container-fluid">
-
   <div class="row" id="green-bg">
     <div class="col-md-3 text-center">
       <br>
@@ -7,19 +6,13 @@
     </div>
     <div class="col-md-6">
       <br>
-
       <h2 class="copy-heading text-center">Edit this Artwork.</h2>
-
       <h4 class="text-center">Make necessary changes/updates here.</h4>
-
     </div>
   </div>
-
-
   <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <%= render partial: 'form', locals: { campaign: @campaign, artworks: @artworks } %>
-      </div>
+    <div class="col-md-10 col-md-offset-1">
+      <%= render partial: 'form', locals: { campaign: @campaign, artworks: @artworks } %>
+    </div>
   </div>
-
 </div>

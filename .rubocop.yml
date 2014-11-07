@@ -1,0 +1,23 @@
+Documentation:
+  Enabled: false
+
+LineLength:
+  Max: 150
+
+Metrics/MethodLength:
+  Max: 15
+
+AllCops:
+  RunRailsCops: true
+  Include:
+    - Gemfile
+    - lib/tasks/*
+  Exclude:
+    - db/schema.rb
+    - db/migrations
+    - vendor/bundle
+    - app/controllers/charges_controller.rb
+    - app/controllers/users/registrations_controller.rb
+    - config/initializers/devise.rb
+    - config/initializers/secret_token.rb
+    - db/migrate/*

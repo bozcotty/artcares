@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 class HeadshotUploader < CarrierWave::Uploader::Base
-
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
@@ -25,9 +24,9 @@ class HeadshotUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
- 
+
   # Process files as they are uploaded:
-  process :resize_to_fill => [300, 300]
+  process resize_to_fill: [300, 300]
   # process :scale => [200, 300]
   #
   # def scale(width, height)
@@ -35,20 +34,20 @@ class HeadshotUploader < CarrierWave::Uploader::Base
   # end
 
   version :small do
-    process :resize_to_fill => [110, 110]
+    process resize_to_fill: [110, 110]
   end
 
   version :capsule do
-    process :resize_to_fill => [75, 75]
+    process resize_to_fill: [75, 75]
   end
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fill => [80, 80]
+    process resize_to_fill: [80, 80]
   end
 
   version :micro do
-    process :resize_to_fill => [60, 60]
+    process resize_to_fill: [60, 60]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -57,12 +56,9 @@ class HeadshotUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg)
   end
 
-  
-
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end
