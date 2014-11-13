@@ -9,7 +9,7 @@ ArtCaring was built in Rails 3.2 and is a personal project I undertook beginning
 
 ### Three Phases
 
-- Phase 1 of the build started in November and went into January. This began as a capstone project for an online mentorship program I was involved in. Much of the code was in place, but the site was not ready to launch as some of the code wasn't operable.
+- Phase 1 of the build started in November and went into January. This began as a capstone project for an online mentorship program I was involved in. Much of the code was in place, but the site was not ready to launch as some of the code wasn't operable. My mentor, Adam Louis helped with the code base and pointed me in the right direction on many occasions.
 - Phase 2 took place largely in April and May of 2014. While I had intentions of putting in evenings on the code base in February and March, I was, at the time, exhibiting art at a 10 week event in Scottsdale, AZ, which took nearly all of my time and energy. When I returned home to Montana from the exhibition, I began working nearly full-time on completing the code and launching the site. The site went live in late May.
 - Phase 3 of the site took place after another hiatus during the summer where my work just kept me too busy to get much done here. At the end of October, 2014, while enrolled at CodeFellows in Seattle, I got ArtCaring.com approved as a work project for the final week of the course. Javier Soto (sotoseattle.com) joined me and we spent the week focused on writing tests, taking the test coverage from 0 to 75% and accomplishing a few other goals.
 
