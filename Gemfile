@@ -25,7 +25,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'pry-rails'
   gem 'pry-rescue'
-  gem 'rubocop'
+  # gem 'rubocop'
 end
 
 group :test do
