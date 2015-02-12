@@ -30,6 +30,7 @@ end
 
 group :test do
   gem 'minitest-rails-capybara'
+  gem "codeclimate-test-reporter", require: nil
 end
 
 group :assets do
