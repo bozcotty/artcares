@@ -2,6 +2,8 @@
 
 [![Coverage Status](https://coveralls.io/repos/bozcotty/artcaring3.2/badge.png?branch=readme)](https://coveralls.io/r/bozcotty/artcaring3.2?branch=readme)
 
+[![Code Climate](https://codeclimate.com/github/bozcotty/artcaring3.2/badges/gpa.svg)](https://codeclimate.com/github/bozcotty/artcaring3.2)
+
 ## ArtCaring
 
 ArtCaring was built in Rails 3.2 and is a personal project I undertook beginning in late fall 2013. As an artist, I wanted to build a site where artists and art collectors could gather and support individuals going through major health crises. This was inspired by my nephew's cancer diagnosis last summer, and wondering how I might help his family during this trial.
